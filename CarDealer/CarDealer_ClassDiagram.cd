@@ -21,5 +21,19 @@
       <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CarDealerLibraries.Small">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Small.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CarDealerLibraries.Large">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Large.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

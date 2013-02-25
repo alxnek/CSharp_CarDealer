@@ -80,9 +80,9 @@ namespace CarDealerLibraries
         /// Convert the vehicle's properties into text
         /// </summary>
         /// <remarks>Vehicle's toString</remarks>
-        public string toString()
+        public void toString()
         {
-            throw new System.NotImplementedException();
+            Console.Out.WriteLine(this.Model + this.Colour + this.Price + this.State);
         }
     }
 }
