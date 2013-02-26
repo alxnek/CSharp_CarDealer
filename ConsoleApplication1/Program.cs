@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//Added a reference to the DLL from the CarDealer project.
-//Use that stuff with CarDealerLibraries. ------ :)
+/*Added a reference to the DLL from the CarDealer project.
+ * 
+ * Use that stuff with CarDealerLibraries. ------ :)
+ * 
+ * Build CarDealer then Debug this project to test the CarDealer
+ * 
+ * */
 namespace ConsoleApplication1
 {
     class Program
@@ -17,6 +22,7 @@ namespace ConsoleApplication1
                     Car("Ford", "Fiesta", 12000, "sold");
 
                Console.Out.WriteLine(v.ToString());
+               Console.In.ReadLine();
 
             }
         }
