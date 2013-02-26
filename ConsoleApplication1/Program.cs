@@ -25,7 +25,7 @@ namespace ConsoleApplication1
                     Truck("Mercedes", "truck5000", 112000, "sold");
 
                 CarDealerLibraries.Vehicle l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
-                CarDealerLibraries.Vehicle s = new CarDealerLibraries.Large("Mini", "mini", 32000, "sold");
+                CarDealerLibraries.Vehicle s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
                Console.Out.WriteLine(c.ToString());
                Console.Out.WriteLine(t.ToString());
                Console.Out.WriteLine(l.ToString());
