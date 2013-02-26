@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealer", "CarDealer\CarDealer.csproj", "{CA231A1F-E9A7-4762-BB55-381E478AE828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestVehicles", "ConsoleApplication1\TestVehicles.csproj", "{7668448E-7B94-4A5C-93F1-2AE5A78267AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDll_IO", "ConsoleApplication1\TestDll_IO.csproj", "{7668448E-7B94-4A5C-93F1-2AE5A78267AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
