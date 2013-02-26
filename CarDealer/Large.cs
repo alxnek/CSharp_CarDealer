@@ -7,5 +7,14 @@ namespace CarDealerLibraries
 {
     public class Large : Car
     {
+        public Large(string colour, string model, int price, string state)
+            : base (colour, model, price, state)
+        {
+
+        }
+        public Large()
+        {
+               
+        }
     }
 }

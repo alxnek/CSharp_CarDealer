@@ -18,13 +18,18 @@ namespace ConsoleApplication1
         {
             static void Main(string[] args)
             {
-                CarDealerLibraries.Vehicle v = new CarDealerLibraries.
+                CarDealerLibraries.Vehicle c = new CarDealerLibraries.
                     Car("Ford", "Fiesta", 12000, "sold");
 
                 CarDealerLibraries.Vehicle t = new CarDealerLibraries.
                     Truck("Mercedes", "truck5000", 112000, "sold");
-               Console.Out.WriteLine(v.ToString());
+
+                CarDealerLibraries.Vehicle l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
+                CarDealerLibraries.Vehicle s = new CarDealerLibraries.Large("Mini", "mini", 32000, "sold");
+               Console.Out.WriteLine(c.ToString());
                Console.Out.WriteLine(t.ToString());
+               Console.Out.WriteLine(l.ToString());
+               Console.Out.WriteLine(s.ToString());
                Console.In.ReadLine();
 
             }
