@@ -7,16 +7,29 @@ namespace CarDealerLibraries
 {
     public class Vehicle
     {
-        protected string colour;
-        protected string model;
-        protected int price;
-        protected Enum state;
-         
+        private string colour;
+        private string model;
+        private int price;
+        private string state;
+
+        public Vehicle(string colour, string model, int price, string state)
+        {
+            this.colour = colour;
+            this.model = model;
+            this.price = price;
+            this.state = state;
+                
+        }
+
+        public Vehicle()
+        {
+                
+        }
         /// <summary>
         /// The vehicle's Price
         /// </summary>
         /// <remarks>It can`t be negative</remarks>
-        protected int Price
+        public int Price
         {
             get
             {
@@ -32,7 +45,7 @@ namespace CarDealerLibraries
         /// The vehicle's Model
         /// </summary>
         /// <remarks>String of the car's Model can contain numbers too</remarks>
-        protected string Model
+        public string Model
         {
             get
             {
@@ -48,7 +61,7 @@ namespace CarDealerLibraries
         /// The car's Colour
         /// </summary>
         /// <remarks>Shouldn't contain numbers</remarks>
-        protected string Colour
+        public string Colour
         {
             get
             {
@@ -64,7 +77,7 @@ namespace CarDealerLibraries
         /// The car's State
         /// </summary>
         /// <remarks>[Commission, sold, leased]</remarks>
-        protected Enum State
+        public string State
         {
             get
             {
@@ -80,9 +93,9 @@ namespace CarDealerLibraries
         /// Convert the vehicle's properties into text
         /// </summary>
         /// <remarks>Vehicle's toString</remarks>
-        public void toString()
+        public override string ToString() 
         {
-            Console.Out.WriteLine(this.Model + this.Colour + this.Price + this.State);
+            return ("Model: " + this.Model + "Colour: " + this.Colour + "Price: " + this.Price + "State: " + this.State);
         }
     }
 }

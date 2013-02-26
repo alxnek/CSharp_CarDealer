@@ -3,7 +3,7 @@
   <Class Name="CarDealerLibraries.Vehicle">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAABAAAAAQAAAAAAAAAABAAAAAAAAAAEAAgABBAIAAA=</HashCode>
+      <HashCode>EAABAAAAAQAAAAAEAAAAAAAAAAAAAAAEAAgABBAIAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
