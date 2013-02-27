@@ -20,13 +20,41 @@ namespace CarDealer_GUI
 		public MainWindow()
 		{
 			this.InitializeComponent();
-
+            
 			// Insert code required on object creation below this point.
 		}
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void select_pri_customer(object sender, RoutedEventArgs e)
+        {
+            /*use an if statement and visibility statement to control hiding of textboxes 
+             * http://stackoverflow.com/questions/10340342/loading-different-user-control-based-on-radio-button-selection-using-xaml
+             */ 
+        }
+
+        private void select_bus_customer(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void select_veh_car(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void select_veh_truck(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void select_cont_sale(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void select_cont_lease(object sender, RoutedEventArgs e)
+        {
+
+        }
+             
 	}
 }
