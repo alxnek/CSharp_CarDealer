@@ -40,5 +40,20 @@ namespace CarDealerLibraries
         {
             this.vehicleList.Add(vehicle);
         }
+
+        /// <summary>
+        /// Convert the vehicle's properties into text
+        /// </summary>
+        /// <remarks>Vehicle's toString</remarks>
+        public override string ToString()
+        {
+            string result="";
+
+            for (int i = 0; i < this.vehicleList.Capacity; i++)
+            {
+                result = result + this.vehicleList[i].ToString();
+            }
+            return result;
+        }
     }
 }

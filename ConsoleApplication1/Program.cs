@@ -20,16 +20,24 @@ namespace ConsoleApplication1
             {
                 CarDealerLibraries.Vehicle c = new CarDealerLibraries.
                     Car("Ford", "Fiesta", 12000, "sold");
-
                 CarDealerLibraries.Vehicle t = new CarDealerLibraries.
                     Truck("Mercedes", "truck5000", 112000, "sold");
-
                 CarDealerLibraries.Vehicle l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
                 CarDealerLibraries.Vehicle s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
-               Console.Out.WriteLine(c.ToString());
-               Console.Out.WriteLine(t.ToString());
-               Console.Out.WriteLine(l.ToString());
-               Console.Out.WriteLine(s.ToString());
+
+                List<CarDealerLibraries.Vehicle> list = new List<CarDealerLibraries.Vehicle>();
+                list.Add(c);
+                list.Add(s);
+                list.Add(l);
+                list.Add(t);
+                CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);
+
+               //Console.Out.WriteLine(c.ToString());
+              // Console.Out.WriteLine(t.ToString());
+             //  Console.Out.WriteLine(l.ToString());
+              // Console.Out.WriteLine(s.ToString());
+
+               Console.Out.WriteLine(cdList.ToString());
                Console.In.ReadLine();
 
             }
