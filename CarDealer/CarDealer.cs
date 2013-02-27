@@ -43,6 +43,7 @@ namespace CarDealerLibraries
 
         /// <summary>
         /// Convert the vehicle's properties into text
+        /// TODO: Add the Customer list too
         /// </summary>
         /// <remarks>Vehicle's toString</remarks>
         public override string ToString()
