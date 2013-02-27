@@ -23,5 +23,10 @@ namespace CarDealer_GUI
 
 			// Insert code required on object creation below this point.
 		}
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
 	}
 }

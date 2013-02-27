@@ -1,30 +1,51 @@
 ﻿<Window
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 	x:Class="CarDealer_GUI.MainWindow"
 	x:Name="Window"
 	Title="MainWindow"
 	Width="640" Height="480">
 
 	<Grid x:Name="LayoutRoot">
-		<TabControl Margin="0,0,79,93">
-			<TabItem Header="Customers">
-				<Grid Background="#FFE5E5E5"/>
-			</TabItem>
-			<TabItem Header="Vehicles">
-				<Grid Background="#FFE5E5E5"/>
-			</TabItem>
-			<TabItem Header="Contracts">
-				<Grid Background="#FFE5E5E5">
+		<TabControl Margin="0,8,79,90">
+			<TabItem Header="Customer">
+				<Grid Background="#FFE5E5E5" Height="312.04" Width="535" Margin="0,0.5,0,-0.5" d:IsLocked="True">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="0.087*"/>
+						<RowDefinition Height="0.913*"/>
+					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="0.217*"/>
-						<ColumnDefinition Width="0.783*"/>
+						<ColumnDefinition Width="0.251*"/>
+						<ColumnDefinition Width="0.749*"/>
 					</Grid.ColumnDefinitions>
+					<RadioButton Content="Private Customer" Margin="8,8,8,3.08" ClickMode="Press" IsChecked="True" Checked="RadioButton_Checked" d:LayoutOverrides="Height" />
+					<RadioButton Content="Business Customer" Margin="8,8,0,3.08" Grid.Column="1" HorizontalAlignment="Left" d:LayoutOverrides="Height"/>
 				</Grid>
 			</TabItem>
-			<TabItem Header="Information">
+			<TabItem Header="Contract" HorizontalAlignment="Right" Margin="0,0,-68.666,0" Width="80">
+				<Grid Background="#FFE5E5E5" d:IsLocked="True">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" MinWidth="131.075"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<RadioButton Content="Sale" Margin="8,8,41.09,0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+					<RadioButton Content="Leasing" HorizontalAlignment="Left" Margin="11.666,8,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Vehicle" Margin="-79.5,0,0,-0.333" HorizontalAlignment="Left" Width="68.153">
+				<Grid Background="#FFE5E5E5" d:IsLocked="True">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="134.285"/>
+						<ColumnDefinition/>
+					</Grid.ColumnDefinitions>
+					<RadioButton Content="Car" Margin="8,8,8,0" VerticalAlignment="Top" ClickMode="Press" IsChecked="True" Checked="RadioButton_Checked" />
+					<RadioButton Content="Truck" Margin="8,8,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Information" Margin="-10.069,0,10.069,0" d:LayoutOverrides="HorizontalAlignment">
 				<Grid Background="#FFE5E5E5"/>
 			</TabItem>
-		</TabControl>
+        </TabControl>
 	</Grid>
 </Window>
