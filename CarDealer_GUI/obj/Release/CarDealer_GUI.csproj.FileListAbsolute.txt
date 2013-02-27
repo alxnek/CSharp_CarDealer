@@ -8,3 +8,12 @@ C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.g.resources
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.exe
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.pdb
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\bin\Release\CarDealer_GUI.exe
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\bin\Release\CarDealer_GUI.pdb
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\MainWindow.baml
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\MainWindow.g.cs
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\App.g.cs
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI_MarkupCompile.cache
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.g.resources
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.exe
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.pdb
