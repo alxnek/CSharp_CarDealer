@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealer", "CarDealer\CarD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDll_IO", "ConsoleApplication1\TestDll_IO.csproj", "{7668448E-7B94-4A5C-93F1-2AE5A78267AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarDealer_GUI", "CarDealer_GUI\CarDealer_GUI.csproj", "{0b51fafb-4505-44b9-9817-a9f7220165aa}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,18 @@ Global
 		{7668448E-7B94-4A5C-93F1-2AE5A78267AF}.Release|Mixed Platforms.Build.0 = Release|x86
 		{7668448E-7B94-4A5C-93F1-2AE5A78267AF}.Release|x86.ActiveCfg = Release|x86
 		{7668448E-7B94-4A5C-93F1-2AE5A78267AF}.Release|x86.Build.0 = Release|x86
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Debug|x86.ActiveCfg = Debug|x86
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Debug|x86.Build.0 = Debug|x86
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Release|x86.ActiveCfg = Release|x86
+		{0B51FAFB-4505-44B9-9817-A9F7220165AA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
