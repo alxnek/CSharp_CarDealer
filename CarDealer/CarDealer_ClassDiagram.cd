@@ -52,7 +52,7 @@
   <Class Name="CarDealerLibraries.CarDealer">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAADAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>CarDealer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
