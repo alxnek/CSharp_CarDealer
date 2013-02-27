@@ -7,5 +7,19 @@ namespace CarDealerLibraries
 {
     public class Small : Car
     {
+        public Small(string colour, string model, int price, string state)
+            : base (colour, model, price, state)
+        {
+
+        }
+        public Small()
+        {
+               
+        }
+
+        public override string ToString()
+        {
+            return ("***Car-Small***" + "\nModel: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State + "\n***");
+        }
     }
 }

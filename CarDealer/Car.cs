@@ -16,5 +16,10 @@ namespace CarDealerLibraries
         {
                
         }
+
+        public override string ToString()
+        {
+            return ("***Car***" + "\nModel: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State + "\n***");
+        }
     }
 }
