@@ -18,20 +18,8 @@ namespace CarDealerLibraries
 
         public CarDealer()
         {
-
         }
-
-        public Vehicle Vehicle
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
+       
         /// <summary>
         /// Add vehicle to the List
         /// </summary>
@@ -48,12 +36,8 @@ namespace CarDealerLibraries
         /// <remarks>Vehicle's toString</remarks>
         public override string ToString()
         {
-            string result="";
+            string result= string.Join("\n\n", this.vehicleList);
 
-            for (int i = 0; i < this.vehicleList.Capacity; i++)
-            {
-                result = result + this.vehicleList[i].ToString();
-            }
             return result;
         }
     }

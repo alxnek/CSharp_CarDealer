@@ -7,3 +7,4 @@ C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\bin\Rele
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\obj\Release\CarDealer.dll
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\obj\Release\CarDealer.pdb
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\obj\Release\CarDealer.csprojResolveAssemblyReference.cache
