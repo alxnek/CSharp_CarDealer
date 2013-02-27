@@ -46,7 +46,6 @@
     <Compile Include="Large.cs" />
     <Compile Include="Leasing.cs" />
     <Compile Include="Small.cs" />
-    <Compile Include="test.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>
