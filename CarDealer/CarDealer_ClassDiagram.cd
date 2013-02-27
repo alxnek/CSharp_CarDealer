@@ -1,53 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CarDealerLibraries.Vehicle">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="8" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAABAAAAAQAAAAAEAAAAAAAAAAAAAAAEAAgABBAIAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Truck">
-    <Position X="5.5" Y="4.25" Width="1.5" />
+    <Position X="6.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Truck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Car">
-    <Position X="8.5" Y="4.25" Width="1.5" />
+    <Position X="9" Y="5" Width="1.5" />
+    <InheritanceLine Type="CarDealerLibraries.Vehicle" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="4.353" />
+        <Point X="8.75" Y="4.625" />
+        <Point X="9.625" Y="4.625" />
+        <Point X="9.625" Y="5" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Small">
-    <Position X="7.5" Y="6.25" Width="1.5" />
+    <Position X="8" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Small.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Large">
-    <Position X="9.25" Y="6.25" Width="1.5" />
+    <Position X="10.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Large.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Leasing">
-    <Position X="5" Y="6.75" Width="1.5" />
+    <Position X="5.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Contract">
-    <Position X="1.75" Y="6.75" Width="1.5" />
+    <Position X="2.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="CarDealerLibraries.CarDealer">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CarDealer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Vehicle" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
