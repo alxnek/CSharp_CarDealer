@@ -16,14 +16,6 @@
   </Class>
   <Class Name="CarDealerLibraries.Car">
     <Position X="9" Y="5" Width="1.5" />
-    <InheritanceLine Type="CarDealerLibraries.Vehicle" FixedToPoint="true">
-      <Path>
-        <Point X="8.75" Y="4.353" />
-        <Point X="8.75" Y="4.625" />
-        <Point X="9.625" Y="4.625" />
-        <Point X="9.625" Y="5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Car.cs</FileName>
@@ -60,7 +52,7 @@
   <Class Name="CarDealerLibraries.CarDealer">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAADAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>CarDealer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
