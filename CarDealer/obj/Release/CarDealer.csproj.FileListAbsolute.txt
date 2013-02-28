@@ -10,3 +10,4 @@ C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\b
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\bin\Release\CarDealer.pdb
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\obj\Release\CarDealer.dll
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\obj\Release\CarDealer.pdb
+C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\obj\Release\CarDealer.csprojResolveAssemblyReference.cache
