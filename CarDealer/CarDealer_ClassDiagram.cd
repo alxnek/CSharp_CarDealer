@@ -6,6 +6,9 @@
   <Comment CommentText="Can make 0*">
     <Position X="0.875" Y="4.979" Height="0.302" Width="1.7" />
   </Comment>
+  <Comment CommentText="Can make 0*">
+    <Position X="4.135" Y="4.937" Height="0.302" Width="1.7" />
+  </Comment>
   <Class Name="CarDealerLibraries.Vehicle">
     <Position X="8" Y="1" Width="1.5" />
     <TypeIdentifier>
@@ -71,14 +74,6 @@
   </Class>
   <Class Name="CarDealerLibraries.Private">
     <Position X="0.75" Y="3.75" Width="1.5" />
-    <InheritanceLine Type="CarDealerLibraries.Customer" FixedToPoint="true">
-      <Path>
-        <Point X="3" Y="1.868" />
-        <Point X="3" Y="3.375" />
-        <Point X="1.875" Y="3.375" />
-        <Point X="1.875" Y="3.75" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Private.cs</FileName>

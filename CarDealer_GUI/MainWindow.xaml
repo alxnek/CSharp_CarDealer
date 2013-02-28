@@ -8,66 +8,80 @@
 	Width="640" Height="480">
 
 	<Grid x:Name="LayoutRoot">
-		<TabControl Margin="0,8,79,90">
+		<TabControl Margin="0,8,117,146">
 			<TabItem Header="Customer" Margin="-1.333,-2,-2.666,-1" d:LayoutOverrides="HorizontalAlignment">
                 <Grid Background="#FFE5E5E5" d:IsLocked="True">
 					<Grid.RowDefinitions>
-						<RowDefinition Height="0.087*"/>
-						<RowDefinition Height="0.913*"/>
+						<RowDefinition Height="28"/>
+						<RowDefinition Height="227"/>
 					</Grid.RowDefinitions>
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="237"/>
-						<ColumnDefinition Width="292"/>
-					</Grid.ColumnDefinitions>
-					<RadioButton Content="Private Customer" Name="select_pri_customer" Margin="8,8,8,3.08" d:LayoutOverrides="Height" Checked="select_pri_customer_Checked" />
-                    <RadioButton Content="Business Customer" Name="select_bus_customer" Margin="8,8,0,3.08"  HorizontalAlignment="Left" d:LayoutOverrides="Height" Checked="select_bus_customer_Checked" Grid.Column="1"/>
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="109,12,0,0" Name="textbox_pri_address" VerticalAlignment="Top" Width="120"  />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="109,41,0,0" Name="textbox_pri_phone" VerticalAlignment="Top" Width="120" Grid.Row="1" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="108,70,0,0" Name="textbox_pri_name" VerticalAlignment="Top" Width="120" Grid.Row="1" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="108,98,0,0" Name="textbox_pri_age" VerticalAlignment="Top" Width="120" Grid.Row="1" />
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="108,127,0,0" Name="textbox_pri_sex" VerticalAlignment="Top" Width="120" />
-                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,12,0,0" Name="textblock_pri_address" Text="Adress" VerticalAlignment="Top" Width="95" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,41,0,0" Name="textblock_pri_phone" Text="Phone" VerticalAlignment="Top" Width="95" Grid.Row="1" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,70,0,0" Name="textblock_pri_name" Text="Name" VerticalAlignment="Top" Width="95" Grid.Row="1" />
-                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,99,0,0" Name="textblock_pri_age" Text="Age" VerticalAlignment="Top" Width="95" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,127,0,0" Name="textblock_pri_sex" Text="Sex" VerticalAlignment="Top" Width="95" Grid.Row="1" />
-                    <Button Content="Vehicle" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="211,255,0,0" Name="button1" VerticalAlignment="Top" Width="75"  Grid.Column="1" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="111,12,0,0" Name="textbox_bus_address" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="1" />
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="111,41,0,0" Name="textbox_bus_phone" VerticalAlignment="Top" Width="120" Grid.Column="1" />
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="110,70,0,0" Name="textbox_bus_seno" VerticalAlignment="Top" Width="120" Grid.Column="1" />
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="110,98,0,0" Name="textbox_bus_fax" VerticalAlignment="Top" Width="120" Grid.Column="1" />
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="110,127,0,0" Name="textbox_bus_contact" VerticalAlignment="Top" Width="120" Grid.Column="1" />
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="110,156,0,0" Name="textbox_bus_company" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="1" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,12,0,0" Name="textblock_bus_address" Text="Adress" VerticalAlignment="Top" Width="95" Grid.Column="1" Grid.Row="1" />
-                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10,41,0,0" Name="textblock_bus_phone" Text="Phone" VerticalAlignment="Top" Width="95" Grid.Column="1" />
-                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,70,0,0" Name="textblock_bus_seno" Text="SE Number" VerticalAlignment="Top" Width="95" Grid.Column="1" />
-                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,99,0,0" Name="textblock_bus_fax" Text="Fax" VerticalAlignment="Top" Width="95" Grid.Column="1" />
-                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10,127,0,0" Name="textblock_bus_contact" Text="Contact Person" VerticalAlignment="Top" Width="95" Grid.Column="1" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,156,0,0" Name="textblock_bus_company" Text="Company" VerticalAlignment="Top" Width="95" Grid.Column="1" Grid.Row="1" />
-                    <Button Content="test" Height="23" HorizontalAlignment="Left" Margin="48,255,0,0" Name="button2" VerticalAlignment="Top" Width="75" Grid.Column="1" Grid.Row="1"  />
+						<ColumnDefinition Width="93"/>
+                        <ColumnDefinition Width="152" />
+                        <ColumnDefinition Width="98"/>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="0" />
+                        <ColumnDefinition Width="36*" />
+                    </Grid.ColumnDefinitions>
+					<RadioButton Content="Private Customer" Name="select_pri_customer" Margin="8,8,8,3.08" d:LayoutOverrides="Height" Grid.ColumnSpan="2" Click="select_pri_customer_clicked" IsChecked="True" />
+                    <RadioButton Content="Business Customer" Name="select_bus_customer" Margin="8,8,0,3.08"  HorizontalAlignment="Left" d:LayoutOverrides="Height" Grid.Column="2" Grid.ColumnSpan="2" Click="select_bus_customer_clicked" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="15,3,0,0" Name="textbox_pri_address" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="15,32,0,0" Name="textbox_pri_phone" VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="14,61,0,0" Name="textbox_pri_name" VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="14,89,0,0" Name="textbox_pri_age" VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="14,118,0,0" Name="textbox_pri_sex" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,3,0,0" Name="textblock_pri_address" Text="Adress" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,32,0,0" Name="textblock_pri_phone" Text="Phone" VerticalAlignment="Top" Width="95" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,61,0,0" Name="textblock_pri_name" Text="Name" VerticalAlignment="Top" Width="95" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,90,0,0" Name="textblock_pri_age" Text="Age" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,118,0,0" Name="textblock_pri_sex" Text="Sex" VerticalAlignment="Top" Width="95" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <Button Content="Vehicle" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="58,190,0,0" Name="button1" VerticalAlignment="Top" Width="75"  Grid.Column="3" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="13,3,0,0" Name="textbox_bus_address" VerticalAlignment="Top" Width="120" Grid.Column="3" Grid.Row="1" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="13,32,0,0" Name="textbox_bus_phone" VerticalAlignment="Top" Width="120" Grid.Column="3" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="12,61,0,0" Name="textbox_bus_seno" VerticalAlignment="Top" Width="120" Grid.Column="3" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="12,89,0,0" Name="textbox_bus_fax" VerticalAlignment="Top" Width="120" Grid.Column="3" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="12,118,0,0" Name="textbox_bus_contact" VerticalAlignment="Top" Width="120" Grid.Column="3" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="12,147,0,0" Name="textbox_bus_company" VerticalAlignment="Top" Width="120" Grid.Column="3" Grid.Row="1" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,3,0,0" Name="textblock_bus_address" Text="Adress" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10,32,0,0" Name="textblock_bus_phone" Text="Phone" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,61,0,0" Name="textblock_bus_seno" Text="SE Number" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,90,0,0" Name="textblock_bus_fax" Text="Fax" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10,118,0,0" Name="textblock_bus_contact" Text="Contact Person" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.ColumnSpan="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,147,0,0" Name="textblock_bus_company" Text="Company" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
                 </Grid>
 			</TabItem>
 			<TabItem Header="Vehicle" Margin="3.75,0,-3.806,-0.333" d:LayoutOverrides="HorizontalAlignment">
 				<Grid Background="#FFE5E5E5" d:IsLocked="True">
 					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="134.285"/>
-						<ColumnDefinition/>
-					</Grid.ColumnDefinitions>
-                    <RadioButton Content="Car" Name="select_veh_car" Margin="8,8,8,0" VerticalAlignment="Top" ClickMode="Press" IsChecked="True" Checked="select_veh_car_Checked" />
-					<RadioButton Content="Truck" Name="select_veh_truck" Margin="8,8,0,0" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Left" Checked="select_veh_truck_Checked" />
-				</Grid>
+						<ColumnDefinition Width="104"/>
+                        <ColumnDefinition Width="132" />
+                        <ColumnDefinition Width="12" />
+                        <ColumnDefinition Width="106" />
+                        <ColumnDefinition Width="132" />
+                        <ColumnDefinition Width="43" />
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Content="Car" Name="select_veh_car" Margin="8,8,110,0" VerticalAlignment="Top" ClickMode="Press" IsChecked="True" Grid.ColumnSpan="2" Click="select_veh_car_clicked" />
+					<RadioButton Content="Truck" Name="select_veh_truck" Margin="10,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Column="3" Click="select_veh_truck_clicked" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="5,30,0,0" Name="textbox_car_model" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,30,0,0" Name="textblock_car_model" Text="Model" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="5,59,0,0" Name="textbox_car_price" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,59,0,0" Name="textblock_car_price" Text="Price" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="4,88,0,0" Name="textbox_car_colour" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,88,0,0" Name="textblock_car_colour" Text="Colour" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
+
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="6,30,0,0" Name="textbox_truck_model" VerticalAlignment="Top" Width="120" Grid.Column="4" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="11,30,0,0" Name="textblock_truck_model" Text="Model" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="6,59,0,0" Name="textbox_truck_colour" VerticalAlignment="Top" Width="120" Grid.Column="4" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,59,0,0" Name="textblock_truck_colour" Text="Colour" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="6,88,0,0" Name="textbox_truck_rent" VerticalAlignment="Top" Width="120" Grid.Column="4" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,88,0,0" Name="textblock_truck_rent" Text="Rent Pro Month" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="6,117,0,0" Name="textbox_truck_startdate" VerticalAlignment="Top" Width="120" Grid.Column="4" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,117,0,0" Name="textblock_truck_startdate" Text="Start Date" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="6,146,0,0" Name="textbox_truck_enddate" VerticalAlignment="Top" Width="120" Grid.Column="4" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,146,0,0" Name="textblock_truck_enddate" Text="End Date" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
+                </Grid>
 			</TabItem>
-			<TabItem Header="Contract" Margin="2.633,0,-2.633,0" d:LayoutOverrides="HorizontalAlignment">
-				<Grid Background="#FFE5E5E5" d:IsLocked="True">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="Auto" MinWidth="131.075"/>
-						<ColumnDefinition/>
-					</Grid.ColumnDefinitions>
-                    <RadioButton Content="Sale" Name="select_cont_sale" Margin="8,8,41.09,0" VerticalAlignment="Top" d:LayoutOverrides="Width" Checked="select_cont_sale_Checked" />
-                    <RadioButton Content="Leasing" Name="select_cont_lease" HorizontalAlignment="Left" Margin="11.666,8,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="select_cont_lease_Checked" />
-				</Grid>
-			</TabItem>
-			<TabItem Header="Information" Margin="3.237,0,-3.237,0" d:LayoutOverrides="HorizontalAlignment">
+            <TabItem Header="Information" Margin="3.237,0,-3.237,0" d:LayoutOverrides="HorizontalAlignment">
 				<Grid Background="#FFE5E5E5" d:IsLocked="True"/>
 			</TabItem>
         </TabControl>
