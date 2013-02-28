@@ -15,11 +15,15 @@ namespace CarDealerLibraries
         private Vehicle vehicle;
         private string contractName;
 
+        /// <summary>
+        /// Contract constructor
+        /// </summary>
+        /// <remarks>Needs a vehicle and a name for the contract</remarks>
         public Contract(Vehicle vehicle, string contractName)
         {
             this.formatter = new BinaryFormatter();
             this.vehicle = vehicle;
-            this.contractName = contractName+".bin";
+            this.contractName = contractName;
 
         }
 
@@ -33,31 +37,35 @@ namespace CarDealerLibraries
             //ask for the name of the binary file
             //save the bin file
             
-            this.stream = new FileStream(this.contractName, FileMode.Create, FileAccess.Write, FileShare.None);
+            this.stream = new FileStream(this.contractName+".bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, this.vehicle);
             stream.Close();
         }
 
         /// <summary>
-        /// Load an existing contract
+        /// Load an existing contract from his name
         /// </summary>
-        /// <remarks>IO</remarks>
-        public Contract LoadContract(string nameOfContract)
+        /// <remarks>Static access!</remarks>
+        public static Contract LoadContract(string nameOfContract)
         {
-            this.stream = new FileStream(nameOfContract, FileMode.Open, FileAccess.Read, FileShare.Read);
-            Vehicle carOfContract = (Vehicle)formatter.Deserialize(this.stream);
-            this.stream.Close();
+            nameOfContract += ".bin";
+            Stream stream = new FileStream(nameOfContract, FileMode.Open, FileAccess.Read, FileShare.Read);
+            IFormatter formatter = new BinaryFormatter();
+
+            Vehicle carOfContract = (Vehicle)formatter.Deserialize(stream);
+            stream.Close();
 
             return new Contract(carOfContract, nameOfContract);
         }
 
         /// <summary>
-        /// Print the contract
+        /// Print the contract in the console
         /// </summary>
         /// <remarks>IO</remarks>
         public void PrintContract()
         {
-            throw new System.NotImplementedException();
+            //Change to show it in GUI
+            Console.Out.WriteLine("CONTRACT NAME: " + this.contractName + "\n" + this.vehicle.ToString());
         }
     }
 }

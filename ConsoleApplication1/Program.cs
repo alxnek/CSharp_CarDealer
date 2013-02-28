@@ -53,7 +53,9 @@ namespace ConsoleApplication1
                CarDealerLibraries.Contract contract = new CarDealerLibraries.Contract(c,"fiesta");
                contract.SaveContract();
                 
-
+               CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
+                
+               
                Console.In.ReadLine();
 
             }
