@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CarDealerLibraries
 {
+    [Serializable]
     public class Small : Car
     {
         public Small(string colour, string model, int price, string state)

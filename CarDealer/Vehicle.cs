@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CarDealerLibraries
 {
+    [Serializable]
     public class Vehicle
     {
         private string colour;

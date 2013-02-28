@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 /*Added a reference to the DLL from the CarDealer project.
  * 
@@ -28,12 +31,24 @@ namespace ConsoleApplication1
                 list.Add(s);
                 list.Add(l);
                 list.Add(t);
-                CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);
-
+                CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);               
                Console.Out.WriteLine(cdList.ToString());
-
                cdList.DeleteVehicle(c);
                Console.Out.WriteLine("Delete Fiesta\n"+cdList.ToString());
+
+               Console.Out.WriteLine("TEST SERIALIZABLE");
+               IFormatter formatter = new BinaryFormatter();
+               Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+               formatter.Serialize(stream, c);
+               stream.Close();
+
+
+               Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+               CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
+               stream.Close();
+
+               Console.Out.WriteLine("TEST SERIALIZABLE OF FORD FIESTA----"+ myFordFiesta.Model);
+
                Console.In.ReadLine();
 
             }
