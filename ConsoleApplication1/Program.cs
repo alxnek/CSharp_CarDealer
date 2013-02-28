@@ -37,17 +37,22 @@ namespace ConsoleApplication1
                Console.Out.WriteLine("Delete Fiesta\n"+cdList.ToString());
 
                Console.Out.WriteLine("TEST SERIALIZABLE");
+
                IFormatter formatter = new BinaryFormatter();
-               Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-               formatter.Serialize(stream, c);
-               stream.Close();
+               //Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+               //formatter.Serialize(stream, c);
+               //stream.Close();
 
-
+               //Once the file.bin is created you can load it again with
                Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
-               stream.Close();
+               streamToRead.Close();
 
                Console.Out.WriteLine("TEST SERIALIZABLE OF FORD FIESTA----"+ myFordFiesta.Model);
+
+               CarDealerLibraries.Contract contract = new CarDealerLibraries.Contract(c);
+               contract.SaveContract();
+                
 
                Console.In.ReadLine();
 

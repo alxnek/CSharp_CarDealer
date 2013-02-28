@@ -39,7 +39,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Leasing">
-    <Position X="5.5" Y="7.75" Width="1.5" />
+    <Position X="4.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
@@ -55,7 +55,7 @@
   <Class Name="CarDealerLibraries.CarDealer">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAQAEAAAAAAAACAAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>CarDealer.cs</FileName>
     </TypeIdentifier>
   </Class>

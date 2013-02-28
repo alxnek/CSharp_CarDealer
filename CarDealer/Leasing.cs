@@ -7,13 +7,17 @@ namespace CarDealerLibraries
 {
     public class Leasing
     {
+        //private string leaseName="file";
+
         /// <summary>
-        /// Save the lease into a file
+        /// Save the lease into a binary serialized file
         /// </summary>
         /// <remarks>IO</remarks>
-        public void SaveLease()
+        public void SaveLease(Truck vehicle)
         {
-            throw new System.NotImplementedException();
+            //ask in the GUI for the string information of the lease
+            //ask for the name of the binary file
+            //save the bin file
         }
 
         /// <summary>
