@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication1\bin\Release\TestDll_IO.exe
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication1\bin\Release\TestDll_IO.pdb
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication1\bin\Release\CarDealer.dll
@@ -5,6 +6,8 @@ C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication1\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication1\obj\x86\Release\TestDll_IO.exe
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\ConsoleApplication1\obj\x86\Release\TestDll_IO.pdb
+=======
+>>>>>>> 24d236d24937739aafcd10b7fb8c2547ff1a6f4b
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\ConsoleApplication1\bin\Release\TestDll_IO.exe
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\ConsoleApplication1\bin\Release\TestDll_IO.pdb
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\ConsoleApplication1\bin\Release\CarDealer.dll
