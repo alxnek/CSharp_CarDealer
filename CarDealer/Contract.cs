@@ -13,10 +13,14 @@ namespace CarDealerLibraries
         private IFormatter formatter;
         private Stream stream;
         private Vehicle vehicle;
+        private string contractName;
 
-        public Contract(Vehicle vehicle)
+        public Contract(Vehicle vehicle, string contractName)
         {
+            this.formatter = new BinaryFormatter();
             this.vehicle = vehicle;
+            this.contractName = contractName+".bin";
+
         }
 
         /// <summary>
@@ -28,9 +32,8 @@ namespace CarDealerLibraries
             //ask in the GUI for the string information of the contract
             //ask for the name of the binary file
             //save the bin file
-            String contractName = "myContract.bin";
-            this.formatter = new BinaryFormatter();
-            this.stream = new FileStream(contractName, FileMode.Create, FileAccess.Write, FileShare.None);
+            
+            this.stream = new FileStream(this.contractName, FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, this.vehicle);
             stream.Close();
         }
@@ -39,9 +42,13 @@ namespace CarDealerLibraries
         /// Load an existing contract
         /// </summary>
         /// <remarks>IO</remarks>
-        public void LoadContract()
+        public Contract LoadContract(string nameOfContract)
         {
-            throw new System.NotImplementedException();
+            this.stream = new FileStream(nameOfContract, FileMode.Open, FileAccess.Read, FileShare.Read);
+            Vehicle carOfContract = (Vehicle)formatter.Deserialize(this.stream);
+            this.stream.Close();
+
+            return new Contract(carOfContract, nameOfContract);
         }
 
         /// <summary>
