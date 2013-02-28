@@ -40,5 +40,14 @@ namespace CarDealerLibraries
 
             return result;
         }
+
+        /// <summary>
+        /// Delete a vehicle from the list
+        /// </summary>
+        /// <remarks>Delete</remarks>
+        public void DeleteVehicle(Vehicle vehicle)
+        {
+            this.vehicleList.Remove(vehicle);
+        }
     }
 }
