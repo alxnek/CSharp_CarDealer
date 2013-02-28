@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\bin\Release\CarDealer.dll
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\bin\Release\CarDealer.pdb
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\obj\Release\CarDealer.dll
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer\obj\Release\CarDealer.pdb
+=======
+>>>>>>> 24d236d24937739aafcd10b7fb8c2547ff1a6f4b
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\bin\Release\CarDealer.dll
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\bin\Release\CarDealer.pdb
 C:\Users\ASUS\Desktop\Erasmus Software Engineering\OOP2\M1\CarDealer\CarDealer\obj\Release\CarDealer.dll

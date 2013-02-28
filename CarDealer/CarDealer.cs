@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CarDealerLibraries
 {
+    //New branch
     public class CarDealer
     {
         private List<Vehicle> vehicleList;
@@ -17,20 +18,8 @@ namespace CarDealerLibraries
 
         public CarDealer()
         {
-
         }
-
-        public Vehicle Vehicle
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
+       
         /// <summary>
         /// Add vehicle to the List
         /// </summary>
@@ -38,6 +27,27 @@ namespace CarDealerLibraries
         public void AddVehicle(Vehicle vehicle)
         {
             this.vehicleList.Add(vehicle);
+        }
+
+        /// <summary>
+        /// Convert the vehicle's properties into text
+        /// TODO: Add the Customer list too
+        /// </summary>
+        /// <remarks>Vehicle's toString</remarks>
+        public override string ToString()
+        {
+            string result= string.Join("\n\n", this.vehicleList);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Delete a vehicle from the list
+        /// </summary>
+        /// <remarks>Delete</remarks>
+        public void DeleteVehicle(Vehicle vehicle)
+        {
+            this.vehicleList.Remove(vehicle);
         }
     }
 }

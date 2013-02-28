@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 /*Added a reference to the DLL from the CarDealer project.
  * 
@@ -18,18 +21,39 @@ namespace ConsoleApplication1
         {
             static void Main(string[] args)
             {
-                CarDealerLibraries.Vehicle c = new CarDealerLibraries.
-                    Car("Ford", "Fiesta", 12000, "sold");
-
-                CarDealerLibraries.Vehicle t = new CarDealerLibraries.
-                    Truck("Mercedes", "truck5000", 112000, "sold");
-
+                CarDealerLibraries.Vehicle c = new CarDealerLibraries.Car("Ford", "Fiesta", 12000, "sold");
+                CarDealerLibraries.Vehicle t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold");
                 CarDealerLibraries.Vehicle l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
                 CarDealerLibraries.Vehicle s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
-               Console.Out.WriteLine(c.ToString());
-               Console.Out.WriteLine(t.ToString());
-               Console.Out.WriteLine(l.ToString());
-               Console.Out.WriteLine(s.ToString());
+
+                List<CarDealerLibraries.Vehicle> list = new List<CarDealerLibraries.Vehicle>();
+                list.Add(c);
+                list.Add(s);
+                list.Add(l);
+                list.Add(t);
+                CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);               
+               Console.Out.WriteLine(cdList.ToString());
+               cdList.DeleteVehicle(c);
+               Console.Out.WriteLine("Delete Fiesta\n"+cdList.ToString());
+
+               Console.Out.WriteLine("TEST SERIALIZABLE");
+
+               IFormatter formatter = new BinaryFormatter();
+               //Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+               //formatter.Serialize(stream, c);
+               //stream.Close();
+
+               //Once the file.bin is created you can load it again with
+               Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+               CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
+               streamToRead.Close();
+
+               Console.Out.WriteLine("TEST SERIALIZABLE OF FORD FIESTA----"+ myFordFiesta.Model);
+
+               CarDealerLibraries.Contract contract = new CarDealerLibraries.Contract(c);
+               contract.SaveContract();
+                
+
                Console.In.ReadLine();
 
             }
