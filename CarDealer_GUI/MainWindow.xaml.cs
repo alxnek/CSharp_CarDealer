@@ -20,76 +20,77 @@ namespace CarDealer_GUI
 		public MainWindow()
 		{
 			this.InitializeComponent();
-            
 			// Insert code required on object creation below this point.
-            select_pri_customer.IsChecked = true;
-            this.textbox_bus_address.IsEnabled = false;
-            this.textbox_bus_phone.IsEnabled = false;
-            this.textbox_bus_seno.IsEnabled = false;
-            this.textbox_bus_fax.IsEnabled = false;
-            this.textbox_bus_contact.IsEnabled = false;
-            this.textbox_bus_company.IsEnabled = false;
+            textbox_bus_address.IsEnabled = false;
+            textbox_bus_phone.IsEnabled = false;
+            textbox_bus_seno.IsEnabled = false;
+            textbox_bus_fax.IsEnabled = false;
+            textbox_bus_contact.IsEnabled = false;
+            textbox_bus_company.IsEnabled = false;
 
-            this.textbox_pri_address.IsEnabled = true;
-            this.textbox_pri_phone.IsEnabled = true;
-            this.textbox_pri_name.IsEnabled = true;
-            this.textbox_pri_age.IsEnabled = true;
-            this.textbox_pri_sex.IsEnabled = true;
+            textbox_truck_model.IsEnabled = false;
+            textbox_truck_colour.IsEnabled = false;
+            textbox_truck_rent.IsEnabled = false;
+            textbox_truck_startdate.IsEnabled = false;
+            textbox_truck_enddate.IsEnabled = false;
 		}
 
-        private void select_pri_customer_Checked(object sender, RoutedEventArgs e)
+        private void select_pri_customer_clicked(object sender, RoutedEventArgs e)
         {
-            this.textbox_bus_address.IsEnabled = false;
-            this.textbox_bus_phone.IsEnabled = false;
-            this.textbox_bus_seno.IsEnabled = false;
-            this.textbox_bus_fax.IsEnabled = false;
-            this.textbox_bus_contact.IsEnabled = false;
-            this.textbox_bus_company.IsEnabled = false;
+            textbox_bus_address.IsEnabled = false;
+            textbox_bus_phone.IsEnabled = false;
+            textbox_bus_seno.IsEnabled = false;
+            textbox_bus_fax.IsEnabled = false;
+            textbox_bus_contact.IsEnabled = false;
+            textbox_bus_company.IsEnabled = false;
 
-            this.textbox_pri_address.IsEnabled = true;
-            this.textbox_pri_phone.IsEnabled = true;
-            this.textbox_pri_name.IsEnabled = true;
-            this.textbox_pri_age.IsEnabled = true;
-            this.textbox_pri_sex.IsEnabled = true;
+            textbox_pri_address.IsEnabled = true;
+            textbox_pri_phone.IsEnabled = true;
+            textbox_pri_name.IsEnabled = true;
+            textbox_pri_age.IsEnabled = true;
+            textbox_pri_sex.IsEnabled = true;
         }
-        private void select_bus_customer_Checked(object sender, RoutedEventArgs e)
+        private void select_bus_customer_clicked(object sender, RoutedEventArgs e)
         {
-            this.textbox_bus_address.IsEnabled = true;
-            this.textbox_bus_phone.IsEnabled = true;
-            this.textbox_bus_seno.IsEnabled = true;
-            this.textbox_bus_fax.IsEnabled = true;
-            this.textbox_bus_contact.IsEnabled = true;
-            this.textbox_bus_company.IsEnabled = true;
+            textbox_bus_address.IsEnabled = true;
+            textbox_bus_phone.IsEnabled = true;
+            textbox_bus_seno.IsEnabled = true;
+            textbox_bus_fax.IsEnabled = true;
+            textbox_bus_contact.IsEnabled = true;
+            textbox_bus_company.IsEnabled = true;
 
-            this.textbox_pri_address.IsEnabled = false;
-            this.textbox_pri_phone.IsEnabled = false;
-            this.textbox_pri_name.IsEnabled = false;
-            this.textbox_pri_age.IsEnabled = false;
-            this.textbox_pri_sex.IsEnabled = false;
-        }
-
-        
-        private void select_veh_car_Checked(object sender, RoutedEventArgs e)
-        {
-
+            textbox_pri_address.IsEnabled = false;
+            textbox_pri_phone.IsEnabled = false;
+            textbox_pri_name.IsEnabled = false;
+            textbox_pri_age.IsEnabled = false;
+            textbox_pri_sex.IsEnabled = false;
         }
 
-        private void select_veh_truck_Checked(object sender, RoutedEventArgs e)
-        {
+        private void select_veh_car_clicked(object sender, RoutedEventArgs e)
+        {         
+            textbox_truck_model.IsEnabled = false;
+            textbox_truck_colour.IsEnabled = false;
+            textbox_truck_rent.IsEnabled = false;
+            textbox_truck_startdate.IsEnabled = false;
+            textbox_truck_enddate.IsEnabled = false;
 
+            textbox_car_model.IsEnabled = true;
+            textbox_car_colour.IsEnabled = true;
+            textbox_car_price.IsEnabled = true;
         }
 
-        private void select_cont_sale_Checked(object sender, RoutedEventArgs e)
+        private void select_veh_truck_clicked(object sender, RoutedEventArgs e)
         {
+            textbox_truck_model.IsEnabled = true;
+            textbox_truck_colour.IsEnabled = true;
+            textbox_truck_rent.IsEnabled = true;
+            textbox_truck_startdate.IsEnabled = true;
+            textbox_truck_enddate.IsEnabled = true;
 
+            textbox_car_model.IsEnabled = false;
+            textbox_car_colour.IsEnabled = false;
+            textbox_car_price.IsEnabled = false;
         }
 
-        private void select_cont_lease_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        
-        
 	}
 }
