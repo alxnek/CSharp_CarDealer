@@ -40,13 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="CarDealer.cs" />
     <Compile Include="Contract.cs" />
+    <Compile Include="Customer.cs" />
     <Compile Include="Large.cs" />
     <Compile Include="Leasing.cs" />
+    <Compile Include="Private.cs" />
     <Compile Include="Small.cs" />
-    <Compile Include="Stre.cs" />
     <Compile Include="Truck.cs" />
     <Compile Include="Vehicle.cs" />
   </ItemGroup>
