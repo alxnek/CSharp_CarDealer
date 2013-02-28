@@ -153,3 +153,15 @@ CarDealer_GUI/bin/Release/CarDealer_GUI.pdb
 CarDealer_GUI/obj/Release/CarDealer_GUI.exe
 CarDealer_GUI/obj/Release/CarDealer_GUI.exe
 ConsoleApplication1/obj/x86/Release/TestDll_IO.csprojResolveAssemblyReference.cache
+
+#ignore thumbnails created by windows
+#Ignore files build by Visual Studio
+*.exe
+*.bak
+*.cache
+[Bb]in
+[Dd]ebug*/
+*.lib
+obj/
+[Rr]elease*/
+[Tt]est[Rr]esult*
