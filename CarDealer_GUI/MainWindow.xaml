@@ -2,7 +2,8 @@
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-	x:Class="CarDealer_GUI.MainWindow"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Class="CarDealer_GUI.MainWindow"
 	x:Name="Window"
 	Title="MainWindow"
 	Width="640" Height="480">
@@ -25,7 +26,7 @@
                     </Grid.ColumnDefinitions>
 					<RadioButton Content="Private Customer" Name="select_pri_customer" Margin="8,8,8,3.08" d:LayoutOverrides="Height" Grid.ColumnSpan="2" Click="select_pri_customer_clicked" IsChecked="True" />
                     <RadioButton Content="Business Customer" Name="select_bus_customer" Margin="8,8,0,3.08"  HorizontalAlignment="Left" d:LayoutOverrides="Height" Grid.Column="2" Grid.ColumnSpan="2" Click="select_bus_customer_clicked" />
-                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="15,3,0,0" Name="textbox_pri_address" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+                    <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="15,3,0,0" Name="textbox_pri_address" VerticalAlignment="Top" Width="120" Grid.Column="1"  />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="15,32,0,0" Name="textbox_pri_phone" VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="14,61,0,0" Name="textbox_pri_name" VerticalAlignment="Top" Width="122" Grid.Row="1" Grid.Column="1" />
                     <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="8,3,0,0" Name="textblock_pri_address" Text="Adress" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
@@ -33,7 +34,7 @@
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="6,61,0,0" Name="textblock_pri_name" Text="Name" VerticalAlignment="Top" Width="95" Grid.Row="1" Grid.ColumnSpan="2" />
                     <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="6,90,0,0" Name="textblock_pri_birht" Text="Birthday" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,118,0,0" Name="textblock_pri_sex" Text="Sex" VerticalAlignment="Top" Width="95" Grid.Row="1" Grid.ColumnSpan="2" />
-                    <Button Content="Vehicle" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="58,190,0,0" Name="button1" VerticalAlignment="Top" Width="75"  Grid.Column="3" />
+                    <Button Content="GOTO Vehicle" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="45,190,0,0" Name="button1" VerticalAlignment="Top" Width="88"  Grid.Column="3" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="13,3,0,0" Name="textbox_bus_address" VerticalAlignment="Top" Width="120" Grid.Column="3" Grid.Row="1" />
                     <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="13,32,0,0" Name="textbox_bus_phone" VerticalAlignment="Top" Width="120" Grid.Column="3" />
                     <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="12,61,0,0" Name="textbox_bus_seno" VerticalAlignment="Top" Width="120" Grid.Column="3" />
@@ -47,13 +48,16 @@
                     <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10,118,0,0" Name="textblock_bus_contact" Text="Contact Person" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.ColumnSpan="2" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,147,0,0" Name="textblock_bus_company" Text="Company" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
                     <DatePicker Grid.Column="1" Grid.Row="1" Height="25" HorizontalAlignment="Left" Margin="15,89,0,0" Name="datepicker_pri_birth" VerticalAlignment="Top" Width="121" />
-                    <ComboBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="14,118,0,0" Name="combo_pri_sex" VerticalAlignment="Top" Width="120" />
+                    <ComboBox Grid.Column="1" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="14,118,0,0" Name="combo_pri_sex" VerticalAlignment="Top" Width="120" SelectedIndex="0" >
+                        <ComboBoxItem Name="combo_pri_sex_male_item">Male</ComboBoxItem>
+                        <ComboBoxItem Name="combo_pri_sex_female_item">Female</ComboBoxItem>
+                    </ComboBox>
                 </Grid>
 			</TabItem>
 			<TabItem Header="Vehicle" Margin="-1,0,-4,-1" d:LayoutOverrides="HorizontalAlignment">
-				<Grid Background="#FFE5E5E5" d:IsLocked="True">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="104"/>
+                <Grid Background="#FFE5E5E5" d:IsLocked="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="104"/>
                         <ColumnDefinition Width="132" />
                         <ColumnDefinition Width="12" />
                         <ColumnDefinition Width="106" />
@@ -61,13 +65,13 @@
                         <ColumnDefinition Width="43" />
                     </Grid.ColumnDefinitions>
                     <RadioButton Content="Car" Name="select_veh_car" Margin="8,8,110,0" VerticalAlignment="Top" ClickMode="Press" IsChecked="True" Grid.ColumnSpan="2" Click="select_veh_car_clicked" />
-					<RadioButton Content="Truck" Name="select_veh_truck" Margin="10,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Column="3" Click="select_veh_truck_clicked" />
+                    <RadioButton Content="Truck" Name="select_veh_truck" Margin="10,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Column="3" Click="select_veh_truck_clicked" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="5,30,0,0" Name="textbox_car_model" VerticalAlignment="Top" Width="120" Grid.Column="1" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,30,0,0" Name="textblock_car_model" Text="Model" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="5,59,0,0" Name="textbox_car_price" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEnabled="True"/>
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,59,0,0" Name="textblock_car_price" Text="Price" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
-                    <TextBox Height="23" HorizontalAlignment="Left" Margin="4,88,0,0" Name="textbox_car_colour" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEnabled="True"/>
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,88,0,0" Name="textblock_car_colour" Text="Colour" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="5,88,0,0" Name="textbox_car_price" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,88,0,0" Name="textblock_car_price" Text="Price" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="4,117,0,0" Name="textbox_car_colour" VerticalAlignment="Top" Width="120" Grid.Column="1" IsEnabled="True"/>
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="8,117,0,0" Name="textblock_car_colour" Text="Colour" VerticalAlignment="Top" Width="95" IsEnabled="True"/>
 
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="6,30,0,0" Name="textbox_truck_model" VerticalAlignment="Top" Width="120" Grid.Column="4" IsEnabled="True"/>
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="11,30,0,0" Name="textblock_truck_model" Text="Model" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
@@ -77,8 +81,15 @@
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,146,0,0" Name="textblock_truck_enddate" Text="End Date" VerticalAlignment="Top" Width="95" Grid.Column="3" IsEnabled="True"/>
                     <TextBox Grid.Column="4" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="6,88,0,0" Name="textbox_truck_rent" VerticalAlignment="Top" Width="120" />
                     <TextBlock Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="10,88,0,0" Name="textblock_truck_rent" Text="Rent Pro Month" VerticalAlignment="Top" Width="95" Grid.Column="3" />
-                    <DatePicker Grid.Column="4" Height="25" HorizontalAlignment="Left" Margin="5,117,0,0" Name="datepicker_truck_start" VerticalAlignment="Top" Width="121" />
+                    <DatePicker Grid.Column="4" Height="25" HorizontalAlignment="Left" Margin="5,117,0,0" Name="datepicker_truck_start" VerticalAlignment="Top" Width="121" SelectedDate="{x:Static sys:DateTime.Now}" DisplayDateStart="{x:Static sys:DateTime.Now}" />
                     <DatePicker Height="25" HorizontalAlignment="Left" Margin="6,146,0,0" Name="datepicker_truck_end" VerticalAlignment="Top" Width="121" Grid.Column="4" />
+                    <Button Content="Finalize Contract" Height="23" HorizontalAlignment="Left" Margin="5,210,0,0" Name="button2" VerticalAlignment="Top" Width="121" Grid.Column="4" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="8,56,0,0" Name="textblock_veh_size" Text="size" VerticalAlignment="Top" Width="95" />
+                    <ComboBox Text="Is not open" Grid.Column="1" Height="23" HorizontalAlignment="Left" Margin="4,59,0,0" Name="combo_veh_size" VerticalAlignment="Top" Width="120" SelectedIndex="0">
+                        <ComboBoxItem Name="combo_veh_size_small_item">Small</ComboBoxItem>
+                        <ComboBoxItem Name="combo_veh_size_large_item">Large</ComboBoxItem>   
+                    </ComboBox>    
+                    
                 </Grid>
 			</TabItem>
             <TabItem Header="Information" Margin="3,0,-3,-1" d:LayoutOverrides="HorizontalAlignment">
@@ -87,5 +98,5 @@
                 
             </TabItem>
         </TabControl>
-	</Grid>
+    </Grid>
 </Window>

@@ -27,6 +27,11 @@ namespace CarDealerLibraries
 
         }
 
+        public Contract()
+        {
+            // TODO: Complete member initialization
+        }
+
         /// <summary>
         /// Save the contract into a binary serialized file
         /// </summary>

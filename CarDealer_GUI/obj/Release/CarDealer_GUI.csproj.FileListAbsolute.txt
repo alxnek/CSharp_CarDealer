@@ -8,3 +8,5 @@ C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.g.resources
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.exe
 C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\obj\Release\CarDealer_GUI.pdb
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\bin\Release\CarDealer.dll
+C:\Users\Motherdear-Windows\Documents\GitHub\CSharp_CarDealer\CarDealer_GUI\bin\Release\CarDealer.pdb
