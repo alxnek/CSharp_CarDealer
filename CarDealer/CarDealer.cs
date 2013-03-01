@@ -5,21 +5,23 @@ using System.Text;
 
 namespace CarDealerLibraries
 {
-    //New branch
+
     public class CarDealer
     {
         private List<Vehicle> vehicleList;
-        // Add CustomerList
+        private List<Customer> customerList;
+        //Add if needed some serialization for the whole list
 
-        public CarDealer(List<Vehicle> vehicleList)
+        public CarDealer(List<Vehicle> vehicleList, List<Customer> customerList)
         {
             this.vehicleList = vehicleList;
+            this.customerList = customerList;
         }
 
         public CarDealer()
         {
         }
-       
+
         /// <summary>
         /// Add vehicle to the List
         /// </summary>
@@ -30,16 +32,15 @@ namespace CarDealerLibraries
         }
 
         /// <summary>
-        /// Convert the vehicle's properties into text
-        /// TODO: Add the Customer list too
+        /// Add customer to the List
         /// </summary>
-        /// <remarks>Vehicle's toString</remarks>
-        public override string ToString()
+        /// <remarks>Customer Class</remarks>
+        public void AddCustomer(Customer c)
         {
-            string result= string.Join("\n\n", this.vehicleList);
-
-            return result;
+            this.customerList.Add(c);
         }
+
+
 
         /// <summary>
         /// Delete a vehicle from the list
@@ -48,6 +49,27 @@ namespace CarDealerLibraries
         public void DeleteVehicle(Vehicle vehicle)
         {
             this.vehicleList.Remove(vehicle);
+        }
+
+        /// <summary>
+        /// Delete a customer from the list
+        /// </summary>
+        /// <remarks>Delete</remarks>
+        public void DeleteCustomer(Customer c)
+        {
+            this.customerList.Remove(c);
+        }
+
+        /// <summary>
+        /// Convert the vehicle's and Customer properties into text        
+        /// </summary>
+        /// <remarks>CarDealer's toString</remarks>
+        public override string ToString()
+        {
+            string result = string.Join("\n\n", this.vehicleList);
+            result += string.Join("\n\n", this.customerList);
+
+            return result;
         }
     }
 }
