@@ -13,19 +13,17 @@ using System.Windows.Controls.Primitives;
 using CarDealerLibraries;
 
 namespace CarDealer_GUI
-{
-    
+{   
     /// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-        Contract data = new Contract();
-		
+        CarDealer mycardealer = new CarDealer();
+        #region
         public MainWindow()
-		{
-            
-			this.InitializeComponent();
+        {
+            this.InitializeComponent();
 			// Insert code required on object creation below this point.
             textbox_bus_address.IsEnabled = false;
             textbox_bus_phone.IsEnabled = false;
@@ -98,10 +96,22 @@ namespace CarDealer_GUI
             textbox_car_price.IsEnabled = false;
         }
 
-        private void button1_click(object sender, RoutedEventArgs e)
+        private void tab_1_next_click(object sender, RoutedEventArgs e)
         {
-
+            tab_2.IsSelected = true;
         }
+
+        private void tab_2_last_click(object sender, RoutedEventArgs e)
+        {
+            tab_1.IsSelected = true;
+        }
+
+        private void tab_2_finalize_click(object sender, RoutedEventArgs e)
+        {
+            string output = "hello there";
+            MessageBox.Show(output);
+        }
+        #endregion
 
         private void button2_click(object sender, RoutedEventArgs e)
         {
@@ -109,39 +119,46 @@ namespace CarDealer_GUI
             {
                 if (select_veh_car.IsChecked == true)
                 {
-                    //if (combo_veh_size = small)
-                    //{
+                    if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
+                    {
+                        Small myveh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh);  
+                    }
+                    if (combo_veh_size_large_item.IsSelected)
+                    {
+                        Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh); 
+                    }
 
-                    //}
-
-                    //if (combo_veh_size = large)
-                    //{
-
-                    //}
                 }
-
                 if (select_veh_truck.IsChecked == true)
                 {
-
+                    Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
+                    mycardealer.AddVehicle(myveh); 
                 }
-
             }
 
             if (select_bus_customer.IsChecked == true)
             {
                 if (select_veh_car.IsChecked == true)
                 {
-
+                    if (combo_veh_size_small_item.IsSelected)
+                    {
+                        Small myveh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh); 
+                    }
+                    if (combo_veh_size_large_item.IsSelected)
+                    {
+                        Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh); 
+                    }
                 }
-
                 if (select_veh_truck.IsChecked == true)
                 {
-
+                    Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
+                    mycardealer.AddVehicle(myveh);
                 }
-
             }
-
-        }
-        
+        }   
 	}
 }
