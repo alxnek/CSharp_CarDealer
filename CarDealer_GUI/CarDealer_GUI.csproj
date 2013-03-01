@@ -77,6 +77,12 @@
       <Visible>false</Visible>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarDealer\CarDealer.csproj">
+      <Project>{CA231A1F-E9A7-4762-BB55-381E478AE828}</Project>
+      <Name>CarDealer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath32)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.
