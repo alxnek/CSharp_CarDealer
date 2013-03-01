@@ -15,9 +15,12 @@ namespace CarDealerLibraries
         /// Create a business customer
         /// </summary>
         /// <remarks>business</remarks>
-        public Business()
+        public Business(string address, int phone, int se_no, int fax, string contactPerson, string companyName):base(address,phone)
         {
-            throw new System.NotImplementedException();
+            this.se_no = se_no;
+            this.fax = fax;
+            this.contactPerson = contactPerson;
+            this.companyName = companyName;
         }
 
         /// <summary>

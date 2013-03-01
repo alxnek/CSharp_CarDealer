@@ -26,10 +26,11 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.age;
             }
             set
             {
+                this.age = value;
             }
         }
 
@@ -41,10 +42,11 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.name;
             }
             set
             {
+                this.name = value;
             }
         }
 
@@ -55,16 +57,18 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.sex;
             }
             set
             {
+                this.sex = value;
             }
         }
 
+        //Shitty tostring
         public override string ToString()
         {
-            return (this.Address+this.Phone);
+            return (this.Address+this.Phone+this.Name+this.Age+this.Sex);
         }
 
     }
