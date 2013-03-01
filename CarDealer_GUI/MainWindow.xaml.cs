@@ -20,12 +20,14 @@ namespace CarDealer_GUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-        Contract data = new Contract();
-		
+        Contract contractdata = new Contract();
+        Car setup_car = new Car();
+        Truck setup_truck = new Truck();
+        #region
         public MainWindow()
-		{
+        {
             
-			this.InitializeComponent();
+            this.InitializeComponent();
 			// Insert code required on object creation below this point.
             textbox_bus_address.IsEnabled = false;
             textbox_bus_phone.IsEnabled = false;
@@ -98,10 +100,22 @@ namespace CarDealer_GUI
             textbox_car_price.IsEnabled = false;
         }
 
-        private void button1_click(object sender, RoutedEventArgs e)
+        private void tab_1_next_click(object sender, RoutedEventArgs e)
         {
+            tab_2.IsSelected = true;
+                    }
 
+        private void tab_2_last_click(object sender, RoutedEventArgs e)
+        {
+            tab_1.IsSelected = true;
         }
+
+        private void tab_2_finalize_click(object sender, RoutedEventArgs e)
+        {
+            string output = "hello there";
+            MessageBox.Show(output);
+        }
+        #endregion
 
         private void button2_click(object sender, RoutedEventArgs e)
         {
@@ -109,20 +123,26 @@ namespace CarDealer_GUI
             {
                 if (select_veh_car.IsChecked == true)
                 {
-                    //if (combo_veh_size = small)
-                    //{
+                    if (combo_veh_size_small_item.IsSelected)
+                    {
+                        setup_car.Colour = textbox_car_colour.Text;
+                        setup_car.Model = textbox_car_model.Text;
+                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                    }
 
-                    //}
-
-                    //if (combo_veh_size = large)
-                    //{
-
-                    //}
+                    if (combo_veh_size_large_item.IsSelected)
+                    {
+                        setup_car.Colour = textbox_car_colour.Text;
+                        setup_car.Model = textbox_car_model.Text;
+                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                    }
                 }
 
                 if (select_veh_truck.IsChecked == true)
                 {
-
+                    setup_truck.Colour = textbox_truck_colour.Text;
+                    setup_truck.Model = textbox_truck_model.Text;
+                    setup_truck.Price = Convert.ToInt16(textbox_truck_rent.Text);
                 }
 
             }
@@ -131,12 +151,26 @@ namespace CarDealer_GUI
             {
                 if (select_veh_car.IsChecked == true)
                 {
+                    if (combo_veh_size_small_item.IsSelected)
+                    {
+                        setup_car.Colour = textbox_car_colour.Text;
+                        setup_car.Model = textbox_car_model.Text;
+                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                    }
 
+                    if (combo_veh_size_large_item.IsSelected)
+                    {
+                        setup_car.Colour = textbox_car_colour.Text;
+                        setup_car.Model = textbox_car_model.Text;
+                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                    }
                 }
 
                 if (select_veh_truck.IsChecked == true)
                 {
-
+                    setup_truck.Colour = textbox_truck_colour.Text;
+                    setup_truck.Model = textbox_truck_model.Text;
+                    setup_truck.Price = Convert.ToInt16(textbox_truck_rent.Text);
                 }
 
             }
@@ -144,4 +178,6 @@ namespace CarDealer_GUI
         }
         
 	}
+
+
 }
