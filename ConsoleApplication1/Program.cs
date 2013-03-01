@@ -31,10 +31,10 @@ namespace ConsoleApplication1
                 list.Add(s);
                 list.Add(l);
                 list.Add(t);
-                CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);
-                Console.Out.WriteLine(cdList.ToString());
-                cdList.DeleteVehicle(c);
-                Console.Out.WriteLine("Delete Fiesta\n" + cdList.ToString());
+                //CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);
+                //Console.Out.WriteLine(cdList.ToString());
+                //cdList.DeleteVehicle(c);
+                //Console.Out.WriteLine("Delete Fiesta\n" + cdList.ToString());
 
                 Console.Out.WriteLine("TEST SERIALIZABLE");
 
