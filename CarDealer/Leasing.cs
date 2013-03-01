@@ -2,11 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace CarDealerLibraries
 {
     public class Leasing
     {
+
+        private IFormatter formatter;
+        private Stream stream;
+        private Truck truck;
+        private string nameOfContract;
+
+        /// <summary>
+        /// Create a lease
+        /// </summary>
+        /// <remarks>Business and a truck</remarks>
+        public Leasing()
+        {
+            throw new System.NotImplementedException();
+        }
         //private string leaseName="file";
 
         /// <summary>
