@@ -13,20 +13,16 @@ using System.Windows.Controls.Primitives;
 using CarDealerLibraries;
 
 namespace CarDealer_GUI
-{
-    
+{   
     /// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-        Contract contractdata = new Contract();
-        Car setup_car = new Car();
-        Truck setup_truck = new Truck();
+        CarDealer mycardealer = new CarDealer();
         #region
         public MainWindow()
         {
-            
             this.InitializeComponent();
 			// Insert code required on object creation below this point.
             textbox_bus_address.IsEnabled = false;
@@ -103,7 +99,7 @@ namespace CarDealer_GUI
         private void tab_1_next_click(object sender, RoutedEventArgs e)
         {
             tab_2.IsSelected = true;
-                    }
+        }
 
         private void tab_2_last_click(object sender, RoutedEventArgs e)
         {
@@ -123,28 +119,23 @@ namespace CarDealer_GUI
             {
                 if (select_veh_car.IsChecked == true)
                 {
-                    if (combo_veh_size_small_item.IsSelected)
+                    if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
                     {
-                        setup_car.Colour = textbox_car_colour.Text;
-                        setup_car.Model = textbox_car_model.Text;
-                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                        Small myveh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh);  
                     }
-
                     if (combo_veh_size_large_item.IsSelected)
                     {
-                        setup_car.Colour = textbox_car_colour.Text;
-                        setup_car.Model = textbox_car_model.Text;
-                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                        Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh); 
                     }
-                }
 
+                }
                 if (select_veh_truck.IsChecked == true)
                 {
-                    setup_truck.Colour = textbox_truck_colour.Text;
-                    setup_truck.Model = textbox_truck_model.Text;
-                    setup_truck.Price = Convert.ToInt16(textbox_truck_rent.Text);
+                    Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
+                    mycardealer.AddVehicle(myveh); 
                 }
-
             }
 
             if (select_bus_customer.IsChecked == true)
@@ -153,31 +144,21 @@ namespace CarDealer_GUI
                 {
                     if (combo_veh_size_small_item.IsSelected)
                     {
-                        setup_car.Colour = textbox_car_colour.Text;
-                        setup_car.Model = textbox_car_model.Text;
-                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                        Small myveh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh); 
                     }
-
                     if (combo_veh_size_large_item.IsSelected)
                     {
-                        setup_car.Colour = textbox_car_colour.Text;
-                        setup_car.Model = textbox_car_model.Text;
-                        setup_car.Price = Convert.ToInt16(textbox_car_price.Text);
+                        Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        mycardealer.AddVehicle(myveh); 
                     }
                 }
-
                 if (select_veh_truck.IsChecked == true)
                 {
-                    setup_truck.Colour = textbox_truck_colour.Text;
-                    setup_truck.Model = textbox_truck_model.Text;
-                    setup_truck.Price = Convert.ToInt16(textbox_truck_rent.Text);
+                    Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
+                    mycardealer.AddVehicle(myveh);
                 }
-
             }
-
-        }
-        
+        }   
 	}
-
-
 }
