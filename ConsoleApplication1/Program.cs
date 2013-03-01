@@ -44,16 +44,18 @@ namespace ConsoleApplication1
                //stream.Close();
 
                //Once the file.bin is created you can load it again with
-               Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-               CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
-               streamToRead.Close();
+               //Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+               //CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
+               //streamToRead.Close();
 
-               Console.Out.WriteLine("TEST SERIALIZABLE OF FORD FIESTA----"+ myFordFiesta.Model);
+               //Console.Out.WriteLine("TEST SERIALIZABLE OF FORD FIESTA----"+ myFordFiesta.Model);
 
-               CarDealerLibraries.Contract contract = new CarDealerLibraries.Contract(c);
+               CarDealerLibraries.Contract contract = new CarDealerLibraries.Contract(c,"fiesta");
                contract.SaveContract();
                 
-
+               CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
+                
+               
                Console.In.ReadLine();
 
             }
