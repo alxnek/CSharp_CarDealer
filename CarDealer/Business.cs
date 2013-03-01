@@ -30,10 +30,11 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+               return this.companyName;
             }
             set
             {
+                this.companyName = value;
             }
         }
 
@@ -44,10 +45,11 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.contactPerson;
             }
             set
             {
+                this.contactPerson = value;
             }
         }
 
@@ -58,10 +60,11 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.fax;
             }
             set
             {
+                this.fax = value;
             }
         }
 
@@ -72,11 +75,18 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.se_no;
             }
             set
             {
+                this.se_no = value;
             }
         }
+            
+        //Shityy tostring
+        public override string ToString()
+        {
+            return (this.Address+this.Phone+this.ContactPerson+this.Fax+this.CompanyName+this.Se_no);
+        } 
     }
 }
