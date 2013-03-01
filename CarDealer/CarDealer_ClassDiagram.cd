@@ -4,10 +4,10 @@
     <Position X="6.511" Y="1.28" Height="0.291" Width="1.499" />
   </Comment>
   <Comment CommentText="Can make 0*">
-    <Position X="0.875" Y="4.979" Height="0.302" Width="1.7" />
+    <Position X="0.792" Y="6.406" Height="0.302" Width="1.7" />
   </Comment>
   <Comment CommentText="Can make 0*">
-    <Position X="4.135" Y="4.937" Height="0.302" Width="1.7" />
+    <Position X="3.729" Y="6.374" Height="0.302" Width="1.7" />
   </Comment>
   <Comment CommentText="Is made of 0*">
     <Position X="3.771" Y="1.238" Height="0.291" Width="1.187" />
@@ -48,14 +48,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Leasing">
-    <Position X="4.25" Y="5.5" Width="1.5" />
+    <Position X="3.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIEIAAAAAABIAAgAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Contract">
-    <Position X="1" Y="5.5" Width="1.5" />
+    <Position X="1" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEIAAAAAAAAABAAAAAAAAAAAAQACAEEAAAAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
@@ -71,21 +71,21 @@
   <Class Name="CarDealerLibraries.Customer">
     <Position X="2.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAiAAAAIAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Private">
     <Position X="0.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAARAAEAEQAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Private.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Business">
     <Position X="4.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAYAAAgAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAGA=</HashCode>
       <FileName>Business.cs</FileName>
     </TypeIdentifier>
   </Class>

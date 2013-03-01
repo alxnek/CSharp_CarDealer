@@ -28,10 +28,11 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.address;
             }
             set
             {
+                this.address = value;
             }
         }
 
@@ -43,11 +44,13 @@ namespace CarDealerLibraries
         {
             get
             {
-                throw new System.NotImplementedException();
+                return this.phone;
             }
             set
             {
+                this.phone = value;
             }
         }
+
     }
 }
