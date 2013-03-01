@@ -9,6 +9,9 @@
   <Comment CommentText="Can make 0*">
     <Position X="4.135" Y="4.937" Height="0.302" Width="1.7" />
   </Comment>
+  <Comment CommentText="Is made of 0*">
+    <Position X="3.771" Y="1.238" Height="0.291" Width="1.187" />
+  </Comment>
   <Class Name="CarDealerLibraries.Vehicle">
     <Position X="8" Y="1" Width="1.5" />
     <TypeIdentifier>
@@ -47,14 +50,14 @@
   <Class Name="CarDealerLibraries.Leasing">
     <Position X="4.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIEIAAAAAABIAAgAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Contract">
     <Position X="1" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAAAABAAAAAAAAAAAAQACAEEAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEIAAAAAAAAABAAAAAAAAAAAAQACAEEAAAAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -68,7 +71,7 @@
   <Class Name="CarDealerLibraries.Customer">
     <Position X="2.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
