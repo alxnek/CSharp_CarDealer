@@ -27,19 +27,19 @@ namespace ConsoleApplication1
                 CarDealerLibraries.Vehicle l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
                 CarDealerLibraries.Vehicle s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
 
-                List<CarDealerLibraries.Vehicle> list = new List<CarDealerLibraries.Vehicle>();
-                list.Add(c);
-                list.Add(s);
-                list.Add(l);
-                list.Add(t);
+                List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
+                veh_list.Add(c);
+                veh_list.Add(s);
+                veh_list.Add(l);
+                veh_list.Add(t);
                 //CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);
                 //Console.Out.WriteLine(cdList.ToString());
                 //cdList.DeleteVehicle(c);
                 //Console.Out.WriteLine("Delete Fiesta\n" + cdList.ToString());
 
-                Console.Out.WriteLine("TEST SERIALIZABLE");
+                //Console.Out.WriteLine("TEST SERIALIZABLE");
 
-                IFormatter formatter = new BinaryFormatter();
+                //IFormatter formatter = new BinaryFormatter();
                 //Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 //formatter.Serialize(stream, c);
                 //stream.Close();
@@ -48,14 +48,15 @@ namespace ConsoleApplication1
                 //Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                 //CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
                 //streamToRead.Close();
+                //load the fiesta.bin in the folder project
+               // CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
 
-                //Console.Out.WriteLine("TEST SERIALIZABLE OF FORD FIESTA----"+ myFordFiesta.Model);
+                CarDealerLibraries.Private pri_cust= new CarDealerLibraries.Private("address", 123123123, "Gangbang", "age", "yes");
+                List<CarDealerLibraries.Customer> cust_list = new List<Customer>();              
+                CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
+                CD.AddCustomer(pri_cust);
 
-                CarDealerLibraries.Contract contract = new CarDealerLibraries.Contract(c, "fiesta");
-                contract.SaveContract();
-
-                CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
-
+                Console.Out.WriteLine(CD.ToString());
 
                 Console.In.ReadLine();
 

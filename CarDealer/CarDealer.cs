@@ -66,8 +66,8 @@ namespace CarDealerLibraries
         /// <remarks>CarDealer's toString</remarks>
         public override string ToString()
         {
-            string result = string.Join("\n\n", this.vehicleList);
-            result += string.Join("\n\n", this.customerList);
+            string result = string.Join("\nVehicle\n", this.vehicleList);
+            result += string.Join("\nCustomer\n", this.customerList);
 
             return result;
         }
