@@ -8,10 +8,10 @@ namespace CarDealerLibraries
     public class Private : Customer
     {
         private string name;
-        private int age;
+        private string age;
         private string sex;
 
-        public Private(string address, int phone, string name, int age, string sex) :base (address, phone)
+        public Private(string address, int phone, string name, string age, string sex) :base (address, phone)
         {
             this.name = name;
             this.age = age;
@@ -22,7 +22,7 @@ namespace CarDealerLibraries
         /// get/sets age
         /// </summary>
         /// <remarks>get/set</remarks>
-        public int Age
+        public string Age
         {
             get
             {

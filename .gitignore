@@ -166,3 +166,6 @@ ConsoleApplication1/obj/x86/Release/TestDll_IO.csprojResolveAssemblyReference.ca
 obj/
 [Rr]elease*/
 [Tt]est[Rr]esult*
+CarDealer.suo
+CarDealer_GUI/obj/Release/DesignTimeResolveAssemblyReferences.cache
+CarDealer_GUI/obj/Release/MainWindow.g.i.cs
