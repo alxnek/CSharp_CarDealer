@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using CarDealerLibraries;
 
 /*Added a reference to the DLL from the CarDealer project.
  * 
