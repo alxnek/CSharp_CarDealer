@@ -11,7 +11,8 @@ namespace CarDealerLibraries
         private string age;
         private string sex;
 
-        public Private(string address, int phone, string name, string age, string sex) :base (address, phone)
+        public Private(string address, int phone, string name, string age, string sex)
+            : base(address, phone)
         {
             this.name = name;
             this.age = age;
@@ -65,10 +66,10 @@ namespace CarDealerLibraries
             }
         }
 
-        //Shitty tostring
+
         public override string ToString()
         {
-            return (this.Address+this.Phone+this.Name+this.Age+this.Sex);
+            return ("\n***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\n");
         }
 
     }

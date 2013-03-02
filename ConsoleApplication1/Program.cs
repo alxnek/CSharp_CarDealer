@@ -28,10 +28,10 @@ namespace ConsoleApplication1
                 CarDealerLibraries.Vehicle s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
 
                 List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
-                veh_list.Add(c);
-                veh_list.Add(s);
-                veh_list.Add(l);
-                veh_list.Add(t);
+                //veh_list.Add(c);
+                //veh_list.Add(s);
+                //veh_list.Add(l);
+                //veh_list.Add(t);
                 //CarDealerLibraries.CarDealer cdList = new CarDealerLibraries.CarDealer(list);
                 //Console.Out.WriteLine(cdList.ToString());
                 //cdList.DeleteVehicle(c);
@@ -54,9 +54,16 @@ namespace ConsoleApplication1
                 CarDealerLibraries.Private pri_cust= new CarDealerLibraries.Private("address", 123123123, "Gangbang", "age", "yes");
                 List<CarDealerLibraries.Customer> cust_list = new List<Customer>();              
                 CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
-                CD.AddCustomer(pri_cust);
 
-                Console.Out.WriteLine(CD.ToString());
+                CD.AddCustomer(pri_cust);
+                CD.AddVehicle(t);
+                CD.AddVehicle(s);
+
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n"+CD.ToString());
+
+                CD.DeleteVehicle(t);
+
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Console.In.ReadLine();
 

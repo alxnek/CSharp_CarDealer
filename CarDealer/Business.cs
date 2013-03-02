@@ -83,10 +83,10 @@ namespace CarDealerLibraries
             }
         }
             
-        //Shityy tostring
+  
         public override string ToString()
         {
-            return (this.Address+this.Phone+this.ContactPerson+this.Fax+this.CompanyName+this.Se_no);
+            return ("\n***Business customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nContact Person: " + this.ContactPerson + "\nFax: " + this.Fax + "\nCompany Name: " + this.CompanyName + "\nSe_no: " + this.Se_no);
         } 
     }
 }
