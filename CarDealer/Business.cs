@@ -86,7 +86,7 @@ namespace CarDealerLibraries
   
         public override string ToString()
         {
-            return ("\n***Business customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nContact Person: " + this.ContactPerson + "\nFax: " + this.Fax + "\nCompany Name: " + this.CompanyName + "\nSe_no: " + this.Se_no);
+            return ("\n\n***Business customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nContact Person: " + this.ContactPerson + "\nFax: " + this.Fax + "\nCompany Name: " + this.CompanyName + "\nSe_no: " + this.Se_no);
         } 
     }
 }
