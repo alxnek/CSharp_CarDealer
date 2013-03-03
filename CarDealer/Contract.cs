@@ -8,15 +8,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CarDealerLibraries
 {
+    [Serializable]
     public class Contract
     {
         private IFormatter formatter;
-        private Stream stream;
-        private string date = DateTime.Now.ToShortDateString();
+        private Stream stream;        
 
         private Car car;
-        private string contractName;   
-       
+        private string contractName;
+        private string date = DateTime.Now.ToShortDateString();
 
         /// <summary>
         /// Makes a contract for a customer

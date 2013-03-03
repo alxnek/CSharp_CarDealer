@@ -66,15 +66,15 @@ namespace ConsoleApplication1
 
                 Contract contract = new Contract(s, "contractForSmall");
                 Contract contract2 = new Contract(c, "contractForCar");
-                contract.SaveContract();
-                contract2.SaveContract();
+                //contract.SaveContract();
+                //contract2.SaveContract();
                 pri_cust.AddContract(contract);
                 pri_cust.AddContract(contract2);
 
                 //New private cus with contracts
                 CD.AddCustomer(pri_cust);
 
-                Leasing lease = new Leasing(t,"serious truck business");
+                Leasing lease = new Leasing(t,"serious truck business",3000, "2 years");
                 bus_cust.AddLease(lease);
 
                 CD.AddCustomer(bus_cust);
