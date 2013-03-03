@@ -12,8 +12,8 @@ namespace CarDealerLibraries
     public class Leasing
     {
 
-        private IFormatter formatter;
-        private Stream stream;
+        //private IFormatter formatter;
+        //private Stream stream;
 
         private Truck truck;
         private string leaseName;
@@ -26,7 +26,7 @@ namespace CarDealerLibraries
         /// <remarks>Business and a truck</remarks>
         public Leasing(Truck truck, string leaseName, int rent, string rentPeriod)
         {
-            this.formatter = new BinaryFormatter();
+            //this.formatter = new BinaryFormatter();
 
             this.truck = truck;
             this.leaseName = leaseName;
@@ -44,9 +44,9 @@ namespace CarDealerLibraries
             //ask in the GUI for the string information of the lease
             //ask for the name of the binary file
             //save the bin file
-            this.stream = new FileStream(this.leaseName + ".bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, this.truck);
-            stream.Close();
+            //this.stream = new FileStream(this.leaseName + ".bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            //formatter.Serialize(stream, this.truck);
+            //stream.Close();
         }
 
         /// <summary>

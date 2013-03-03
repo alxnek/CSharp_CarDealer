@@ -87,12 +87,12 @@ namespace ConsoleApplication1
 
                 //Save all the stuff in files
                 CD.SaveVehiclesToFile();
-               // CD.SaveCustomersToFile();
+                CD.SaveCustomersToFile();
 
                 //Load stuff in new object
                 CarDealer CD_DeserializedStuff = new CarDealer(new List<Vehicle>(), new List<Customer>());
                 CD_DeserializedStuff.VehicleList = CD.LoadVehicles();
-               // CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
+                CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
                 Console.In.ReadLine();
