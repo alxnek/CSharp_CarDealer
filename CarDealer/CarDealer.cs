@@ -125,7 +125,7 @@ namespace CarDealerLibraries
         /// <summary>
         /// Save all the vehicles in a file
         /// </summary>
-        /// <remarks>Serialization</remarks>
+        /// <remarks>.bin file in bin/Release</remarks>
         public void SaveVehiclesToFile()
         {
             this.formatter = new BinaryFormatter();
@@ -137,7 +137,7 @@ namespace CarDealerLibraries
         /// <summary>
         /// Save all customers in a file
         /// </summary>
-        /// <remarks>Serialization</remarks>
+        /// <remarks>.bin file in bin/Release</remarks>
         public void SaveCustomersToFile()
         {
 

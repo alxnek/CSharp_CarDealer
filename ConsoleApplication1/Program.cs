@@ -53,7 +53,7 @@ namespace ConsoleApplication1
                 CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
 
                 //How to work with de CARDEALER without touching any list
-                CD.AddCustomer(pri_cust);
+              //  CD.AddCustomer(pri_cust);
                 CD.AddVehicle(t);
                 CD.AddVehicle(s);
                 CD.AddVehicle(c);
