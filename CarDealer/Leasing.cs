@@ -8,64 +8,37 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CarDealerLibraries
 {
+    [Serializable]
     public class Leasing
     {
 
-        private IFormatter formatter;
-        private Stream stream;
         private Truck truck;
-        private string contractName;
-
+        private string leaseName;
+        private int rentPerMonth;
+        private string rentPeriod;
+        private string date = DateTime.Now.ToShortDateString();
         /// <summary>
         /// Create a lease
         /// </summary>
         /// <remarks>Business and a truck</remarks>
-        public Leasing(Truck truck, string contractName)
+        public Leasing(Truck truck, string leaseName, int rent, string rentPeriod)
         {
-            this.formatter = new BinaryFormatter();
+            //this.formatter = new BinaryFormatter();
+
             this.truck = truck;
-            this.contractName = contractName;
-        }
-
-
-        /// <summary>
-        /// Save the lease into a binary serialized file
-        /// </summary>
-        /// <remarks>IO</remarks>
-        public void SaveLease(Truck vehicle)
-        {
-            //ask in the GUI for the string information of the lease
-            //ask for the name of the binary file
-            //save the bin file
-            this.stream = new FileStream(this.contractName + ".bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, this.truck);
-            stream.Close();
-        }
-
-        /// <summary>
-        /// Load an existing lease
-        /// </summary>
-        /// <remarks>IO</remarks>
-        public static Leasing LoadLease(string nameOfContract)
-        {
-            nameOfContract += ".bin";
-            Stream stream = new FileStream(nameOfContract, FileMode.Open, FileAccess.Read, FileShare.Read);
-            IFormatter formatter = new BinaryFormatter();
-
-            Truck truckOfLeasing = (Truck)formatter.Deserialize(stream);
-            stream.Close();
-
-            return new Leasing(truckOfLeasing, nameOfContract);
+            this.leaseName = leaseName;
+            this.rentPerMonth = rent;
+            this.rentPeriod = rentPeriod;
         }
 
         /// <summary>
         /// Print the lease
         /// </summary>
         /// <remarks>IO</remarks>
-        public void PrintLease()
+        public override string ToString()
         {
-            //Change to show it in GUI
-            Console.Out.WriteLine("CONTRACT NAME: " + this.contractName + "\n" + this.truck.ToString());
+
+            return ("\nLEASE NAME: " + this.leaseName + "\nRent per month: " + this.rentPerMonth + "\nRent period: " +this.rentPeriod+ "\n" + this.truck.ToString() + "\nStart date----> " + this.date + "\n___________________________");
         }
     }
 }
