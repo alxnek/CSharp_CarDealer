@@ -59,15 +59,14 @@ namespace ConsoleApplication1
                 CD.AddVehicle(c);
 
                 //No customer and no truck
-                //CD.DeleteVehicle(t);
-                CD.DeleteCustomer(pri_cust);
+              //  CD.DeleteVehicle(t);
+               // CD.DeleteCustomer(pri_cust);
 
                 Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Contract contract = new Contract(s, "contractForSmall");
                 Contract contract2 = new Contract(c, "contractForCar");
-                //contract.SaveContract();
-                //contract2.SaveContract();
+                
                 pri_cust.AddContract(contract);
                 pri_cust.AddContract(contract2);
 
@@ -80,9 +79,21 @@ namespace ConsoleApplication1
                 CD.AddCustomer(bus_cust);
 
                 //Mambo of toStrings
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());          
 
+               
 
+                Console.Clear();
+
+                //Save all the stuff in files
+                CD.SaveVehiclesToFile();
+               // CD.SaveCustomersToFile();
+
+                //Load stuff in new object
+                CarDealer CD_DeserializedStuff = new CarDealer(new List<Vehicle>(), new List<Customer>());
+                CD_DeserializedStuff.VehicleList = CD.LoadVehicles();
+               // CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
+                Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
                 Console.In.ReadLine();
 

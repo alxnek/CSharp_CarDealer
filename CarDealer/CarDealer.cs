@@ -11,14 +11,17 @@ namespace CarDealerLibraries
 
     public class CarDealer
     {
+
         private List<Vehicle> vehicleList;
+
         private List<Customer> customerList;
-        private Stream stream;
-        //Add if needed some serialization for the whole list
+        private Stream stream,streamC;
+        private BinaryFormatter formatter;
 
 
         public CarDealer(List<Vehicle> vehicleList, List<Customer> customerList)
         {
+            this.formatter = new BinaryFormatter();
             this.vehicleList = vehicleList;
             this.customerList = customerList;
         }
@@ -103,9 +106,17 @@ namespace CarDealerLibraries
         /// <remarks>CarDealer's toString</remarks>
         public override string ToString()
         {
-            string result = string.Join("\n\n", this.vehicleList);
-            result += string.Join("\n\n", this.customerList);
+            string result = "";
+            try
+            {
+                result = string.Join("\n\n", this.vehicleList);
+                result += string.Join("\n\n", this.customerList);
 
+            }
+            catch (Exception e)
+            {
+                Console.Out.Write(e.Message);
+            }
             return result;
         }
 
@@ -115,9 +126,9 @@ namespace CarDealerLibraries
         /// <remarks>Serialization</remarks>
         public void SaveVehiclesToFile()
         {
-            IFormatter formatter = new BinaryFormatter();
+            //this.formatter = new BinaryFormatter();
             this.stream = new FileStream("Vehicles.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(this.stream, this.vehicleList);
+            this.formatter.Serialize(this.stream, this.vehicleList);
             this.stream.Close();
         }
 
@@ -127,7 +138,19 @@ namespace CarDealerLibraries
         /// <remarks>Serialization</remarks>
         public void SaveCustomersToFile()
         {
-            throw new System.NotImplementedException();
+
+            // IFormatter formatter = new BinaryFormatter();
+           // try
+            
+                this.stream = new FileStream("Customers.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                this.formatter.Serialize(this.stream, this.customerList);
+                this.stream.Close();
+            
+            //catch (Exception e)
+            //{
+            //    Console.Out.Write(e.Message);
+            //}
+
         }
 
         /// <summary>
@@ -136,7 +159,13 @@ namespace CarDealerLibraries
         /// <remarks>serialization</remarks>
         public List<Customer> LoadCustomers()
         {
-            throw new System.NotImplementedException();
+            // IFormatter formatter = new BinaryFormatter();
+            this.stream = new FileStream("Customers.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Customer> deserializedList = (List<Customer>)this.formatter.Deserialize(this.stream);
+            stream.Close();
+
+
+            return deserializedList;
         }
 
         /// <summary>
@@ -144,10 +173,11 @@ namespace CarDealerLibraries
         /// </summary>
         /// <remarks>Serialization</remarks>
         public List<Vehicle> LoadVehicles()
+        //public void LoadVehicles()
         {
-            IFormatter formatter = new BinaryFormatter();
-            this.stream = new FileStream("Vehicles.bin", FileMode.Create, FileAccess.Read, FileShare.Read);
-            List<Vehicle> deserializedList = (List<Vehicle>)formatter.Deserialize(this.stream);
+            //IFormatter formatter = new BinaryFormatter();
+            this.stream = new FileStream("Vehicles.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            List<Vehicle> deserializedList = (List<Vehicle>)this.formatter.Deserialize(this.stream);
             stream.Close();
 
             return deserializedList;
