@@ -5,11 +5,14 @@ using System.Text;
 
 namespace CarDealerLibraries
 {
+    [Serializable]
     public class Private : Customer
     {
         private string name;
         private string age;
         private string sex;
+
+        private List<Contract> contractList;
 
         public Private(string address, int phone, string name, string age, string sex)
             : base(address, phone)
@@ -18,6 +21,17 @@ namespace CarDealerLibraries
             this.age = age;
             this.sex = sex;
         }
+
+        public void AddContract(Contract contract)
+        {
+            this.contractList.Add(contract);
+        }
+
+        public void DeleteContract(Contract contract)
+        {
+            this.contractList.Remove(contract);
+        }
+
 
         /// <summary>
         /// get/sets age
@@ -69,7 +83,8 @@ namespace CarDealerLibraries
 
         public override string ToString()
         {
-            return ("\n\n***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\n");
+            string result = string.Join("\n\n", this.contractList);
+            return ("\n\n***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\nContracts: "+result);
         }
 
     }

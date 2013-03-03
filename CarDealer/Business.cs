@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CarDealerLibraries
 {
+    [Serializable]
     public class Business : Customer
     {
         private int se_no;

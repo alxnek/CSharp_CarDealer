@@ -67,10 +67,10 @@ namespace CarDealerLibraries
         /// Print the contract in the console
         /// </summary>
         /// <remarks>IO</remarks>
-        public void PrintContract()
+        public String PrintContract()
         {
             //Change to show it in GUI
-            Console.Out.WriteLine("CONTRACT NAME: " + this.contractName + "\n" + this.car.ToString());
+            return ("CONTRACT NAME: " + this.contractName + "\n" + this.car.ToString());
         }
     }
 }

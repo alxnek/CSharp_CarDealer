@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using CarDealerLibraries;
+using CarDealerLibraries;//With this is not needed to use CarDealerLibraries.----- thx
 
 /*Added a reference to the DLL from the CarDealer project.
  * 
@@ -65,9 +65,9 @@ namespace ConsoleApplication1
 
                 Contract contract = new Contract(s, "contractForSmall");
                 contract.SaveContract();
-                contract.PrintContract();
+                pri_cust.AddContract(contract);
 
-
+                Console.Out.WriteLine("Private customer:"+pri_cust.ToString());
                 Console.In.ReadLine();
 
             }
