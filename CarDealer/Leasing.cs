@@ -13,18 +13,20 @@ namespace CarDealerLibraries
 
         private IFormatter formatter;
         private Stream stream;
+        private string date = DateTime.Now.ToShortDateString();
+
         private Truck truck;
-        private string contractName;
+        private string leaseName;
 
         /// <summary>
         /// Create a lease
         /// </summary>
         /// <remarks>Business and a truck</remarks>
-        public Leasing(Truck truck, string contractName)
+        public Leasing(Truck truck, string leaseName)
         {
             this.formatter = new BinaryFormatter();
             this.truck = truck;
-            this.contractName = contractName;
+            this.leaseName = leaseName;
         }
 
 
@@ -37,7 +39,7 @@ namespace CarDealerLibraries
             //ask in the GUI for the string information of the lease
             //ask for the name of the binary file
             //save the bin file
-            this.stream = new FileStream(this.contractName + ".bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            this.stream = new FileStream(this.leaseName + ".bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, this.truck);
             stream.Close();
         }
@@ -62,10 +64,10 @@ namespace CarDealerLibraries
         /// Print the lease
         /// </summary>
         /// <remarks>IO</remarks>
-        public void PrintLease()
+        public override string ToString()
         {
             //Change to show it in GUI
-            Console.Out.WriteLine("CONTRACT NAME: " + this.contractName + "\n" + this.truck.ToString());
+            return ("\nLEASE NAME: " + this.leaseName + "\n" + this.truck.ToString() + "\nDate----> " + this.date + "\n___________________________");
         }
     }
 }

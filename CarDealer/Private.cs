@@ -11,7 +11,7 @@ namespace CarDealerLibraries
         private string name;
         private string age;
         private string sex;
-
+        
         private List<Contract> contractList = new List<Contract>();
 
         /// <summary>
