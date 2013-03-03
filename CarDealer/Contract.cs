@@ -51,7 +51,7 @@ namespace CarDealerLibraries
         }
 
         /// <summary>
-        /// Load an existing contract from his name
+        /// LoadCustomers an existing contract from his name
         /// </summary>
         /// <remarks>Static access!</remarks>
         public static Contract LoadContract(string nameOfContract)

@@ -50,7 +50,7 @@ namespace CarDealerLibraries
         }
 
         /// <summary>
-        /// Load an existing lease
+        /// LoadCustomers an existing lease
         /// </summary>
         /// <remarks>IO</remarks>
         //public static Leasing LoadLease(string nameOfContract)

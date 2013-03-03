@@ -7,7 +7,7 @@
     <Position X="0.634" Y="8.263" Height="0.302" Width="1.7" />
   </Comment>
   <Comment CommentText="Can make 0*">
-    <Position X="4.168" Y="8.073" Height="0.302" Width="1.7" />
+    <Position X="3.262" Y="8.417" Height="0.302" Width="1.7" />
   </Comment>
   <Comment CommentText="Is made of 0*">
     <Position X="3.771" Y="1.238" Height="0.291" Width="1.187" />
@@ -48,9 +48,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Leasing">
-    <Position X="4.25" Y="8.5" Width="1.5" />
+    <Position X="3.25" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIEIAAAAAABIAAgAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIEAAAAAAABEAAAAAAgAAAAAUAAACAAAAQAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -64,7 +64,7 @@
   <Class Name="CarDealerLibraries.CarDealer">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAEBAAYAAAAGCAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAQAEBAAYAAAAGCAAEAAAAgAAAAAAAAA=</HashCode>
       <FileName>CarDealer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -83,9 +83,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Business">
-    <Position X="4.25" Y="4.25" Width="1.5" />
+    <Position X="3.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAYAAAgAAEAAAEBAAAAAAAAAAAAAAAAAAAAAAAAGA=</HashCode>
+      <HashCode>AgCAYAIAgAAEAAAEBQAAAAAAAAAAAAAAAAAAAAAAAGA=</HashCode>
       <FileName>Business.cs</FileName>
     </TypeIdentifier>
   </Class>
