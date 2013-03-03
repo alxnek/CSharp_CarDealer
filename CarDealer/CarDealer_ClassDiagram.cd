@@ -4,10 +4,10 @@
     <Position X="6.511" Y="1.28" Height="0.291" Width="1.499" />
   </Comment>
   <Comment CommentText="Can make 0*">
-    <Position X="0.655" Y="7.023" Height="0.302" Width="1.7" />
+    <Position X="0.634" Y="8.263" Height="0.302" Width="1.7" />
   </Comment>
   <Comment CommentText="Can make 0*">
-    <Position X="4.231" Y="7.333" Height="0.302" Width="1.7" />
+    <Position X="4.168" Y="8.073" Height="0.302" Width="1.7" />
   </Comment>
   <Comment CommentText="Is made of 0*">
     <Position X="3.771" Y="1.238" Height="0.291" Width="1.187" />
@@ -48,23 +48,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Leasing">
-    <Position X="4.25" Y="7.75" Width="1.5" />
+    <Position X="4.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIEIAAAAAABIAAgAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Contract">
-    <Position X="0.75" Y="7.5" Width="1.5" />
+    <Position X="0.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAEIAAAAAAAAABAAAAAAAAAAAAAACAEEAAAAAAA=</HashCode>
+      <HashCode>AAAABAEIAAAAAAAEABAAAAAAAAAAAAAACAEAAQAAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.CarDealer">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAEBAAAAAAAGCAAAAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAQAEBAAYAAAAGCAAAAAAAgAAAAAAAAA=</HashCode>
       <FileName>CarDealer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -76,14 +76,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Private">
-    <Position X="0.75" Y="3.75" Width="1.5" />
+    <Position X="0.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAARAAEAEQAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAZAAEAGUAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Private.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Business">
-    <Position X="4.25" Y="3.75" Width="1.5" />
+    <Position X="4.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAYAAAgAAEAAAEBAAAAAAAAAAAAAAAAAAAAAAAAGA=</HashCode>
       <FileName>Business.cs</FileName>

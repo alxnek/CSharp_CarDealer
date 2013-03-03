@@ -22,20 +22,7 @@ namespace ConsoleApplication1
         {
             static void Main(string[] args)
             {
-                
 
-                
-                //Console.Out.WriteLine("TEST SERIALIZABLE");
-                //IFormatter formatter = new BinaryFormatter();
-                //Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                //formatter.Serialize(stream, c);
-                //stream.Close();
-                //Once the file.bin is created you can load it again with
-                //Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-                //CarDealerLibraries.Vehicle myFordFiesta = (CarDealerLibraries.Vehicle)formatter.Deserialize(streamToRead);
-                //streamToRead.Close();
-                //load the fiesta.bin in the folder project
-               // CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
 
                 //2 lists
                 List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
@@ -46,6 +33,22 @@ namespace ConsoleApplication1
                 CarDealerLibraries.Car l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
                 CarDealerLibraries.Car s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
                 CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address", 123123123, "Gangbang", "age", "yes");
+                Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
+
+          //      Console.Out.WriteLine("TEST SERIALIZABLE");
+          //      IFormatter formatter = new BinaryFormatter();
+          //      Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+          //      formatter.Serialize(stream, c);
+          ////      formatter.Serialize(stream, pri_cust);
+          //      stream.Close();
+          //      //Once the file.bin is created you can load it again with
+          //      Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+          //      Vehicle myFordFiesta = (Vehicle)formatter.Deserialize(streamToRead);
+          //      streamToRead.Close();
+                //load the fiesta.bin in the folder project
+               // CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
+
+                
                 //make the cardealer
                 CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
 
@@ -56,9 +59,9 @@ namespace ConsoleApplication1
                 CD.AddVehicle(c);
 
                 //No customer and no truck
-                CD.DeleteVehicle(t);
+                //CD.DeleteVehicle(t);
                 CD.DeleteCustomer(pri_cust);
-                
+
                 Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Contract contract = new Contract(s, "contractForSmall");
@@ -71,10 +74,13 @@ namespace ConsoleApplication1
                 //New customer with contracts
                 CD.AddCustomer(pri_cust);
 
+                CD.AddCustomer(bus_cust);
+
                 //Mambo of toStrings
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());    
-                
-              
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
+
+
+
                 Console.In.ReadLine();
 
             }
