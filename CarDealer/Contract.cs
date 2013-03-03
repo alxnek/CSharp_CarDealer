@@ -12,18 +12,21 @@ namespace CarDealerLibraries
     {
         private IFormatter formatter;
         private Stream stream;
+        private string date = DateTime.Now.ToShortDateString();
+
         private Car car;
-        private string contractName;
+        private string contractName;   
+       
 
         /// <summary>
-        /// Contract constructor
+        /// Makes a contract for a customer
         /// </summary>
         /// <remarks>Needs a vehicle and a name for the contract</remarks>
         public Contract(Car car, string contractName)
         {
             this.formatter = new BinaryFormatter();
             this.car = car;
-            this.contractName = contractName;
+            this.contractName = contractName;           
 
         }
 
@@ -70,7 +73,7 @@ namespace CarDealerLibraries
         public override String ToString()
         {
             //Change to show it in GUI
-            return ("\nCONTRACT NAME: " + this.contractName + "\n" + this.car.ToString());
+            return ("\nCONTRACT NAME: " + this.contractName + "\n" + this.car.ToString()+ "\nDate----> "+ this.date);
         }
     }
 }
