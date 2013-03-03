@@ -71,8 +71,11 @@ namespace ConsoleApplication1
                 pri_cust.AddContract(contract);
                 pri_cust.AddContract(contract2);
 
-                //New customer with contracts
+                //New private cus with contracts
                 CD.AddCustomer(pri_cust);
+
+                Leasing lease = new Leasing(t,"serious truck business");
+                bus_cust.AddLease(lease);
 
                 CD.AddCustomer(bus_cust);
 
