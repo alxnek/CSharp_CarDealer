@@ -12,7 +12,7 @@ namespace CarDealerLibraries
         private string age;
         private string sex;
 
-        private List<Contract> contractList;
+        private List<Contract> contractList = new List<Contract>();
 
         public Private(string address, int phone, string name, string age, string sex)
             : base(address, phone)
@@ -84,7 +84,7 @@ namespace CarDealerLibraries
         public override string ToString()
         {
             string result = string.Join("\n\n", this.contractList);
-            return ("\n\n***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\nContracts: "+result);
+            return ("\n\n***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\n\nContracts of this customer---------->\n "+result);
         }
 
     }

@@ -64,13 +64,13 @@ namespace CarDealerLibraries
         }
 
         /// <summary>
-        /// Print the contract in the console
+        /// Get the String with info about the contract
         /// </summary>
         /// <remarks>IO</remarks>
-        public String PrintContract()
+        public override String ToString()
         {
             //Change to show it in GUI
-            return ("CONTRACT NAME: " + this.contractName + "\n" + this.car.ToString());
+            return ("\nCONTRACT NAME: " + this.contractName + "\n" + this.car.ToString());
         }
     }
 }

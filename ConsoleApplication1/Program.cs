@@ -41,8 +41,8 @@ namespace ConsoleApplication1
                 List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
                 List<CarDealerLibraries.Customer> cust_list = new List<CarDealerLibraries.Customer>();
                 //create cars and customers
-                CarDealerLibraries.Vehicle c = new CarDealerLibraries.Car("Ford", "Fiesta", 12000, "sold");
-                CarDealerLibraries.Vehicle t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold");
+                CarDealerLibraries.Car c = new CarDealerLibraries.Car("Ford", "Fiesta", 12000, "sold");
+                CarDealerLibraries.Truck t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold");
                 CarDealerLibraries.Car l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
                 CarDealerLibraries.Car s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
                 CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address", 123123123, "Gangbang", "age", "yes");
@@ -55,19 +55,26 @@ namespace ConsoleApplication1
                 CD.AddVehicle(s);
                 CD.AddVehicle(c);
 
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n"+CD.ToString());
-
+                //No customer and no truck
                 CD.DeleteVehicle(t);
-
-                Console.Out.WriteLine("CARDEALER TOSTRING___del truck____\n" + CD.ToString());
-
-                //lets make a contract for the small car
+                CD.DeleteCustomer(pri_cust);
+                
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Contract contract = new Contract(s, "contractForSmall");
+                Contract contract2 = new Contract(c, "contractForCar");
                 contract.SaveContract();
+                contract2.SaveContract();
                 pri_cust.AddContract(contract);
+                pri_cust.AddContract(contract2);
 
-                Console.Out.WriteLine("Private customer:"+pri_cust.ToString());
+                //New customer with contracts
+                CD.AddCustomer(pri_cust);
+
+                //Mambo of toStrings
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());    
+                
+              
                 Console.In.ReadLine();
 
             }
