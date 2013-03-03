@@ -12,14 +12,14 @@ namespace CarDealerLibraries
     {
         private IFormatter formatter;
         private Stream stream;
-        private Vehicle car;
+        private Car car;
         private string contractName;
 
         /// <summary>
         /// Contract constructor
         /// </summary>
         /// <remarks>Needs a vehicle and a name for the contract</remarks>
-        public Contract(Vehicle car, string contractName)
+        public Contract(Car car, string contractName)
         {
             this.formatter = new BinaryFormatter();
             this.car = car;
@@ -57,7 +57,7 @@ namespace CarDealerLibraries
             Stream stream = new FileStream(nameOfContract, FileMode.Open, FileAccess.Read, FileShare.Read);
             IFormatter formatter = new BinaryFormatter();
 
-            Vehicle carOfContract = (Vehicle)formatter.Deserialize(stream);
+            Car carOfContract = (Car)formatter.Deserialize(stream);
             stream.Close();
 
             return new Contract(carOfContract, nameOfContract);

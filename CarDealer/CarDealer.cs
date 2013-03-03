@@ -23,6 +23,38 @@ namespace CarDealerLibraries
         }
 
         /// <summary>
+        /// Customer's list
+        /// </summary>
+        /// <remarks>customers</remarks>
+        public List<Customer> CustomerList
+        {
+            get
+            {
+                return this.customerList;
+            }
+            set
+            {
+                this.customerList = value;
+            }
+        }
+
+        /// <summary>
+        /// Vehicle's list
+        /// </summary>
+        /// <remarks>vehicles</remarks>
+        public List<Vehicle> VehicleList
+        {
+            get
+            {
+                return this.vehicleList;
+            }
+            set
+            {
+                this.vehicleList = value;
+            }
+        }
+
+        /// <summary>
         /// Add vehicle to the List
         /// </summary>
         /// <remarks>Vehicle Class</remarks>
