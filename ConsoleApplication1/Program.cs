@@ -31,14 +31,14 @@ namespace ConsoleApplication1
                 CarDealerLibraries.Truck t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold");
                 CarDealerLibraries.Car l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
                 CarDealerLibraries.Car s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
-                CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address", 123123123, "Gangbang", "age", "yes");
+                CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address1", 123123123, "Gangbang", "age", "yes");
                 Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
 
                 //make the cardealer
                 CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
 
                 //How to work with de CARDEALER without touching any list
-    
+
                 CD.AddVehicle(t);
                 CD.AddVehicle(s);
                 CD.AddVehicle(c);
@@ -46,19 +46,19 @@ namespace ConsoleApplication1
                 Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Contract contract = new Contract(s, "contractForSmall");
-                Contract contract2 = new Contract(c, "contractForCar");                
+                Contract contract2 = new Contract(c, "contractForCar");
                 pri_cust.AddContract(contract);
                 pri_cust.AddContract(contract2);
                 //New private cus with 2 contracts
                 CD.AddCustomer(pri_cust);
 
-                Leasing lease = new Leasing(t,"serious truck business",3000, "2 years");
+                Leasing lease = new Leasing(t, "serious truck business", 3000, "2 years");
                 bus_cust.AddLease(lease);
                 CD.AddCustomer(bus_cust);
 
                 //Mambo of toStrings
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());                      
-               
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
+
                 Console.Clear();
 
                 //THIS works!
@@ -74,13 +74,36 @@ namespace ConsoleApplication1
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
                 Console.Clear();
-              
-                //THIS NOT!!!! :(
-                CD_DeserializedStuff.DeleteCustomer(bus_cust);
+
+                String addressToFind = "address";
+                //Customer cus_tofind = CD_DeserializedStuff.CustomerList.Find(
+                // delegate(Customer cus)
+                //{
+                //    return cus.Address == toFind;
+                //}
+                //);
+                //if (cus_tofind != null)
+                //{
+                //    Console.Out.WriteLine(cus_tofind.ToString() + "\n This customer was Find by ID: " + toFind);
+                //}
+                //else
+                //{
+                //    Console.Out.WriteLine("\nNot found: {0}", toFind);
+                //}
+
+                //THIS NOT!!!! :(              
+             //   CD_DeserializedStuff.DeleteCustomer(cus_tofind);
+
+                //CHANGED DELETE METHOD
+                CD_DeserializedStuff.DeleteCustomer(addressToFind);
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
+
+
                 Console.In.ReadLine();
 
             }
         }
+
+        
     }
 }

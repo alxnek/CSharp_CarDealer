@@ -97,9 +97,26 @@ namespace CarDealerLibraries
         /// Delete a customer from the list
         /// </summary>
         /// <remarks>Delete</remarks>
-        public void DeleteCustomer(Customer c)
+        public void DeleteCustomer(String addressToFind)//Customer c)
         {
-            this.customerList.Remove(c);
+            Customer cus_tofind = this.customerList.Find(
+                 delegate(Customer cus)
+                 {
+                     return cus.Address == addressToFind;
+                 }
+                );
+            if (cus_tofind != null)
+            {
+                //Console.Out.WriteLine(cus_tofind.ToString() + "\n This customer was Find by ID: " + addressToFind);
+                this.customerList.Remove(cus_tofind);
+            }
+            else
+            {
+                Console.Out.WriteLine("\nNot found: {0}", addressToFind);
+            }
+
+            // this.customerList.Remove(c);
+
         }
 
         /// <summary>
