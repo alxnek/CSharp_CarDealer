@@ -86,18 +86,47 @@ namespace CarDealerLibraries
         /// Delete a vehicle from the list
         /// </summary>
         /// <remarks>Delete</remarks>
-        public void DeleteVehicle(Vehicle vehicle)
+        public void DeleteVehicle(string licensePlate)
         {
-            this.vehicleList.Remove(vehicle);
+            Vehicle veh_tofind = this.vehicleList.Find(
+                 delegate(Vehicle veh)
+                 {
+                     return veh.LicensePlate == licensePlate;
+                 }
+                );
+            if (veh_tofind != null)
+            {
+                //Console.Out.WriteLine(cus_tofind.ToString() + "\n This customer was Find by ID: " + addressToFind);
+                this.vehicleList.Remove(veh_tofind);
+            }
+            else
+            {
+                Console.Out.WriteLine("\nCannot delete 'the license plate doesn't exist': {0}\n", licensePlate);
+            }
         }
 
         /// <summary>
-        /// Delete a customer from the list
+        /// Delete a customer from the list by his address
         /// </summary>
         /// <remarks>Delete</remarks>
-        public void DeleteCustomer(Customer c)
+        public void DeleteCustomer(String addressToFind)//Customer c)
         {
-            this.customerList.Remove(c);
+            Customer cus_tofind = this.customerList.Find(
+                 delegate(Customer cus)
+                 {
+                     return cus.Address == addressToFind;
+                 }
+                );
+            if (cus_tofind != null)
+            {
+                
+                this.customerList.Remove(cus_tofind);
+            }
+            else
+            {
+                Console.Out.WriteLine("\nCannot delete 'Wrong address': {0}\n", addressToFind);
+            }
+
         }
 
         /// <summary>

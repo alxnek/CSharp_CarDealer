@@ -8,8 +8,8 @@ namespace CarDealerLibraries
     [Serializable]
     public class Large : Car
     {
-        public Large(string colour, string model, int price, string state)
-            : base (colour, model, price, state)
+        public Large(string colour, string model, int price, string state, string licensePlate)
+            : base (colour, model, price, state,licensePlate)
         {
 
         }
@@ -19,7 +19,7 @@ namespace CarDealerLibraries
         }
         public override string ToString()
         {
-            return ("***Car-Large***" + "\nModel: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State + "\n***");
+            return ("-----Large-----\n" + base.ToString());
         }
     }
 }

@@ -123,20 +123,21 @@ namespace CarDealer_GUI
                 {
                     if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
                     {
-                        Small gui_veh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
-                        mycardealer.AddVehicle(gui_veh);  
+                        //Contructor takes 5 parameters now :P
+                        //Small gui_veh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        //mycardealer.AddVehicle(gui_veh);  
                     }
                     if (combo_veh_size_large_item.IsSelected)
                     {
-                        Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
-                        mycardealer.AddVehicle(myveh); 
+                        //Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock");
+                        //mycardealer.AddVehicle(myveh); 
                     }
 
                 }
                 if (select_veh_truck.IsChecked == true)
                 {
-                    Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
-                    mycardealer.AddVehicle(myveh); 
+                    //Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
+                    //mycardealer.AddVehicle(myveh); 
                 }
             }
 
@@ -148,19 +149,19 @@ namespace CarDealer_GUI
                 {
                     if (combo_veh_size_small_item.IsSelected)
                     {
-                        Small gui_veh = new Small(textbox_car_colour.Text, textbox_car_model.Text, Convert.ToInt16(textbox_car_price.Text), "in stock");
-                        mycardealer.AddVehicle(gui_veh); 
+                        //Small gui_veh = new Small(textbox_car_colour.Text, textbox_car_model.Text, Convert.ToInt16(textbox_car_price.Text), "in stock");
+                        //mycardealer.AddVehicle(gui_veh); 
                     }
                     if (combo_veh_size_large_item.IsSelected)
                     {
-                        Large gui_veh = new Large(textbox_car_colour.Text, textbox_car_model.Text, Convert.ToInt16(textbox_car_price.Text), "in stock");
-                        mycardealer.AddVehicle(gui_veh); 
+                        //Large gui_veh = new Large(textbox_car_colour.Text, textbox_car_model.Text, Convert.ToInt16(textbox_car_price.Text), "in stock");
+                        //mycardealer.AddVehicle(gui_veh); 
                     }
                 }
                 if (select_veh_truck.IsChecked == true)
                 {
-                    Truck gui_veh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
-                    mycardealer.AddVehicle(gui_veh);
+                    //Truck gui_veh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock");
+                    //mycardealer.AddVehicle(gui_veh);
                     Contract gui_contract = new Contract();
                 }
             }
