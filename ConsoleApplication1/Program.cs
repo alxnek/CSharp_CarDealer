@@ -26,10 +26,10 @@ namespace ConsoleApplication15
                 List<Vehicle> veh_list = new List<Vehicle>();
                 List<Customer> cust_list = new List<Customer>();
                 //create cars and customers
-                Car c = new Car("Ford", "Fiesta", 12000, "sold");
-                Truck t = new Truck("Mercedes", "truck5000", 112000, "sold");
-                Car l = new Large("Mercedes", "E270", 62000, "sold");
-                Car s = new Small("Mini", "mini", 32000, "sold");
+                Car c = new Car("Ford", "Fiesta", 12000, "sold","License1");
+                Truck t = new Truck("Mercedes", "truck5000", 112000, "sold", "License1");
+                Car l = new Large("Mercedes", "E270", 62000, "sold", "License1");
+                Car s = new Small("Mini", "mini", 32000, "sold", "License1");
                 Private pri_cust = new Private("address", 123123123, "Gangbang", "age", "yes");
                 Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
 
