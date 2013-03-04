@@ -15,19 +15,19 @@
   <Class Name="CarDealerLibraries.Vehicle">
     <Position X="8" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAABAAAAAQAAAAAEAAAAAAAAAAAAAAAEAAgABBAIAAA=</HashCode>
+      <HashCode>EAABAEAAAQBAAAAEAAAAAAAAAAAAAAAEAAgABBAIAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Truck">
-    <Position X="6.75" Y="5" Width="1.5" />
+    <Position X="6.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Truck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Car">
-    <Position X="9" Y="5" Width="1.5" />
+    <Position X="9" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Car.cs</FileName>
@@ -50,21 +50,21 @@
   <Class Name="CarDealerLibraries.Leasing">
     <Position X="3.25" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAIEAAAAAAABEAAAAAAgAAAAAUAAACAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABEAAAAAAgAAAAAUAAAAAAAAQAAAAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Contract">
     <Position X="0.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAEIAAAAAAAEABAAAAAAAAAAAAAACAEAAQAAAAA=</HashCode>
+      <HashCode>AAAABAAIAAAAAAAEAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.CarDealer">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAQAEBAAYAAAAGCAAEAAAAgAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAEAAAAAAQAGBAAYAAAAGCAAEAAACgAAAAEAAAE=</HashCode>
       <FileName>CarDealer.cs</FileName>
     </TypeIdentifier>
   </Class>

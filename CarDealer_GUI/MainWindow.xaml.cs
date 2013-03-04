@@ -20,6 +20,8 @@ namespace CarDealer_GUI
 	public partial class MainWindow : Window
 	{
         CarDealer mycardealer = new CarDealer();
+
+        // Initial setup and grey-out logic.
         #region
         public MainWindow()
         {
@@ -101,7 +103,10 @@ namespace CarDealer_GUI
             textbox_car_colour.IsEnabled = false;
             textbox_car_price.IsEnabled = false;
         }
-
+        #endregion
+        
+        //button logic
+        #region
         private void tab_1_next_click(object sender, RoutedEventArgs e)
         {
             tab_2.IsSelected = true;
@@ -114,13 +119,30 @@ namespace CarDealer_GUI
 
         private void tab_2_finalize_click(object sender, RoutedEventArgs e)
         {
-            string output = "hello there";
-            MessageBox.Show(output);
+            if (((string.IsNullOrEmpty(textbox_pri_address.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textbox_pri_phone.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textbox_pri_name.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textblock_bus_address.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textblock_bus_phone.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textblock_bus_seno.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textblock_bus_fax.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textblock_bus_contact.Text) == true) && IsEnabled) ||
+                ((string.IsNullOrEmpty(textblock_bus_company.Text) == true) && IsEnabled)
+                )
+            {
+            MessageBox.Show("You have forgotten to fill in informationboxes");
+            
+            }
+
+         
+   
         }
         #endregion
 
+        // Create customer logic on button push.
+        #region       
         private void button2_click(object sender, RoutedEventArgs e)
-        {
+        {            
             if (select_pri_customer.IsChecked == true)
             {
                 Private gui_pri_customer = new Private(textbox_pri_address.Text, Convert.ToInt16(textbox_pri_phone.Text), textbox_pri_name.Text, datepicker_pri_birth.Text ,combo_pri_sex.Text);
@@ -171,6 +193,84 @@ namespace CarDealer_GUI
                     Contract gui_contract = new Contract();
                 }
             }
-        }   
-	}
+        }
+        #endregion
+
+        // Exception handling to make sure inputs are correct and are handled without a program crash.
+        #region
+        private void IsAllAlphabetic(string value)
+        {
+            foreach (char c in value)
+            {
+                if (!char.IsLetter(c))
+                {
+                    MessageBox.Show("Your input has to be all alphabetic");
+                    break;
+                }
+            }
+        }
+
+        private void IsALLnumeric(string value)
+        {
+            int number;
+            if (!(int.TryParse(value, out number)) && (string.IsNullOrEmpty(value)==false))
+            {
+                MessageBox.Show("Your input has to be only numbers");                
+            }
+        }
+
+        #endregion
+       
+        private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_pri_phone.Text);
+        }
+
+        private void textbox_pri_name_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsAllAlphabetic(textbox_pri_name.Text);
+        }
+
+        private void textbox_bus_phone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_bus_phone.Text);
+        }
+
+        private void textbox_bus_seno_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_bus_seno.Text);
+        }
+
+        private void textbox_bus_fax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_bus_fax.Text);
+        }
+
+        private void textbox_bus_contact_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsAllAlphabetic(textbox_bus_contact.Text);
+        }
+
+        private void textbox_car_price_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_car_price.Text);
+        }
+
+        private void textbox_truck_rent_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_truck_rent.Text);
+        }
+
+       
+
+
+       
+
+      
+
+        
+
+
+        
+    }
 }
