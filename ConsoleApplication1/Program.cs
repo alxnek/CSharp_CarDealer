@@ -23,7 +23,6 @@ namespace ConsoleApplication1
             static void Main(string[] args)
             {
 
-
                 //2 lists
                 List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
                 List<CarDealerLibraries.Customer> cust_list = new List<CarDealerLibraries.Customer>();
@@ -35,66 +34,50 @@ namespace ConsoleApplication1
                 CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address", 123123123, "Gangbang", "age", "yes");
                 Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
 
-          //      Console.Out.WriteLine("TEST SERIALIZABLE");
-          //      IFormatter formatter = new BinaryFormatter();
-          //      Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-          //      formatter.Serialize(stream, c);
-          ////      formatter.Serialize(stream, pri_cust);
-          //      stream.Close();
-          //      //Once the file.bin is created you can load it again with
-          //      Stream streamToRead = new FileStream("MyFile.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-          //      Vehicle myFordFiesta = (Vehicle)formatter.Deserialize(streamToRead);
-          //      streamToRead.Close();
-                //load the fiesta.bin in the folder project
-               // CarDealerLibraries.Contract.LoadContract("fiesta").PrintContract();
-
-                
                 //make the cardealer
                 CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
 
                 //How to work with de CARDEALER without touching any list
-              //  CD.AddCustomer(pri_cust);
+    
                 CD.AddVehicle(t);
                 CD.AddVehicle(s);
                 CD.AddVehicle(c);
 
-                //No customer and no truck
-              //  CD.DeleteVehicle(t);
-               // CD.DeleteCustomer(pri_cust);
-
                 Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Contract contract = new Contract(s, "contractForSmall");
-                Contract contract2 = new Contract(c, "contractForCar");
-                
+                Contract contract2 = new Contract(c, "contractForCar");                
                 pri_cust.AddContract(contract);
                 pri_cust.AddContract(contract2);
-
-                //New private cus with contracts
+                //New private cus with 2 contracts
                 CD.AddCustomer(pri_cust);
 
                 Leasing lease = new Leasing(t,"serious truck business",3000, "2 years");
                 bus_cust.AddLease(lease);
-
                 CD.AddCustomer(bus_cust);
 
                 //Mambo of toStrings
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());          
-
+                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());                      
                
-
                 Console.Clear();
+
+                //THIS works!
+                //CD.DeleteCustomer(bus_cust);
 
                 //Save all the stuff in files
                 CD.SaveVehiclesToFile();
                 CD.SaveCustomersToFile();
-
                 //Load stuff in new object
                 CarDealer CD_DeserializedStuff = new CarDealer(new List<Vehicle>(), new List<Customer>());
                 CD_DeserializedStuff.VehicleList = CD.LoadVehicles();
                 CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
+                Console.Clear();
+              
+                //THIS NOT!!!! :(
+                CD_DeserializedStuff.DeleteCustomer(bus_cust);
+                Console.Out.WriteLine(CD_DeserializedStuff.ToString());
                 Console.In.ReadLine();
 
             }
