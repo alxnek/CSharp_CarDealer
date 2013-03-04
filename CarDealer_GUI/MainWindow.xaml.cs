@@ -51,12 +51,22 @@ namespace CarDealer_GUI
             textbox_bus_fax.IsEnabled = false;
             textbox_bus_contact.IsEnabled = false;
             textbox_bus_company.IsEnabled = false;
+            textbox_truck_model.IsEnabled = false;
+            textbox_truck_license.IsEnabled = false;
+            textbox_truck_colour.IsEnabled = false;
+            textbox_truck_rent.IsEnabled = false;
+            datepicker_truck_start.IsEnabled = false;
+            datepicker_truck_end.IsEnabled = false;
 
             textbox_pri_address.IsEnabled = true;
             textbox_pri_phone.IsEnabled = true;
             textbox_pri_name.IsEnabled = true;
             datepicker_pri_birth.IsEnabled = true;
             combo_pri_sex.IsEnabled = true;
+            textbox_car_model.IsEnabled = true;
+            textbox_car_license.IsEnabled = true;
+            textbox_car_colour.IsEnabled = true;
+            textbox_car_price.IsEnabled = true;
         }
         private void select_bus_customer_clicked(object sender, RoutedEventArgs e)
         {
@@ -66,31 +76,6 @@ namespace CarDealer_GUI
             textbox_bus_fax.IsEnabled = true;
             textbox_bus_contact.IsEnabled = true;
             textbox_bus_company.IsEnabled = true;
-
-            textbox_pri_address.IsEnabled = false;
-            textbox_pri_phone.IsEnabled = false;
-            textbox_pri_name.IsEnabled = false;
-            datepicker_pri_birth.IsEnabled = false;
-            combo_pri_sex.IsEnabled = false;
-        }
-
-        private void select_veh_car_clicked(object sender, RoutedEventArgs e)
-        {         
-            textbox_truck_model.IsEnabled = false;
-            textbox_truck_license.IsEnabled = false;
-            textbox_truck_colour.IsEnabled = false;
-            textbox_truck_rent.IsEnabled = false;
-            datepicker_truck_start.IsEnabled = false;
-            datepicker_truck_end.IsEnabled = false;
-
-            textbox_car_model.IsEnabled = true;
-            textbox_car_license.IsEnabled = true;
-            textbox_car_colour.IsEnabled = true;
-            textbox_car_price.IsEnabled = true;
-        }
-
-        private void select_veh_truck_clicked(object sender, RoutedEventArgs e)
-        {
             textbox_truck_model.IsEnabled = true;
             textbox_truck_license.IsEnabled = true;
             textbox_truck_colour.IsEnabled = true;
@@ -98,11 +83,17 @@ namespace CarDealer_GUI
             datepicker_truck_start.IsEnabled = true;
             datepicker_truck_end.IsEnabled = true;
 
+            textbox_pri_address.IsEnabled = false;
+            textbox_pri_phone.IsEnabled = false;
+            textbox_pri_name.IsEnabled = false;
+            datepicker_pri_birth.IsEnabled = false;
+            combo_pri_sex.IsEnabled = false;
             textbox_car_model.IsEnabled = false;
             textbox_car_license.IsEnabled = false;
             textbox_car_colour.IsEnabled = false;
             textbox_car_price.IsEnabled = false;
         }
+
         #endregion
         
         //button logic
@@ -118,85 +109,106 @@ namespace CarDealer_GUI
         }
 
         private void tab_2_finalize_click(object sender, RoutedEventArgs e)
-        {
-            if (((string.IsNullOrEmpty(textbox_pri_address.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textbox_pri_phone.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textbox_pri_name.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textblock_bus_address.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textblock_bus_phone.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textblock_bus_seno.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textblock_bus_fax.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textblock_bus_contact.Text) == true) && IsEnabled) ||
-                ((string.IsNullOrEmpty(textblock_bus_company.Text) == true) && IsEnabled)
-                )
-            {
-            MessageBox.Show("You have forgotten to fill in informationboxes");
-            
-            }
+        {   
+            bool pri_null_exception = false;
+            bool bus_null_exception = false;
+            bool car_null_exception = false;
+            bool truck_null_exception = false;
 
-         
-   
-        }
-        #endregion
+            string pri_boxes_empty_string = "";
+            string car_boxes_empty_string = "";
+            string bus_boxes_empty_string = "";
+            string truck_boxes_empty_string = "";
 
-        // Create customer logic on button push.
-        #region       
-        private void button2_click(object sender, RoutedEventArgs e)
-        {            
             if (select_pri_customer.IsChecked == true)
             {
-                Private gui_pri_customer = new Private(textbox_pri_address.Text, Convert.ToInt16(textbox_pri_phone.Text), textbox_pri_name.Text, datepicker_pri_birth.Text ,combo_pri_sex.Text);
-                //mycardealer.AddCustomer(gui_pri_customer);
-                if (select_veh_car.IsChecked == true)
+                if ((string.IsNullOrEmpty(textbox_pri_address.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_pri_phone.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_pri_name.Text) == true))
                 {
-                    if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
-                    {
-                        //Contructor takes 5 parameters now :P
-                        Small gui_veh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock", textbox_car_license.Text);
-                        mycardealer.AddVehicle(gui_veh);  
-                    }
-                    if (combo_veh_size_large_item.IsSelected)
-                    {
-                        Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock", textbox_car_license.Text);
-                        mycardealer.AddVehicle(myveh); 
-                    }
-
+                    pri_boxes_empty_string = "You have forgotten to fill in informationboxes in private customer \n";
+                    pri_null_exception = true;
                 }
-                if (select_veh_truck.IsChecked == true)
+
+                if ((string.IsNullOrEmpty(textbox_car_model.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_car_license.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_car_price.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_car_colour.Text) == true))
                 {
-                    Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock", textbox_truck_license.Text);
-                    mycardealer.AddVehicle(myveh); 
+                    car_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
+                    car_null_exception = true;
                 }
             }
 
             if (select_bus_customer.IsChecked == true)
             {
+                if ((string.IsNullOrEmpty(textbox_bus_address.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_bus_phone.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_bus_seno.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_bus_fax.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_bus_contact.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_bus_company.Text) == true))
+                {
+                    bus_boxes_empty_string = "You have forgotten to fill in informationboxes in business customer \n";
+                    bus_null_exception = true;
+                }
+
+                if ((string.IsNullOrEmpty(textbox_truck_model.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_truck_license.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_truck_rent.Text) == true) ||
+                    (string.IsNullOrEmpty(textbox_truck_colour.Text) == true))
+                {
+                    truck_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
+                    truck_null_exception = true;
+                }
+            }
+            if((pri_null_exception || car_null_exception || bus_null_exception || truck_null_exception) == true)
+            {
+                MessageBox.Show(pri_boxes_empty_string + car_boxes_empty_string + bus_boxes_empty_string + truck_boxes_empty_string);
+            }
+                    
+        }
+    
+        #endregion
+
+        // Create customer logic on button push.
+        #region       
+
+        private void button2_click(object sender, RoutedEventArgs e)
+        {
+            //check if the customer type is a business
+            if (select_pri_customer.IsChecked == true)
+            {
+                Private gui_pri_customer = new Private(textbox_pri_address.Text, Convert.ToInt16(textbox_pri_phone.Text), textbox_pri_name.Text, datepicker_pri_birth.Text ,combo_pri_sex.Text);
+                
+                if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
+                {
+                    Small myveh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock", textbox_car_license.Text);
+                    mycardealer.AddVehicle(myveh);  
+                }
+
+                if (combo_veh_size_large_item.IsSelected)
+                {
+                    Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock", textbox_car_license.Text);
+                    mycardealer.AddVehicle(myveh);
+                }                             
+                Contract gui_contract = new Contract(); 
+            }
+          
+            //check if the customer type is a business
+            if (select_bus_customer.IsChecked == true)
+            {
                 Business gui_bus_customer = new Business(textbox_bus_address.Text, Convert.ToInt16(textbox_bus_phone.Text), Convert.ToInt16(textbox_bus_seno.Text), Convert.ToInt16(textbox_bus_fax.Text), textbox_bus_contact.Text, textbox_bus_company.Text);
-                mycardealer.AddCustomer(gui_bus_customer);
-                if (select_veh_car.IsChecked == true)
-                {
-                    if (combo_veh_size_small_item.IsSelected)
-                    {
-                        Small gui_veh = new Small(textbox_car_colour.Text, textbox_car_model.Text, Convert.ToInt16(textbox_car_price.Text), "in stock", textbox_car_license.Text);
-                        mycardealer.AddVehicle(gui_veh); 
-                    }
-                    if (combo_veh_size_large_item.IsSelected)
-                    {
-                        Large gui_veh = new Large(textbox_car_colour.Text, textbox_car_model.Text, Convert.ToInt16(textbox_car_price.Text), "in stock", textbox_car_license.Text);
-                        mycardealer.AddVehicle(gui_veh); 
-                    }
-                }
-                if (select_veh_truck.IsChecked == true)
-                {
-                    Truck gui_veh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock", textbox_truck_license.Text);
-                    mycardealer.AddVehicle(gui_veh);
-                    Contract gui_contract = new Contract();
-                }
+               
+                Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock", textbox_truck_license.Text);
+                mycardealer.AddVehicle(myveh);            
+            
+                Contract gui_contract = new Contract();                
             }
         }
         #endregion
 
-        // Exception handling to make sure inputs are correct and are handled without a program crash.
+        // Exception methods to make sure inputs are correct and are handled without a program crash.
         #region
         private void IsAllAlphabetic(string value)
         {
@@ -220,7 +232,8 @@ namespace CarDealer_GUI
         }
 
         #endregion
-       
+        //User feedback to make use easier
+        #region 
         private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
         {
             IsALLnumeric(textbox_pri_phone.Text);
@@ -260,17 +273,7 @@ namespace CarDealer_GUI
         {
             IsALLnumeric(textbox_truck_rent.Text);
         }
-
-       
-
-
-       
-
-      
-
-        
-
-
-        
-    }
+        #endregion 
+    }     
+    
 }
