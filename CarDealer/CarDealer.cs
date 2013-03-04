@@ -8,10 +8,8 @@ using System.IO;
 
 namespace CarDealerLibraries
 {
-
     public class CarDealer
     {
-
         private List<Vehicle> vehicleList;
 
         private List<Customer> customerList;
