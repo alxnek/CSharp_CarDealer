@@ -21,6 +21,9 @@ namespace CarDealerLibraries
         /// Create a lease
         /// </summary>
         /// <remarks>Business and a truck</remarks>
+        
+
+        // add rentperiod logic, atm it accepts a string, but it needs to do calculations on start to end date.
         public Leasing(Truck truck, string leaseName, int rent, string rentPeriod)
         {
             //this.formatter = new BinaryFormatter();

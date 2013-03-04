@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using CarDealerLibraries;//With this is not needed to use CarDealerLibraries.----- thx
+using CarDealerLibraries;//makes car, truck and other objects recognizeable without using the cardealer prefix
 
 /*Added a reference to the DLL from the CarDealer project.
  * 
@@ -14,7 +14,7 @@ using CarDealerLibraries;//With this is not needed to use CarDealerLibraries.---
  * Build CarDealer then Debug this project to test the CarDealer
  * 
  * */
-namespace ConsoleApplication1
+namespace ConsoleApplication15
 {
     class Program
     {
@@ -22,20 +22,23 @@ namespace ConsoleApplication1
         {
             static void Main(string[] args)
             {
-
                 //2 lists
-                List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
-                List<CarDealerLibraries.Customer> cust_list = new List<CarDealerLibraries.Customer>();
+                List<Vehicle> veh_list = new List<Vehicle>();
+                List<Customer> cust_list = new List<Customer>();
                 //create cars and customers
-                CarDealerLibraries.Car c = new CarDealerLibraries.Car("Ford", "Fiesta", 12000, "sold","111");
-                CarDealerLibraries.Truck t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold","222");
-                CarDealerLibraries.Car l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold","333");
-                CarDealerLibraries.Car s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold", "444");
-                CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address1", 123123123, "Gangbang", "age", "yes");
+                Car c = new Car("Ford", "Fiesta", 12000, "sold","License1");
+                Truck t = new Truck("Mercedes", "truck5000", 112000, "sold", "License1");
+                Car l = new Large("Mercedes", "E270", 62000, "sold", "License1");
+                Car s = new Small("Mini", "mini", 32000, "sold", "License1");
+                Private pri_cust = new Private("address", 123123123, "Gangbang", "age", "yes");
                 Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
 
+          //      formatter.Serialize(stream, pri_cust);
+          //      load the fiesta.bin in the folder project
+          //      Contract.LoadContract("fiesta").PrintContract();
+                             
                 //make the cardealer
-                CarDealerLibraries.CarDealer CD = new CarDealerLibraries.CarDealer(veh_list, cust_list);
+                CarDealer CD = new CarDealer(veh_list, cust_list);
 
                 //How to work with de CARDEALER without touching any list
 
@@ -43,13 +46,17 @@ namespace ConsoleApplication1
                 CD.AddVehicle(s);
                 CD.AddVehicle(c);
 
+              // No customer and no truck
+              // CD.DeleteVehicle(t);
+              // CD.DeleteCustomer(pri_cust);
                 Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
 
                 Contract contract = new Contract(s, "contractForSmall");
                 Contract contract2 = new Contract(c, "contractForCar");
+
                 pri_cust.AddContract(contract);
                 pri_cust.AddContract(contract2);
-                //New private cus with 2 contracts
+                
                 CD.AddCustomer(pri_cust);
 
                 Leasing lease = new Leasing(t, "serious truck business", 3000, "2 years");
@@ -84,7 +91,6 @@ namespace ConsoleApplication1
 
 
                 Console.In.ReadLine();
-
             }
         }
 

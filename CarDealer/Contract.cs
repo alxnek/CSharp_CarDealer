@@ -21,11 +21,9 @@ namespace CarDealerLibraries
         /// </summary>
         /// <remarks>Needs a vehicle and a name for the contract</remarks>
         public Contract(Car car, string contractName)
-        {
-     
+        {     
             this.car = car;
-            this.contractName = contractName;           
-
+            this.contractName = contractName;       
         }
 
         public Contract()
