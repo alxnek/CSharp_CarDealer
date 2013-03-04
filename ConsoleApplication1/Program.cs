@@ -27,10 +27,10 @@ namespace ConsoleApplication1
                 List<CarDealerLibraries.Vehicle> veh_list = new List<CarDealerLibraries.Vehicle>();
                 List<CarDealerLibraries.Customer> cust_list = new List<CarDealerLibraries.Customer>();
                 //create cars and customers
-                CarDealerLibraries.Car c = new CarDealerLibraries.Car("Ford", "Fiesta", 12000, "sold");
-                CarDealerLibraries.Truck t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold");
-                CarDealerLibraries.Car l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold");
-                CarDealerLibraries.Car s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold");
+                CarDealerLibraries.Car c = new CarDealerLibraries.Car("Ford", "Fiesta", 12000, "sold","111");
+                CarDealerLibraries.Truck t = new CarDealerLibraries.Truck("Mercedes", "truck5000", 112000, "sold","222");
+                CarDealerLibraries.Car l = new CarDealerLibraries.Large("Mercedes", "E270", 62000, "sold","333");
+                CarDealerLibraries.Car s = new CarDealerLibraries.Small("Mini", "mini", 32000, "sold", "444");
                 CarDealerLibraries.Private pri_cust = new CarDealerLibraries.Private("address1", 123123123, "Gangbang", "age", "yes");
                 Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
 
@@ -62,7 +62,7 @@ namespace ConsoleApplication1
                 Console.Clear();
 
                 //THIS works!
-                //CD.DeleteCustomer(bus_cust);
+               // CD.DeleteCustomer("address");
 
                 //Save all the stuff in files
                 CD.SaveVehiclesToFile();
@@ -73,29 +73,13 @@ namespace ConsoleApplication1
                 CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
-                Console.Clear();
+               // Console.Clear();
 
                 String addressToFind = "address";
-                //Customer cus_tofind = CD_DeserializedStuff.CustomerList.Find(
-                // delegate(Customer cus)
-                //{
-                //    return cus.Address == toFind;
-                //}
-                //);
-                //if (cus_tofind != null)
-                //{
-                //    Console.Out.WriteLine(cus_tofind.ToString() + "\n This customer was Find by ID: " + toFind);
-                //}
-                //else
-                //{
-                //    Console.Out.WriteLine("\nNot found: {0}", toFind);
-                //}
 
-                //THIS NOT!!!! :(              
-             //   CD_DeserializedStuff.DeleteCustomer(cus_tofind);
-
-                //CHANGED DELETE METHOD
+                //CHANGED DELETE METHOD, now works :D
                 CD_DeserializedStuff.DeleteCustomer(addressToFind);
+                CD_DeserializedStuff.DeleteVehicle("111");
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
 

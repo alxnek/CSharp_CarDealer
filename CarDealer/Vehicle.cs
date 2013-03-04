@@ -12,13 +12,15 @@ namespace CarDealerLibraries
         private string model;
         private int price;
         private string state;
+        private string licensePlate;
 
-        public Vehicle(string colour, string model, int price, string state)
+        public Vehicle(string colour, string model, int price, string state, string licensePlate)
         {
             this.colour = colour;
             this.model = model;
             this.price = price;
             this.state = state;
+            this.licensePlate = licensePlate;
                 
         }
 
@@ -91,12 +93,28 @@ namespace CarDealerLibraries
         }
 
         /// <summary>
+        /// Car's licence plate
+        /// </summary>
+        /// <remarks>licence plate</remarks>
+        public string LicensePlate
+        {
+            get
+            {
+                return this.licensePlate;
+            }
+            set
+            {
+                this.licensePlate = value;
+            }
+        }
+
+        /// <summary>
         /// Convert the vehicle's properties into text
         /// </summary>
         /// <remarks>Vehicle's toString</remarks>
         public override string ToString() 
         {
-            return ("Model: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State+"\n***");
+            return ("Model: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State+"\nPlate number: "+this.LicensePlate+"\n***");
         }
     }
 }

@@ -8,8 +8,8 @@ namespace CarDealerLibraries
     [Serializable]
     public class Truck : Vehicle
     {
-        public Truck(string colour, string model, int price, string state)
-            : base (colour, model, price, state)
+        public Truck(string colour, string model, int price, string state, string licensePlate)
+            : base (colour, model, price, state, licensePlate)
         {
 
         }
