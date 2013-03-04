@@ -20,7 +20,7 @@ namespace CarDealerLibraries
 
         public override string ToString()
         {
-            return ("***Truck***" + "\nModel: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State + "\n***");
+            return ("-----Truck-----\n" + base.ToString());
         }
     }
 }
