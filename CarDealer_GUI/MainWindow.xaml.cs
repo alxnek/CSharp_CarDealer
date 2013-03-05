@@ -234,9 +234,19 @@ namespace CarDealer_GUI
             // if no errors found then complete the finalize action and bring up the finalize window.
             else
             {
-                MessageBox.Show("Awesome you understand to put in the right input");
-            }
-                    
+                //MessageBox.Show("Awesome you understand to put in the right input");
+                if (select_pri_customer.IsChecked == true)
+                {
+                    finalize_pri_contract pri_window = new finalize_pri_contract();
+                    pri_window.ShowDialog();
+                }
+
+                if(select_bus_customer.IsChecked==true)
+                {
+                    finalize_bus_contract bus_window = new finalize_bus_contract();               
+                    bus_window.ShowDialog();
+                }                                    
+            }                    
         }
     
         #endregion
