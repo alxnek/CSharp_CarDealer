@@ -1,0 +1,56 @@
+﻿<Window x:Class="CarDealer_GUI.finalize_bus_contract"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="finalize_bus_contract" Height="324" Width="800" xmlns:my="clr-namespace:System;assembly=mscorlib">
+    <Grid Background="#FFE5E5E5" DataContext="{Binding}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="130*" />
+            <ColumnDefinition Width="130*" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="130*" />
+            <ColumnDefinition Width="130*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="211*" />
+            <RowDefinition Height="32*" />
+        </Grid.RowDefinitions>
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,9,0,0" Name="textblock_bus_temp_address" Text="Adress:" VerticalAlignment="Top" Width="95" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,38,0,0" Name="textblock_bus_temp_phone" Text="Phone:" VerticalAlignment="Top" Width="95" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,67,0,0" Name="textblock_bus_temp_seno" Text="SE Number:" VerticalAlignment="Top" Width="95" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,96,0,0" Name="textblock_bus_temp_fax" Text="Fax:" VerticalAlignment="Top" Width="95" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="14,124,0,0" Name="textblock_bus_temp_contact" Text="Contact Person:" VerticalAlignment="Top" Width="93" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="14,153,0,0" Name="textblock_bus_temp_company" Text="Company:" VerticalAlignment="Top" Width="95" Grid.Row="1" Grid.ColumnSpan="2" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="140,10,0,0" Name="textbox_bus_temp_address" VerticalAlignment="Top" Width="120" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+                 Text="{Binding ElementName=textbox_bus_address, Path=Text, 
+                        UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="139,0,0,157" Name="textbox_bus_phone" VerticalAlignment="Bottom" Width="120" Grid.Column="1" Grid.ColumnSpan="2" />
+        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="140,68,0,0" Name="textbox_bus_seno" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="140,96,0,0" Name="textbox_bus_fax" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="140,125,0,0" Name="textbox_bus_contact" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+        <TextBox Grid.ColumnSpan="2" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="140,154,0,0" Name="textbox_bus_company" VerticalAlignment="Top" Width="120" Grid.Column="1" />
+        <TextBox Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="0,8,0,0" Name="textbox_truck_model" VerticalAlignment="Top" Width="120" Grid.Column="5" Grid.Row="1" />
+        <TextBlock Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="0,13,0,0" Name="textblock_truck_model" Text="Model" VerticalAlignment="Top" Width="95" Grid.Column="3" Grid.Row="1" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="0,66,0,0" Name="textbox_truck_colour" VerticalAlignment="Top" Width="120" Grid.Column="5" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="1,70,0,0" Name="textblock_truck_colour" Text="Colour" VerticalAlignment="Top" Width="95" Grid.Column="3" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="1,128,0,0" Name="textblock_truck_startdate" Text="Start Date" VerticalAlignment="Top" Width="95" Grid.Column="3" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="1,157,0,0" Name="textblock_truck_enddate" Text="End Date" VerticalAlignment="Top" Width="95" Grid.Column="3" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="0,95,0,0" Name="textbox_truck_rent" VerticalAlignment="Top" Width="120" Grid.Column="5" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="1,99,0,0" Name="textblock_truck_rent" Text="Rent Pro Month" VerticalAlignment="Top" Width="95" Grid.Column="3" />
+        <DatePicker DisplayDateStart="{x:Static my:DateTime.Now}" Grid.ColumnSpan="2" Grid.Row="1" Height="25" HorizontalAlignment="Left" Margin="139,124,0,0" Name="datepicker_truck_start" SelectedDate="{x:Static my:DateTime.Now}" VerticalAlignment="Top" Width="121" Grid.Column="4" />
+        <DatePicker Grid.Row="1" Height="25" HorizontalAlignment="Left" Margin="0,153,0,0" Name="datepicker_truck_end" VerticalAlignment="Top" Width="121" Grid.Column="5" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="0,36,0,0" Name="textbox_truck_license" VerticalAlignment="Top" Width="120" Grid.Column="5" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="1,39,0,0" Name="textblock_truck_license" Text="License Number" VerticalAlignment="Top" Width="95" Grid.Column="3" DataContext="{Binding}" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="0,13,0,0" Name="testbox" VerticalAlignment="Top" Width="95" Grid.Column="1" Grid.Row="1" 
+                   Text="{Binding}" DataContext="{Binding ElementName=textbox_bus_address, Path=Text}"/>
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,42,0,0" Name="textBlock2" Text="" VerticalAlignment="Top" Width="95" Grid.Column="1" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,67,0,0" Name="textBlock3" Text="" VerticalAlignment="Top" Width="95" Grid.Column="1" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,96,0,0" Name="textBlock4" Text="" VerticalAlignment="Top" Width="95" Grid.Column="1" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,124,0,0" Name="textBlock5" Text="" VerticalAlignment="Top" Width="93" Grid.Column="1" />
+        <TextBlock Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,153,0,0" Name="textBlock6" Text="" VerticalAlignment="Top" Width="95" Grid.Column="1" />
+        <Button Content="Set new content" Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="140,9,0,0" Name="button1" VerticalAlignment="Top" Width="119" Grid.Column="1" />
+        <Button Content="Set new content" Grid.Column="4" Height="23" HorizontalAlignment="Left" Margin="140,9,0,0" Name="button2" VerticalAlignment="Top" Width="121" Grid.ColumnSpan="2" />
+        <Button Content="Create" Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="139,0,0,0" Name="button3" VerticalAlignment="Top" Width="120" Grid.Column="4" Grid.Row="2" />
+    </Grid>
+</Window>
