@@ -21,10 +21,13 @@ namespace CarDealer_GUI
 	{
         CarDealer mycardealer = new CarDealer(new List<Vehicle>(), new List<Customer>());
 
+        
         // Initial setup and grey-out logic.        
         public MainWindow()
         {
             this.InitializeComponent();
+            
+            
 			// Insert code required on object creation below this point.
             // Insert Grey out logic here and afterwards.
             textbox_bus_address.IsEnabled = false;
@@ -33,13 +36,8 @@ namespace CarDealer_GUI
             textbox_bus_fax.IsEnabled = false;
             textbox_bus_contact.IsEnabled = false;
             textbox_bus_company.IsEnabled = false;
-
-            textbox_truck_model.IsEnabled = false;
-            textbox_truck_license.IsEnabled = false;
-            textbox_truck_colour.IsEnabled = false;
-            textbox_truck_rent.IsEnabled = false;
-            datepicker_truck_start.IsEnabled = false;
-            datepicker_truck_end.IsEnabled = false;
+           
+            
 		}
         #region
         //grey-out logic for private customer type focus.
@@ -175,7 +173,8 @@ namespace CarDealer_GUI
                                                             textbox_pri_name.Text,
                                                             datepicker_pri_birth.Text,
                                                             combo_pri_sex.Text);
-                    mycardealer.SaveCustomersToFile();
+                    mycardealer.AddCustomer(gui_pri_customer);
+
                 }
                 //check if business customer and create lease.
                 if (select_bus_customer.IsChecked == true)
@@ -185,8 +184,11 @@ namespace CarDealer_GUI
                                                             Convert.ToInt32(textbox_bus_seno.Text),
                                                             Convert.ToInt32(textbox_bus_fax.Text),
                                                             textbox_bus_contact.Text, textbox_bus_company.Text);
-                    mycardealer.SaveCustomersToFile();
+                    mycardealer.AddCustomer(gui_bus_customer);
                 }
+                mycardealer.SaveCustomersToFile();
+                MessageBox.Show(mycardealer.ToString());
+                
             }      
 
         }
@@ -201,7 +203,9 @@ namespace CarDealer_GUI
             string car_boxes_empty_string = "";            
             string truck_boxes_empty_string = "";
             string car_wrong_format_string = "";
-            string truck_wrong_format_string = "";            
+            string truck_wrong_format_string = "";
+
+            
 
             //selected private
             if (select_pri_customer.IsChecked == true)
@@ -294,7 +298,7 @@ namespace CarDealer_GUI
                 //check if private customer and create contract.
                 if (select_pri_customer.IsChecked == true)
                 {
-                    mycardealer.AddCustomer(gui_pri_customer);
+                   
                     if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
                     {
                         Small myveh = new Small(textbox_car_colour.Text,
@@ -305,7 +309,7 @@ namespace CarDealer_GUI
 
                         mycardealer.AddVehicle(myveh);
                         Contract gui_contract = new Contract(myveh, "contract");
-                        gui_pri_customer.AddContract(gui_contract);
+                        
                         MessageBox.Show(mycardealer.ToString());
                     }
 
@@ -319,7 +323,7 @@ namespace CarDealer_GUI
 
                         mycardealer.AddVehicle(myveh);
                         Contract gui_contract = new Contract(myveh, "contract");
-                        gui_pri_customer.AddContract(gui_contract);
+                       
                         MessageBox.Show(mycardealer.ToString());
                     }
 
@@ -329,7 +333,7 @@ namespace CarDealer_GUI
                 //check if business customer and create lease.
                 if (select_bus_customer.IsChecked == true)
                 {
-                    mycardealer.AddCustomer(gui_bus_customer);
+                   
 
                     Truck myveh = new Truck(textbox_truck_colour.Text,
                                             textbox_truck_model.Text,
@@ -339,11 +343,14 @@ namespace CarDealer_GUI
 
                     mycardealer.AddVehicle(myveh);
 
-                    Leasing gui_contract = new Leasing(myveh, "truckContract", Convert.ToInt32(textbox_truck_rent.Text), datepicker_truck_start.Text);
-                    gui_bus_customer.AddLease(gui_contract);
+                    Leasing gui_contract = new Leasing(myveh, 
+                                                        "truckContract",
+                                                        Convert.ToInt32(textbox_truck_rent.Text),
+                                                        datepicker_truck_start.Text);
+                    
                     MessageBox.Show(mycardealer.ToString());
                 }
-                mycardealer.SaveCustomersToFile();
+                
                 mycardealer.SaveVehiclesToFile();
             }                    
         }    
@@ -424,6 +431,15 @@ namespace CarDealer_GUI
             return true;
         }
         #endregion 
+
+        private void tab_2_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+
+            this.mycardealer.CustomerList = mycardealer.LoadCustomers();
+           
+            this.comboBox1.ItemsSource = mycardealer.CustomerList;
+        }
 
        
     }     
