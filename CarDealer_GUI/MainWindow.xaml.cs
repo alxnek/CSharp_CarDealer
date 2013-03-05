@@ -114,66 +114,131 @@ namespace CarDealer_GUI
             bool bus_null_exception = false;
             bool car_null_exception = false;
             bool truck_null_exception = false;
+            bool pri_format_exception = false;
+            bool bus_format_exception = false;
+            bool car_format_exception = false;
+            bool truck_format_exception = false;
 
-            string pri_boxes_empty_string = "";
+            string pri_boxes_empty_string = "";            
             string car_boxes_empty_string = "";
             string bus_boxes_empty_string = "";
             string truck_boxes_empty_string = "";
+            string pri_wrong_format_string = "";
+            string bus_wrong_format_string = "";
+            string car_wrong_format_string = "";
+            string truck_wrong_format_string = "";
+            
 
+            //selected private
             if (select_pri_customer.IsChecked == true)
             {
-                if ((string.IsNullOrEmpty(textbox_pri_address.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_pri_phone.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_pri_name.Text) == true))
+                //Test if text boxes in the private section are empty.
+                if (string.IsNullOrEmpty(textbox_pri_address.Text) == true ||
+                    string.IsNullOrEmpty(textbox_pri_phone.Text) == true ||
+                    string.IsNullOrEmpty(textbox_pri_name.Text) == true)
                 {
                     pri_boxes_empty_string = "You have forgotten to fill in informationboxes in private customer \n";
                     pri_null_exception = true;
                 }
-
-                if ((string.IsNullOrEmpty(textbox_car_model.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_car_license.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_car_price.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_car_colour.Text) == true))
+                //Test if text boxes in the car section are empty.
+                if (string.IsNullOrEmpty(textbox_car_model.Text) == true ||
+                    string.IsNullOrEmpty(textbox_car_license.Text) == true ||
+                    string.IsNullOrEmpty(textbox_car_price.Text) == true ||
+                    string.IsNullOrEmpty(textbox_car_colour.Text) == true)
                 {
                     car_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
                     car_null_exception = true;
                 }
-            }
+                //Test if text boxes in the private section are in the right format.
+                if (IsAllAlphabetic(textbox_pri_name.Text, false) == false ||
+                    IsALLnumeric(textbox_pri_phone.Text, false) == false)                    
+                {
+                    pri_wrong_format_string = "Your have format errors in your private customer \n";
+                    pri_format_exception=true;
+                }
+                //Test if text boxes in the car section are in the right format
+                if (IsALLnumeric(textbox_car_price.Text, false) == false)                          
+                {
+                    car_wrong_format_string = "Your have format errors in your vehicle \n";
+                    car_format_exception=true;
+                }
 
+            }
+            //selected business
             if (select_bus_customer.IsChecked == true)
             {
-                if ((string.IsNullOrEmpty(textbox_bus_address.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_bus_phone.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_bus_seno.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_bus_fax.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_bus_contact.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_bus_company.Text) == true))
+                //Test if text boxes in the business section are empty
+                if (string.IsNullOrEmpty(textbox_bus_address.Text) == true ||
+                    string.IsNullOrEmpty(textbox_bus_phone.Text) == true ||
+                    string.IsNullOrEmpty(textbox_bus_seno.Text) == true ||
+                    string.IsNullOrEmpty(textbox_bus_fax.Text) == true ||
+                    string.IsNullOrEmpty(textbox_bus_contact.Text) == true ||
+                    string.IsNullOrEmpty(textbox_bus_company.Text) == true)
                 {
                     bus_boxes_empty_string = "You have forgotten to fill in informationboxes in business customer \n";
                     bus_null_exception = true;
                 }
-
-                if ((string.IsNullOrEmpty(textbox_truck_model.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_truck_license.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_truck_rent.Text) == true) ||
-                    (string.IsNullOrEmpty(textbox_truck_colour.Text) == true))
+                //Test if text boxes in the truck section are empty
+                if (string.IsNullOrEmpty(textbox_truck_model.Text) == true ||
+                    string.IsNullOrEmpty(textbox_truck_license.Text) == true ||
+                    string.IsNullOrEmpty(textbox_truck_rent.Text) == true ||
+                    string.IsNullOrEmpty(textbox_truck_colour.Text) == true)
                 {
                     truck_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
                     truck_null_exception = true;
                 }
+                //Test if text boxes in the business section are in the right format
+                if (IsAllAlphabetic(textbox_bus_contact.Text,false) == false ||
+                    IsALLnumeric(textbox_bus_phone.Text, false) == false ||
+                    IsALLnumeric(textbox_bus_seno.Text, false) == false ||
+                    IsALLnumeric(textbox_bus_fax.Text, false) == false
+                    )
+                {
+                    bus_wrong_format_string = "Your have format errors in your private customer \n";
+                    bus_format_exception = true;
+                }
+                //Test if text boxes in the truck section are in the right format
+                if (IsALLnumeric(textbox_truck_rent.Text, false) == false)
+                {
+                    truck_wrong_format_string = "Your have format errors in your vehicle \n";
+                    truck_format_exception = true;
+                }
             }
-            if((pri_null_exception || car_null_exception || bus_null_exception || truck_null_exception) == true)
+            //If any of the boxes were in the wrong format or empty,
+            //then show the messagebox notifying the user and break the finalize action.
+            if ((pri_null_exception ||
+                car_null_exception ||
+                bus_null_exception ||
+                truck_null_exception ||
+                pri_format_exception ||
+                bus_format_exception ||
+                car_format_exception ||
+                truck_format_exception) == true)
             {
-                MessageBox.Show(pri_boxes_empty_string + car_boxes_empty_string + bus_boxes_empty_string + truck_boxes_empty_string);
+                MessageBox.Show(pri_boxes_empty_string +
+                                car_boxes_empty_string +
+                                bus_boxes_empty_string +
+                                truck_boxes_empty_string +
+                                pri_wrong_format_string +
+                                bus_wrong_format_string +
+                                car_wrong_format_string +
+                                truck_wrong_format_string);
+            }
+            // if no errors found then complete the finalize action and bring up the finalize window.
+            else
+            {
+                MessageBox.Show("Awesome you understand to put in the right input");
             }
                     
         }
     
         #endregion
 
-        // Create customer logic on button push.
+        // Create a customer on button push, is to be used in finalize button.
         #region       
 
+
+        //fill in for creating customers, needs to be moved to finalize button.
         private void button2_click(object sender, RoutedEventArgs e)
         {
             //check if the customer type is a business
@@ -207,73 +272,81 @@ namespace CarDealer_GUI
             }
         }
         #endregion
+               
+        //Feedback on format sensitive textboxes to notify user of error when they shift focus to other boxes.
+        #region 
+        private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_pri_phone.Text, true);
+        }
 
-        // Exception methods to make sure inputs are correct and are handled without a program crash.
+        private void textbox_pri_name_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsAllAlphabetic(textbox_pri_name.Text, true);
+        }
+
+        private void textbox_bus_phone_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_bus_phone.Text, true);
+        }
+
+        private void textbox_bus_seno_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_bus_seno.Text, true);
+        }
+
+        private void textbox_bus_fax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_bus_fax.Text, true);
+        }
+
+        private void textbox_bus_contact_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsAllAlphabetic(textbox_bus_contact.Text, true);                     
+        }
+
+        private void textbox_car_price_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_car_price.Text, true);
+        }
+
+        private void textbox_truck_rent_LostFocus(object sender, RoutedEventArgs e)
+        {
+            IsALLnumeric(textbox_truck_rent.Text, true);
+        }
+        #endregion 
+
+        // String methods to make sure inputs are correct and are handled.
         #region
-        private void IsAllAlphabetic(string value)
+        private bool IsAllAlphabetic(string value,bool show)
         {
             foreach (char c in value)
             {
                 if (!char.IsLetter(c))
                 {
-                    MessageBox.Show("Your input has to be all alphabetic");
-                    break;
+                    if (show == true)
+                    {
+                        MessageBox.Show("Your input has to be all alphabetic");
+                    }                    
+                    return false;
                 }
             }
+            return true;
         }
 
-        private void IsALLnumeric(string value)
+        private bool IsALLnumeric(string value, bool show)
         {
             int number;
-            if (!(int.TryParse(value, out number)) && (string.IsNullOrEmpty(value)==false))
+            if (!(int.TryParse(value, out number)) && (string.IsNullOrEmpty(value) == false))
             {
-                MessageBox.Show("Your input has to be only numbers");                
+                if (show == true)
+                {
+                    MessageBox.Show("Your input has to be only numbers");
+                }
+                return false;
             }
+            return true;
         }
-
         #endregion
-        //User feedback to make use easier
-        #region 
-        private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsALLnumeric(textbox_pri_phone.Text);
-        }
-
-        private void textbox_pri_name_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsAllAlphabetic(textbox_pri_name.Text);
-        }
-
-        private void textbox_bus_phone_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsALLnumeric(textbox_bus_phone.Text);
-        }
-
-        private void textbox_bus_seno_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsALLnumeric(textbox_bus_seno.Text);
-        }
-
-        private void textbox_bus_fax_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsALLnumeric(textbox_bus_fax.Text);
-        }
-
-        private void textbox_bus_contact_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsAllAlphabetic(textbox_bus_contact.Text);
-        }
-
-        private void textbox_car_price_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsALLnumeric(textbox_car_price.Text);
-        }
-
-        private void textbox_truck_rent_LostFocus(object sender, RoutedEventArgs e)
-        {
-            IsALLnumeric(textbox_truck_rent.Text);
-        }
-        #endregion 
     }     
-    
 }
