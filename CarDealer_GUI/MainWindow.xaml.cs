@@ -27,7 +27,6 @@ namespace CarDealer_GUI
             this.InitializeComponent();
 			// Insert code required on object creation below this point.
             // Insert Grey out logic here and afterwards.
-            tab_2.IsEnabled = false;
             textbox_bus_address.IsEnabled = false;
             textbox_bus_phone.IsEnabled = false;
             textbox_bus_seno.IsEnabled = false;
@@ -90,6 +89,7 @@ namespace CarDealer_GUI
             textbox_pri_name.IsEnabled = false;
             datepicker_pri_birth.IsEnabled = false;
             combo_pri_sex.IsEnabled = false;
+            combo_veh_size.IsEnabled = false;
             textbox_car_model.IsEnabled = false;
             textbox_car_license.IsEnabled = false;
             textbox_car_colour.IsEnabled = false;
@@ -99,44 +99,18 @@ namespace CarDealer_GUI
         
         //button logic
         #region
-        //tab grey-out logic
-        private void tab_1_next_click(object sender, RoutedEventArgs e)
-        {
-            tab_2.IsSelected = true;
-            tab_1.IsEnabled = false;
-            tab_2.IsEnabled = true;
-        }
-
-        private void tab_2_last_click(object sender, RoutedEventArgs e)
-        {
-            tab_1.IsSelected = true;
-            tab_2.IsEnabled = false;
-            tab_1.IsEnabled = true;
-        }
-
-
-        private void tab_2_finalize_click(object sender, RoutedEventArgs e)
+        private void create_customer_click(object sender, RoutedEventArgs e)
         {
             bool pri_null_exception = false;
             bool bus_null_exception = false;
-            bool car_null_exception = false;
-            bool truck_null_exception = false;
             bool pri_format_exception = false;
             bool bus_format_exception = false;
-            bool car_format_exception = false;
-            bool truck_format_exception = false;
 
-            string pri_boxes_empty_string = "";            
-            string car_boxes_empty_string = "";
+            string pri_boxes_empty_string = "";
             string bus_boxes_empty_string = "";
-            string truck_boxes_empty_string = "";
             string pri_wrong_format_string = "";
             string bus_wrong_format_string = "";
-            string car_wrong_format_string = "";
-            string truck_wrong_format_string = "";
-            
 
-            //selected private
             if (select_pri_customer.IsChecked == true)
             {
                 //Test if text boxes in the private section are empty.
@@ -147,31 +121,14 @@ namespace CarDealer_GUI
                     pri_boxes_empty_string = "You have forgotten to fill in informationboxes in private customer \n";
                     pri_null_exception = true;
                 }
-                //Test if text boxes in the car section are empty.
-                if (string.IsNullOrEmpty(textbox_car_model.Text) == true ||
-                    string.IsNullOrEmpty(textbox_car_license.Text) == true ||
-                    string.IsNullOrEmpty(textbox_car_price.Text) == true ||
-                    string.IsNullOrEmpty(textbox_car_colour.Text) == true)
-                {
-                    car_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
-                    car_null_exception = true;
-                }
                 //Test if text boxes in the private section are in the right format.
                 if (IsAllAlphabetic(textbox_pri_name.Text, false) == false ||
-                    IsALLnumeric(textbox_pri_phone.Text, false) == false)                    
+                    IsALLnumeric(textbox_pri_phone.Text, false) == false)
                 {
                     pri_wrong_format_string = "Your have format errors in your private customer \n";
-                    pri_format_exception=true;
+                    pri_format_exception = true;
                 }
-                //Test if text boxes in the car section are in the right format
-                if (IsALLnumeric(textbox_car_price.Text, false) == false)                          
-                {
-                    car_wrong_format_string = "Your have format errors in your vehicle \n";
-                    car_format_exception=true;
-                }
-
             }
-            //selected business
             if (select_bus_customer.IsChecked == true)
             {
                 //Test if text boxes in the business section are empty
@@ -185,17 +142,8 @@ namespace CarDealer_GUI
                     bus_boxes_empty_string = "You have forgotten to fill in informationboxes in business customer \n";
                     bus_null_exception = true;
                 }
-                //Test if text boxes in the truck section are empty
-                if (string.IsNullOrEmpty(textbox_truck_model.Text) == true ||
-                    string.IsNullOrEmpty(textbox_truck_license.Text) == true ||
-                    string.IsNullOrEmpty(textbox_truck_rent.Text) == true ||
-                    string.IsNullOrEmpty(textbox_truck_colour.Text) == true)
-                {
-                    truck_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
-                    truck_null_exception = true;
-                }
                 //Test if text boxes in the business section are in the right format
-                if (IsAllAlphabetic(textbox_bus_contact.Text,false) == false ||
+                if (IsAllAlphabetic(textbox_bus_contact.Text, false) == false ||
                     IsALLnumeric(textbox_bus_phone.Text, false) == false ||
                     IsALLnumeric(textbox_bus_seno.Text, false) == false ||
                     IsALLnumeric(textbox_bus_fax.Text, false) == false
@@ -204,6 +152,101 @@ namespace CarDealer_GUI
                     bus_wrong_format_string = "Your have format errors in your private customer \n";
                     bus_format_exception = true;
                 }
+            }
+            if ((pri_null_exception ||
+               bus_null_exception ||
+               pri_format_exception ||
+               bus_format_exception) == true)
+            {
+                MessageBox.Show(pri_boxes_empty_string +
+                                bus_boxes_empty_string +
+                                pri_wrong_format_string +
+                                bus_wrong_format_string);
+            }
+
+            else
+            {
+                MessageBox.Show("Awesome you understand to put in the right input");
+                //check if private customer.
+                if (select_pri_customer.IsChecked == true)
+                {
+                    Private gui_pri_customer = new Private(textbox_pri_address.Text,
+                                                            Convert.ToInt32(textbox_pri_phone.Text),
+                                                            textbox_pri_name.Text,
+                                                            datepicker_pri_birth.Text,
+                                                            combo_pri_sex.Text);
+                    mycardealer.SaveCustomersToFile();
+                }
+                //check if business customer and create lease.
+                if (select_bus_customer.IsChecked == true)
+                {
+                    Business gui_bus_customer = new Business(textbox_bus_address.Text,
+                                                            Convert.ToInt32(textbox_bus_phone.Text),
+                                                            Convert.ToInt32(textbox_bus_seno.Text),
+                                                            Convert.ToInt32(textbox_bus_fax.Text),
+                                                            textbox_bus_contact.Text, textbox_bus_company.Text);
+                    mycardealer.SaveCustomersToFile();
+                }
+            }      
+
+        }
+
+        private void create_vehicle_click(object sender, RoutedEventArgs e)
+        {         
+            bool car_null_exception = false;
+            bool truck_null_exception = false;           
+            bool car_format_exception = false;
+            bool truck_format_exception = false;
+                        
+            string car_boxes_empty_string = "";            
+            string truck_boxes_empty_string = "";
+            string car_wrong_format_string = "";
+            string truck_wrong_format_string = "";            
+
+            //selected private
+            if (select_pri_customer.IsChecked == true)
+            {  
+                //Test if text boxes in the car section are empty.
+                if (string.IsNullOrEmpty(textbox_car_model.Text) == true ||
+                    string.IsNullOrEmpty(textbox_car_license.Text) == true ||
+                    string.IsNullOrEmpty(textbox_car_price.Text) == true ||
+                    string.IsNullOrEmpty(textbox_car_colour.Text) == true)
+                {
+                    car_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
+                    car_null_exception = true;
+                }
+                
+                //Test if text boxes in the car section are in the right format
+                if (IsALLnumeric(textbox_car_price.Text, false) == false)                          
+                {
+                    car_wrong_format_string = "Your have format errors in your vehicle \n";
+                    car_format_exception=true;
+                }
+                if ((car_null_exception ||
+                truck_null_exception ||
+                car_format_exception ||
+                truck_format_exception) == true)
+                {
+                    MessageBox.Show(car_boxes_empty_string +
+                                    truck_boxes_empty_string +
+                                    car_wrong_format_string +
+                                    truck_wrong_format_string);
+                }
+            }
+
+            //selected business
+            if (select_bus_customer.IsChecked == true)
+            {               
+
+                //Test if text boxes in the truck section are empty
+                if (string.IsNullOrEmpty(textbox_truck_model.Text) == true ||
+                    string.IsNullOrEmpty(textbox_truck_license.Text) == true ||
+                    string.IsNullOrEmpty(textbox_truck_rent.Text) == true ||
+                    string.IsNullOrEmpty(textbox_truck_colour.Text) == true)
+                {
+                    truck_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
+                    truck_null_exception = true;
+                }               
                 //Test if text boxes in the truck section are in the right format
                 if (IsALLnumeric(textbox_truck_rent.Text, false) == false)
                 {
@@ -213,24 +256,17 @@ namespace CarDealer_GUI
             }
             //If any of the boxes were in the wrong format or empty,
             //then show the messagebox notifying the user and break the finalize action.
-            if ((pri_null_exception ||
-                car_null_exception ||
-                bus_null_exception ||
+            if ((car_null_exception ||
                 truck_null_exception ||
-                pri_format_exception ||
-                bus_format_exception ||
                 car_format_exception ||
                 truck_format_exception) == true)
             {
-                MessageBox.Show(pri_boxes_empty_string +
-                                car_boxes_empty_string +
-                                bus_boxes_empty_string +
+                MessageBox.Show(car_boxes_empty_string +
                                 truck_boxes_empty_string +
-                                pri_wrong_format_string +
-                                bus_wrong_format_string +
                                 car_wrong_format_string +
                                 truck_wrong_format_string);
             }
+
             // if no errors found then complete the finalize action and bring up the finalize window.
             else
             {
@@ -258,12 +294,6 @@ namespace CarDealer_GUI
                 //check if private customer and create contract.
                 if (select_pri_customer.IsChecked == true)
                 {
-                    Private gui_pri_customer = new Private(textbox_pri_address.Text,
-                                                            Convert.ToInt32(textbox_pri_phone.Text),
-                                                            textbox_pri_name.Text,
-                                                            datepicker_pri_birth.Text,
-                                                            combo_pri_sex.Text);
-
                     if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
                     {
                         Small myveh = new Small(textbox_car_colour.Text,
@@ -291,12 +321,6 @@ namespace CarDealer_GUI
                 //check if business customer and create lease.
                 if (select_bus_customer.IsChecked == true)
                 {
-                    Business gui_bus_customer = new Business(textbox_bus_address.Text,
-                                                            Convert.ToInt32(textbox_bus_phone.Text),
-                                                            Convert.ToInt32(textbox_bus_seno.Text),
-                                                            Convert.ToInt32(textbox_bus_fax.Text),
-                                                            textbox_bus_contact.Text, textbox_bus_company.Text);
-
                     Truck myveh = new Truck(textbox_truck_colour.Text,
                                             textbox_truck_model.Text,
                                             Convert.ToInt32(textbox_truck_rent.Text),
@@ -386,5 +410,7 @@ namespace CarDealer_GUI
             return true;
         }
         #endregion 
+
+       
     }     
 }
