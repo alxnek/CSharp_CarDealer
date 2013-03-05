@@ -49,9 +49,9 @@ namespace ConsoleApplication15
                 Leasing lease = new Leasing(t, "serious truck business", 3000, "2 years");
                 bus_cust.AddLease(lease);   
    
-                //8 Save all the stuff in files
-                CD.SaveVehiclesToFile();
-                CD.SaveCustomersToFile();
+                //8 Save all the stuff in files, 1 time is enough
+                //CD.SaveVehiclesToFile();
+                //CD.SaveCustomersToFile();
 
                 //9 Load stuff in new object
                 CarDealer CD_DeserializedStuff = new CarDealer(new List<Vehicle>(), new List<Customer>());

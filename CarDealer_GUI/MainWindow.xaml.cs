@@ -19,7 +19,7 @@ namespace CarDealer_GUI
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-        CarDealer mycardealer = new CarDealer();
+        CarDealer mycardealer = new CarDealer(new List<Vehicle>(), new List<Customer>());
 
         // Initial setup and grey-out logic.        
         public MainWindow()
@@ -263,6 +263,7 @@ namespace CarDealer_GUI
                                                             textbox_pri_name.Text,
                                                             datepicker_pri_birth.Text,
                                                             combo_pri_sex.Text);
+                    mycardealer.AddCustomer(gui_pri_customer);
 
                     if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
                     {
@@ -273,6 +274,9 @@ namespace CarDealer_GUI
                                                 textbox_car_license.Text);
 
                         mycardealer.AddVehicle(myveh);
+                        Contract gui_contract = new Contract(myveh, "contract");
+                        gui_pri_customer.AddContract(gui_contract);
+                        MessageBox.Show(mycardealer.ToString());
                     }
 
                     if (combo_veh_size_large_item.IsSelected)
@@ -284,9 +288,13 @@ namespace CarDealer_GUI
                                                 textbox_car_license.Text);
 
                         mycardealer.AddVehicle(myveh);
+                        Contract gui_contract = new Contract(myveh, "contract");
+                        gui_pri_customer.AddContract(gui_contract);
+                        MessageBox.Show(mycardealer.ToString());
                     }
-                    Contract gui_contract = new Contract();
-                    // mycardealer.SaveCustomersToFile();
+
+                    
+                    
                 }
                 //check if business customer and create lease.
                 if (select_bus_customer.IsChecked == true)
@@ -297,6 +305,8 @@ namespace CarDealer_GUI
                                                             Convert.ToInt32(textbox_bus_fax.Text),
                                                             textbox_bus_contact.Text, textbox_bus_company.Text);
 
+                    mycardealer.AddCustomer(gui_bus_customer);
+
                     Truck myveh = new Truck(textbox_truck_colour.Text,
                                             textbox_truck_model.Text,
                                             Convert.ToInt32(textbox_truck_rent.Text),
@@ -305,8 +315,12 @@ namespace CarDealer_GUI
 
                     mycardealer.AddVehicle(myveh);
 
-                    Contract gui_contract = new Contract();
-                }                
+                    Leasing gui_contract = new Leasing(myveh, "truckContract", Convert.ToInt32(textbox_truck_rent.Text), datepicker_truck_start.Text);
+                    gui_bus_customer.AddLease(gui_contract);
+                    MessageBox.Show(mycardealer.ToString());
+                }
+                mycardealer.SaveCustomersToFile();
+                mycardealer.SaveVehiclesToFile();
             }                    
         }    
         #endregion
