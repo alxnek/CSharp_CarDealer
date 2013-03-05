@@ -84,13 +84,13 @@
                     <TextBlock Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="8,71,0,0" Name="textblock_car_license" Text="License Number" VerticalAlignment="Top" Width="95" />
                     <TextBox Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="6,71,0,0" Name="textbox_truck_license" VerticalAlignment="Top" Width="120" Grid.Column="3" />
                     <TextBlock Height="23" HorizontalAlignment="Left" IsEnabled="True" Margin="12,71,0,0" Name="textblock_truck_license" Text="License Number" VerticalAlignment="Top" Width="95" Grid.Column="2" Grid.ColumnSpan="2" />
-                    <ComboBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" />
+                    <ComboBox Grid.ColumnSpan="2" Height="23" HorizontalAlignment="Left" Margin="8,14,0,0" Name="select_combobox_customer" VerticalAlignment="Top" Width="120" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" />
                 </Grid>
 			</TabItem>
             <TabItem Header="Information" Name="tab_info"  Margin="3,0,-3,-1" d:LayoutOverrides="HorizontalAlignment">
             <Grid Height="258" Name="grid1" Width="499" Margin="-2,24,-3,3" Background="#FFE5E5E5">
                 <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="160,10,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
-                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" />
                 </Grid>
             </TabItem>
         </TabControl>

@@ -38,7 +38,7 @@ namespace CarDealerLibraries
         public override String ToString()
         {
             //Change to show it in GUI
-            return ("\nCONTRACT NAME: " + this.contractName + "\n" + this.car.ToString()+ "\nDate----> "+ this.date+"\n___________________________");
+            return ( this.car.ToString()+ "\nBuy Date: "+ this.date+"\n___________________________");
         }
     }
 }

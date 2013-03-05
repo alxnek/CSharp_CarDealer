@@ -114,7 +114,7 @@ namespace CarDealerLibraries
         /// <remarks>Vehicle's toString</remarks>
         public override string ToString() 
         {
-            return ("Model: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State+"\nPlate number: "+this.LicensePlate+"\n***");
+            return ("Model: " + this.Model + "\nColour: " + this.Colour + "\nPrice: " + this.Price + "\nState: " + this.State+"\nPlate number: "+this.LicensePlate);
         }
     }
 }

@@ -138,7 +138,7 @@ namespace CarDealerLibraries
             string result = "";
             try
             {
-                result = string.Join("\n\n", this.vehicleList);
+                //result = string.Join("\n\n", this.vehicleList);
                 result += string.Join("\n\n", this.customerList);
 
             }

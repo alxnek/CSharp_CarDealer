@@ -49,22 +49,13 @@ namespace CarDealer_GUI
             textbox_bus_fax.IsEnabled = false;
             textbox_bus_contact.IsEnabled = false;
             textbox_bus_company.IsEnabled = false;
-            textbox_truck_model.IsEnabled = false;
-            textbox_truck_license.IsEnabled = false;
-            textbox_truck_colour.IsEnabled = false;
-            textbox_truck_rent.IsEnabled = false;
-            datepicker_truck_start.IsEnabled = false;
-            datepicker_truck_end.IsEnabled = false;
 
             textbox_pri_address.IsEnabled = true;
             textbox_pri_phone.IsEnabled = true;
             textbox_pri_name.IsEnabled = true;
             datepicker_pri_birth.IsEnabled = true;
             combo_pri_sex.IsEnabled = true;
-            textbox_car_model.IsEnabled = true;
-            textbox_car_license.IsEnabled = true;
-            textbox_car_colour.IsEnabled = true;
-            textbox_car_price.IsEnabled = true;
+
         }
         //grey-out logic for business customer type focus.
         private void select_bus_customer_clicked(object sender, RoutedEventArgs e)
@@ -75,23 +66,13 @@ namespace CarDealer_GUI
             textbox_bus_fax.IsEnabled = true;
             textbox_bus_contact.IsEnabled = true;
             textbox_bus_company.IsEnabled = true;
-            textbox_truck_model.IsEnabled = true;
-            textbox_truck_license.IsEnabled = true;
-            textbox_truck_colour.IsEnabled = true;
-            textbox_truck_rent.IsEnabled = true;
-            datepicker_truck_start.IsEnabled = true;
-            datepicker_truck_end.IsEnabled = true;
 
             textbox_pri_address.IsEnabled = false;
             textbox_pri_phone.IsEnabled = false;
             textbox_pri_name.IsEnabled = false;
             datepicker_pri_birth.IsEnabled = false;
             combo_pri_sex.IsEnabled = false;
-            combo_veh_size.IsEnabled = false;
-            textbox_car_model.IsEnabled = false;
-            textbox_car_license.IsEnabled = false;
-            textbox_car_colour.IsEnabled = false;
-            textbox_car_price.IsEnabled = false;
+ 
         }
         #endregion
         
@@ -164,7 +145,6 @@ namespace CarDealer_GUI
 
             else
             {
-                MessageBox.Show("Awesome you understand to put in the right input");
                 //check if private customer.
                 if (select_pri_customer.IsChecked == true)
                 {
@@ -183,11 +163,14 @@ namespace CarDealer_GUI
                                                             Convert.ToInt32(textbox_bus_phone.Text),
                                                             Convert.ToInt32(textbox_bus_seno.Text),
                                                             Convert.ToInt32(textbox_bus_fax.Text),
-                                                            textbox_bus_contact.Text, textbox_bus_company.Text);
+                                                            textbox_bus_contact.Text,                                                                           textbox_bus_company.Text);
                     mycardealer.AddCustomer(gui_bus_customer);
                 }
                 mycardealer.SaveCustomersToFile();
                 MessageBox.Show(mycardealer.ToString());
+                this.mycardealer.CustomerList = mycardealer.LoadCustomers();
+
+                this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
                 
             }      
 
@@ -205,11 +188,11 @@ namespace CarDealer_GUI
             string car_wrong_format_string = "";
             string truck_wrong_format_string = "";
 
-            
-
             //selected private
+            #region
             if (select_pri_customer.IsChecked == true)
-            {  
+            {
+               
                 //Test if text boxes in the car section are empty.
                 if (string.IsNullOrEmpty(textbox_car_model.Text) == true ||
                     string.IsNullOrEmpty(textbox_car_license.Text) == true ||
@@ -270,11 +253,10 @@ namespace CarDealer_GUI
                                 car_wrong_format_string +
                                 truck_wrong_format_string);
             }
-
+            #endregion
             // if no errors found then complete the finalize action and bring up the finalize window.
             else
             {
-                MessageBox.Show("Awesome you understand to put in the right input");
                 #region
                 //if (select_pri_customer.IsChecked == true)
                 //{
@@ -296,7 +278,7 @@ namespace CarDealer_GUI
                 #endregion
 
                 //check if private customer and create contract.
-                if (select_pri_customer.IsChecked == true)
+                if (select_combobox_customer.SelectedValue is Private)
                 {
                    
                     if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
@@ -306,11 +288,16 @@ namespace CarDealer_GUI
                                                 Convert.ToInt32(textbox_car_price.Text),
                                                 "in stock",
                                                 textbox_car_license.Text);
-
+                       
                         mycardealer.AddVehicle(myveh);
-                        Contract gui_contract = new Contract(myveh, "contract");
+                        Private b = (Private)select_combobox_customer.SelectedValue;
                         
+                        Contract gui_contract = new Contract(myveh, "contract");
+
+                        b.AddContract(gui_contract);
+
                         MessageBox.Show(mycardealer.ToString());
+
                     }
 
                     if (combo_veh_size_large_item.IsSelected)
@@ -320,21 +307,22 @@ namespace CarDealer_GUI
                                                 Convert.ToInt32(textbox_car_price.Text),
                                                 "in stock",
                                                 textbox_car_license.Text);
-
+                        
                         mycardealer.AddVehicle(myveh);
+                        Private b = (Private)select_combobox_customer.SelectedValue;
+                        
                         Contract gui_contract = new Contract(myveh, "contract");
-                       
+
+                        b.AddContract(gui_contract);
+
                         MessageBox.Show(mycardealer.ToString());
                     }
-
-                    
-                    
+                    mycardealer.SaveVehiclesToFile();
                 }
-                //check if business customer and create lease.
-                if (select_bus_customer.IsChecked == true)
-                {
-                   
 
+                //check if business customer and create lease.
+                if (select_combobox_customer.SelectedValue is Business)
+                {
                     Truck myveh = new Truck(textbox_truck_colour.Text,
                                             textbox_truck_model.Text,
                                             Convert.ToInt32(textbox_truck_rent.Text),
@@ -342,12 +330,14 @@ namespace CarDealer_GUI
                                             textbox_truck_license.Text);
 
                     mycardealer.AddVehicle(myveh);
+                    Business b = (Business)select_combobox_customer.SelectedValue;
+                  
 
                     Leasing gui_contract = new Leasing(myveh, 
                                                         "truckContract",
                                                         Convert.ToInt32(textbox_truck_rent.Text),
                                                         datepicker_truck_start.Text);
-                    
+                    b.AddLease(gui_contract);
                     MessageBox.Show(mycardealer.ToString());
                 }
                 
@@ -434,13 +424,37 @@ namespace CarDealer_GUI
 
         private void tab_2_GotFocus(object sender, RoutedEventArgs e)
         {
+            if (select_combobox_customer.SelectedValue is Private)
+            {
+                textbox_truck_model.IsEnabled = false;
+                textbox_truck_license.IsEnabled = false;
+                textbox_truck_colour.IsEnabled = false;
+                textbox_truck_rent.IsEnabled = false;
+                datepicker_truck_start.IsEnabled = false;
+                datepicker_truck_end.IsEnabled = false;
 
+                textbox_car_model.IsEnabled = true;
+                combo_veh_size.IsEnabled = true;
+                textbox_car_license.IsEnabled = true;
+                textbox_car_colour.IsEnabled = true;
+                textbox_car_price.IsEnabled = true;
+            }
+            if (select_combobox_customer.SelectedValue is Business)
+            {
+                combo_veh_size.IsEnabled = false;
+                textbox_car_model.IsEnabled = false;
+                textbox_car_license.IsEnabled = false;
+                textbox_car_colour.IsEnabled = false;
+                textbox_car_price.IsEnabled = false;
 
-            this.mycardealer.CustomerList = mycardealer.LoadCustomers();
-           
-            this.comboBox1.ItemsSource = mycardealer.CustomerList;
+                textbox_truck_model.IsEnabled = true;
+                textbox_truck_license.IsEnabled = true;
+                textbox_truck_colour.IsEnabled = true;
+                textbox_truck_rent.IsEnabled = true;
+                datepicker_truck_start.IsEnabled = true;
+                datepicker_truck_end.IsEnabled = true;
+            }
         }
 
-       
     }     
 }
