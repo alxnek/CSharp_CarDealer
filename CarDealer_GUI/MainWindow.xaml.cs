@@ -21,13 +21,13 @@ namespace CarDealer_GUI
 	{
         CarDealer mycardealer = new CarDealer();
 
-        // Initial setup and grey-out logic.
-        #region
+        // Initial setup and grey-out logic.        
         public MainWindow()
         {
             this.InitializeComponent();
 			// Insert code required on object creation below this point.
             // Insert Grey out logic here and afterwards.
+            tab_2.IsEnabled = false;
             textbox_bus_address.IsEnabled = false;
             textbox_bus_phone.IsEnabled = false;
             textbox_bus_seno.IsEnabled = false;
@@ -42,7 +42,8 @@ namespace CarDealer_GUI
             datepicker_truck_start.IsEnabled = false;
             datepicker_truck_end.IsEnabled = false;
 		}
-
+        #region
+        //grey-out logic for private customer type focus.
         private void select_pri_customer_clicked(object sender, RoutedEventArgs e)
         {
             textbox_bus_address.IsEnabled = false;
@@ -68,6 +69,7 @@ namespace CarDealer_GUI
             textbox_car_colour.IsEnabled = true;
             textbox_car_price.IsEnabled = true;
         }
+        //grey-out logic for business customer type focus.
         private void select_bus_customer_clicked(object sender, RoutedEventArgs e)
         {
             textbox_bus_address.IsEnabled = true;
@@ -93,20 +95,25 @@ namespace CarDealer_GUI
             textbox_car_colour.IsEnabled = false;
             textbox_car_price.IsEnabled = false;
         }
-
         #endregion
         
         //button logic
         #region
+        //tab grey-out logic
         private void tab_1_next_click(object sender, RoutedEventArgs e)
         {
             tab_2.IsSelected = true;
+            tab_1.IsEnabled = false;
+            tab_2.IsEnabled = true;
         }
 
         private void tab_2_last_click(object sender, RoutedEventArgs e)
         {
             tab_1.IsSelected = true;
+            tab_2.IsEnabled = false;
+            tab_1.IsEnabled = true;
         }
+
 
         private void tab_2_finalize_click(object sender, RoutedEventArgs e)
         {   
@@ -236,8 +243,7 @@ namespace CarDealer_GUI
 
         // Create a customer on button push, is to be used in finalize button.
         #region       
-
-
+        
         //fill in for creating customers, needs to be moved to finalize button.
         private void button2_click(object sender, RoutedEventArgs e)
         {
@@ -347,6 +353,6 @@ namespace CarDealer_GUI
             }
             return true;
         }
-        #endregion
+        #endregion 
     }     
 }
