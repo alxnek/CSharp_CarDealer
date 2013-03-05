@@ -116,7 +116,7 @@ namespace CarDealer_GUI
 
 
         private void tab_2_finalize_click(object sender, RoutedEventArgs e)
-        {   
+        {
             bool pri_null_exception = false;
             bool bus_null_exception = false;
             bool car_null_exception = false;
@@ -234,62 +234,84 @@ namespace CarDealer_GUI
             // if no errors found then complete the finalize action and bring up the finalize window.
             else
             {
-                //MessageBox.Show("Awesome you understand to put in the right input");
+                MessageBox.Show("Awesome you understand to put in the right input");
+                #region
+                //if (select_pri_customer.IsChecked == true)
+                //{
+                //    finalize_pri_contract pri_window = new finalize_pri_contract()
+                //    {
+                //        DataContext = this
+                //    };
+                //    pri_window.ShowDialog();
+                //}
+
+                //if(select_bus_customer.IsChecked==true)
+                //{
+                //    finalize_bus_contract bus_window = new finalize_bus_contract()
+                //    {
+                //        DataContext = this
+                //    };
+                //    bus_window.ShowDialog();
+                //}  
+                #endregion
+
+                //check if private customer and create contract.
                 if (select_pri_customer.IsChecked == true)
                 {
-                    finalize_pri_contract pri_window = new finalize_pri_contract();
-                    pri_window.ShowDialog();
+                    Private gui_pri_customer = new Private(textbox_pri_address.Text,
+                                                            Convert.ToInt32(textbox_pri_phone.Text),
+                                                            textbox_pri_name.Text,
+                                                            datepicker_pri_birth.Text,
+                                                            combo_pri_sex.Text);
+
+                    if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
+                    {
+                        Small myveh = new Small(textbox_car_colour.Text,
+                                                textbox_car_model.Text,
+                                                Convert.ToInt32(textbox_car_price.Text),
+                                                "in stock",
+                                                textbox_car_license.Text);
+
+                        mycardealer.AddVehicle(myveh);
+                    }
+
+                    if (combo_veh_size_large_item.IsSelected)
+                    {
+                        Large myveh = new Large(textbox_car_colour.Text,
+                                                textbox_car_model.Text,
+                                                Convert.ToInt32(textbox_car_price.Text),
+                                                "in stock",
+                                                textbox_car_license.Text);
+
+                        mycardealer.AddVehicle(myveh);
+                    }
+                    Contract gui_contract = new Contract();
+                    // mycardealer.SaveCustomersToFile();
                 }
-
-                if(select_bus_customer.IsChecked==true)
+                //check if business customer and create lease.
+                if (select_bus_customer.IsChecked == true)
                 {
-                    finalize_bus_contract bus_window = new finalize_bus_contract();               
-                    bus_window.ShowDialog();
-                }                                    
-            }                    
-        }
-    
-        #endregion
+                    Business gui_bus_customer = new Business(textbox_bus_address.Text,
+                                                            Convert.ToInt32(textbox_bus_phone.Text),
+                                                            Convert.ToInt32(textbox_bus_seno.Text),
+                                                            Convert.ToInt32(textbox_bus_fax.Text),
+                                                            textbox_bus_contact.Text, textbox_bus_company.Text);
 
-        // Create a customer on button push, is to be used in finalize button.
-        #region       
-        
-        //fill in for creating customers, needs to be moved to finalize button.
-        private void button2_click(object sender, RoutedEventArgs e)
-        {
-            //check if the customer type is a business
-            if (select_pri_customer.IsChecked == true)
-            {
-                Private gui_pri_customer = new Private(textbox_pri_address.Text, Convert.ToInt16(textbox_pri_phone.Text), textbox_pri_name.Text, datepicker_pri_birth.Text ,combo_pri_sex.Text);
-                
-                if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
-                {
-                    Small myveh = new Small(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock", textbox_car_license.Text);
-                    mycardealer.AddVehicle(myveh);  
-                }
+                    Truck myveh = new Truck(textbox_truck_colour.Text,
+                                            textbox_truck_model.Text,
+                                            Convert.ToInt32(textbox_truck_rent.Text),
+                                            "in stock",
+                                            textbox_truck_license.Text);
 
-                if (combo_veh_size_large_item.IsSelected)
-                {
-                    Large myveh = new Large(textbox_car_colour.Text,textbox_car_model.Text,Convert.ToInt16(textbox_car_price.Text),"in stock", textbox_car_license.Text);
                     mycardealer.AddVehicle(myveh);
-                }                             
-                Contract gui_contract = new Contract(); 
-            }
-          
-            //check if the customer type is a business
-            if (select_bus_customer.IsChecked == true)
-            {
-                Business gui_bus_customer = new Business(textbox_bus_address.Text, Convert.ToInt16(textbox_bus_phone.Text), Convert.ToInt16(textbox_bus_seno.Text), Convert.ToInt16(textbox_bus_fax.Text), textbox_bus_contact.Text, textbox_bus_company.Text);
-               
-                Truck myveh = new Truck(textbox_truck_colour.Text,textbox_truck_model.Text,Convert.ToInt16(textbox_truck_rent.Text),"in stock", textbox_truck_license.Text);
-                mycardealer.AddVehicle(myveh);            
-            
-                Contract gui_contract = new Contract();                
-            }
-        }
+
+                    Contract gui_contract = new Contract();
+                }                
+            }                    
+        }    
         #endregion
-               
-        //Feedback on format sensitive textboxes to notify user of error when they shift focus to other boxes.
+     
+        //Feedback on format sensitive textboxes to notify user of any errors when they shift focus away from a input box.
         #region 
         private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -332,7 +354,7 @@ namespace CarDealer_GUI
         }
         #endregion 
 
-        // String methods to make sure inputs are correct and are handled.
+        // String methods to make sure inputs are correct and are handled by the user.
         #region
         private bool IsAllAlphabetic(string value,bool show)
         {

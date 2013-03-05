@@ -40,7 +40,6 @@ namespace CarDealerLibraries
         /// <remarks>IO</remarks>
         public override string ToString()
         {
-
             return ("\nLEASE NAME: " + this.leaseName + "\nRent per month: " + this.rentPerMonth + "\nRent period: " +this.rentPeriod+ "\n" + this.truck.ToString() + "\nStart date----> " + this.date + "\n___________________________");
         }
     }
