@@ -80,13 +80,13 @@ namespace ConsoleApplication15
                 CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
-               // Console.Clear();
+                Console.Clear();
 
                 String addressToFind = "address";
 
                 //CHANGED DELETE METHOD, now works :D
                 CD_DeserializedStuff.DeleteCustomer(addressToFind);
-                CD_DeserializedStuff.DeleteVehicle("111");
+                CD_DeserializedStuff.DeleteVehicle("M 3453 GDS");
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
 
 
