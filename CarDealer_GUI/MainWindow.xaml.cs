@@ -43,7 +43,7 @@ namespace CarDealer_GUI
             this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.VehicleList;
             this.select_combobox_customer.ItemsSource = this.mycardealer.CustomerList;
 
-            MessageBox.Show("Your previous stuff:\n" + mycardealer.ToString());
+
         }
         #region
         //grey-out logic for private customer type focus.
@@ -199,7 +199,7 @@ namespace CarDealer_GUI
 
             //selected private
             #region
-            if (select_combobox_customer.SelectedValue is Private)
+            if (select_combobox_customer.SelectedValue is Private || select_combobox_customer.SelectedValue == null)
             {
 
                 //Test if text boxes in the car section are empty.
@@ -208,14 +208,14 @@ namespace CarDealer_GUI
                     string.IsNullOrEmpty(textbox_car_price.Text) == true ||
                     string.IsNullOrEmpty(textbox_car_colour.Text) == true)
                 {
-                    car_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
+                    car_boxes_empty_string = "You have forgotten to fill in informationboxes in your car informations\n";
                     car_null_exception = true;
                 }
 
                 //Test if text boxes in the car section are in the right format
                 if (IsALLnumeric(textbox_car_price.Text, false) == false)
                 {
-                    car_wrong_format_string = "Your have format errors in your vehicle \n";
+                    car_wrong_format_string = "Your have format errors in your car informations\n";
                     car_format_exception = true;
                 }
                 if ((car_null_exception ||
@@ -223,12 +223,12 @@ namespace CarDealer_GUI
                 {
                     MessageBox.Show(car_boxes_empty_string +
                                     car_wrong_format_string);
-                    error_found_car = false;
+                    error_found_car = true;
                 }
             }
 
             //selected business
-            if (select_combobox_customer.SelectedValue is Business)
+            if (select_combobox_customer.SelectedValue is Business|| select_combobox_customer.SelectedValue== null)
             {
                 //Test if text boxes in the truck section are empty
                 if (string.IsNullOrEmpty(textbox_truck_model.Text) == true ||
@@ -236,13 +236,13 @@ namespace CarDealer_GUI
                     string.IsNullOrEmpty(textbox_truck_rent.Text) == true ||
                     string.IsNullOrEmpty(textbox_truck_colour.Text) == true)
                 {
-                    truck_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
+                    truck_boxes_empty_string = "You have forgotten to fill in informationboxes in your truck informations \n";
                     truck_null_exception = true;
                 }
                 //Test if text boxes in the truck section are in the right format
                 if (IsALLnumeric(textbox_truck_rent.Text, false) == false)
                 {
-                    truck_wrong_format_string = "Your have format errors in your vehicle \n";
+                    truck_wrong_format_string = "Your have format errors in your truck informations\n";
                     truck_format_exception = true;
                 }
             }
@@ -256,12 +256,37 @@ namespace CarDealer_GUI
                 error_found_truck = true;
 
             }
+
             #endregion
             // if no errors found then complete the finalize action and bring up the finalize window.
 
             //check if private customer and create contract.
             if (error_found_car == false)
             {
+                if (select_combobox_customer.SelectedValue == null)
+                {
+                    if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
+                    {
+                        Small myveh = new Small(textbox_car_colour.Text,
+                                                textbox_car_model.Text,
+                                                Convert.ToInt32(textbox_car_price.Text),
+                                                "in stock",
+                                                textbox_car_license.Text);
+
+                        mycardealer.AddVehicle(myveh);
+                    }
+                    if (combo_veh_size_large_item.IsSelected)
+                    {
+                        Large myveh = new Large(textbox_car_colour.Text,
+                                               textbox_car_model.Text,
+                                               Convert.ToInt32(textbox_car_price.Text),
+                                               "in stock",
+                                               textbox_car_license.Text);
+
+                        mycardealer.AddVehicle(myveh);                        
+                    }
+                }
+
                 if (select_combobox_customer.SelectedValue is Private)
                 {
 
@@ -270,7 +295,7 @@ namespace CarDealer_GUI
                         Small myveh = new Small(textbox_car_colour.Text,
                                                 textbox_car_model.Text,
                                                 Convert.ToInt32(textbox_car_price.Text),
-                                                "in stock",
+                                                "sold",
                                                 textbox_car_license.Text);
 
                         mycardealer.AddVehicle(myveh);
@@ -289,7 +314,7 @@ namespace CarDealer_GUI
                         Large myveh = new Large(textbox_car_colour.Text,
                                                 textbox_car_model.Text,
                                                 Convert.ToInt32(textbox_car_price.Text),
-                                                "in stock",
+                                                "sold",
                                                 textbox_car_license.Text);
 
                         mycardealer.AddVehicle(myveh);
@@ -309,9 +334,9 @@ namespace CarDealer_GUI
                 mycardealer.SaveVehiclesToFile();
             }
             //check if business customer and create lease.
-            if (error_found_truck == false)
+            else if(error_found_truck == false)
             {
-                if (select_combobox_customer.SelectedValue is Business)
+                if (select_combobox_customer.SelectedValue == null)
                 {
                     Truck myveh = new Truck(textbox_truck_colour.Text,
                                             textbox_truck_model.Text,
@@ -319,19 +344,30 @@ namespace CarDealer_GUI
                                             "in stock",
                                             textbox_truck_license.Text);
 
+                    mycardealer.AddVehicle(myveh);                    
+                }
+
+                if (select_combobox_customer.SelectedValue is Business)
+                {
+                    Truck myveh = new Truck(textbox_truck_colour.Text,
+                                            textbox_truck_model.Text,
+                                            Convert.ToInt32(textbox_truck_rent.Text),
+                                            "leased",
+                                            textbox_truck_license.Text);
+
                     mycardealer.AddVehicle(myveh);
                     Business b = (Business)select_combobox_customer.SelectedValue;
-
 
                     Leasing gui_contract = new Leasing(myveh,
                                                         "truckContract",
                                                         Convert.ToInt32(textbox_truck_rent.Text),
                                                         datepicker_truck_start.SelectedDate,
                                                         datepicker_truck_end.SelectedDate);
-                    b.AddLease(gui_contract);
-                    MessageBox.Show(mycardealer.ToString());
+                    b.AddLease(gui_contract);                    
                 }
+                MessageBox.Show(mycardealer.ToString());
                 mycardealer.SaveVehiclesToFile();
+                this.comboBox_Del_Vehicle.ItemsSource = mycardealer.LoadVehicles();
             } 
         }
         #endregion
@@ -490,7 +526,7 @@ namespace CarDealer_GUI
 
         private void comboBox_Del_Vehicle_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.CustomerList;
+            this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.VehicleList;
         }
 
 
