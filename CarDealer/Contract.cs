@@ -40,5 +40,7 @@ namespace CarDealerLibraries
             //Change to show it in GUI
             return ( this.car.ToString()+ "\nBuy Date: "+ this.date+"\n___________________________");
         }
+
+       
     }
 }

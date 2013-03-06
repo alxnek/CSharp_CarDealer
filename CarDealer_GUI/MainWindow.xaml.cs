@@ -157,7 +157,7 @@ namespace CarDealer_GUI
                     Private gui_pri_customer = new Private(textbox_pri_address.Text,
                                                             Convert.ToInt32(textbox_pri_phone.Text),
                                                             textbox_pri_name.Text,
-                                                            datepicker_pri_birth.Text,
+                                                            datepicker_pri_birth.SelectedDate,
                                                             combo_pri_sex.Text);
                     mycardealer.AddCustomer(gui_pri_customer);
 

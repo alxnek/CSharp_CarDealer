@@ -29,7 +29,7 @@ namespace ConsoleApplication15
                 CarDealer CD = new CarDealer(veh_list, cust_list);
 
                 //3 customers
-                Private pri_cust = new Private("address", 123123123, "Gangbang", "age", "yes");
+                Private pri_cust = new Private("address", 123123123, "Gangbang", null, "yes");
                 Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");          //Add customers
                 CD.AddCustomer(pri_cust);
                 CD.AddCustomer(bus_cust);

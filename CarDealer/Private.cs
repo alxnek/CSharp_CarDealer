@@ -9,7 +9,7 @@ namespace CarDealerLibraries
     public class Private : Customer
     {
         private string name;
-        private string age;
+        private DateTime? age;
         private string sex;
         
         private List<Contract> contractList = new List<Contract>();
@@ -18,7 +18,7 @@ namespace CarDealerLibraries
         /// Constructor
         /// </summary>
         /// <remarks>Create</remarks>
-        public Private(string address, int phone, string name, string age, string sex)
+        public Private(string address, int phone, string name, DateTime? age, string sex)
             : base(address, phone)
         {
             this.name = name;
@@ -49,7 +49,7 @@ namespace CarDealerLibraries
         /// get/sets age
         /// </summary>
         /// <remarks>get/set</remarks>
-        public string Age
+        public DateTime? Age
         {
             get
             {
@@ -100,7 +100,7 @@ namespace CarDealerLibraries
         public override string ToString()
         {
             string result = string.Join("\n", this.contractList);
-            return ("***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\n\nContracts of this customer---------->\n " + result);
+            return ("***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + calcAge() + "\nSex: " + this.Sex + "\n\nContracts of this customer---------->\n " + result);
         }
 
         /// <summary>
@@ -117,6 +117,18 @@ namespace CarDealerLibraries
             {
                 this.contractList = value;
             }
+        }
+
+         private int calcAge()
+        {
+            DateTime dtOne = DateTime.Today;
+
+            DateTime dtTwo = this.Age ?? DateTime.Now;
+            TimeSpan difference = dtOne - dtTwo;
+
+             
+            int output = Convert.ToInt32(difference.Days);
+            return output/365;
         }
 
     }
