@@ -274,6 +274,7 @@ namespace CarDealer_GUI
                                                 textbox_car_license.Text);
 
                         mycardealer.AddVehicle(myveh);
+                        
                     }
                     if (combo_veh_size_large_item.IsSelected)
                     {
@@ -286,6 +287,8 @@ namespace CarDealer_GUI
                         mycardealer.AddVehicle(myveh);                        
                     }
 
+                    
+                    MessageBox.Show("null selecction-add car");
                     this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
                 }
 
@@ -306,8 +309,8 @@ namespace CarDealer_GUI
                         Contract gui_contract = new Contract(myveh, "contract");
 
                         b.AddContract(gui_contract);
-
-                        MessageBox.Show(mycardealer.ToString());
+                        
+                        MessageBox.Show("ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD contract\n");
 
                     }
 
@@ -321,18 +324,19 @@ namespace CarDealer_GUI
 
                         mycardealer.AddVehicle(myveh);
                         Private b = (Private)select_combobox_customer.SelectedValue;
-
+                        //Delete the customer without the contract
+                        mycardealer.DeleteCustomer(b.Address);
                         Contract gui_contract = new Contract(myveh, "contract");
-
                         b.AddContract(gui_contract);
-
-                        MessageBox.Show(mycardealer.ToString());
-                    }
+                        //Update the new customer with the contract
+                        mycardealer.AddCustomer(b);
                     
-                    //this.comboBox_Del_Vehicle.ItemsSource = mycardealer.LoadVehicles();
-                    //this.select_combobox_customer.ItemsSource = mycardealer.LoadVehicles();
+                    }
 
+                    mycardealer.SaveCustomersToFile();
+                    MessageBox.Show(mycardealer.ToString());
                 }
+               
                 mycardealer.SaveVehiclesToFile();
             }
             //check if business customer and create lease.
@@ -368,9 +372,10 @@ namespace CarDealer_GUI
                                                         datepicker_truck_end.SelectedDate);
                     b.AddLease(gui_contract);                    
                 }
-                MessageBox.Show(mycardealer.ToString());
+                
                 mycardealer.SaveVehiclesToFile();
-                this.comboBox_Del_Vehicle.ItemsSource = mycardealer.LoadVehicles();
+                this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
+                MessageBox.Show(mycardealer.ToString());
             } 
         }
         #endregion
