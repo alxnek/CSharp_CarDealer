@@ -11,12 +11,11 @@ namespace CarDealerLibraries
     [Serializable]
     public class Leasing
     {
-
         private Truck truck;
         private string leaseName;
         private int rentPerMonth;
-        private Nullable<DateTime> rent_start;
-        private Nullable<DateTime> rent_end;
+        private DateTime? rent_start;
+        private DateTime? rent_end;
         private string date = DateTime.Now.ToShortDateString();
         /// <summary>
         /// Create a lease
@@ -28,7 +27,6 @@ namespace CarDealerLibraries
         public Leasing(Truck truck, string leaseName, int rent, DateTime? rent_start, DateTime? rent_end )
         {
             //this.formatter = new BinaryFormatter();
-
             this.truck = truck;
             this.leaseName = leaseName;
             this.rentPerMonth = rent;
@@ -42,13 +40,13 @@ namespace CarDealerLibraries
         /// <remarks>IO</remarks>
         public override string ToString()
         {
-            return ("\nRent per month: " + this.rentPerMonth + "\nRent Start: " +this.rent_start+ "\nRent End: " +this.rent_end + "\nrent period in months: " +TotelMonthDifference() +"\n" + this.truck.ToString() + "\nStart date: " + this.date + "\n___________________________");
+            return ("\nRent per month: " + this.rentPerMonth + "\nRent Start: " + this.rent_start + "\nRent End: " + this.rent_end + "\nrent period in months: " + TotelMonthDifference() + "\n" + this.truck.ToString());
         }
         
         
         private string TotelMonthDifference()
         {
-            DateTime dtOne = rent_start ?? DateTime.Now;
+            DateTime dtOne = rent_start ?? DateTime.Now; //fixes issues with nullable datetime to datetime formats.
             DateTime dtTwo = rent_end ?? DateTime.Now;
 
             int intReturn = 0;

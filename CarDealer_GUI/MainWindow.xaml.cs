@@ -174,8 +174,8 @@ namespace CarDealer_GUI
                 }
                
                 mycardealer.SaveCustomersToFile();
-                this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
-                this.select_combobox_customer.ItemsSource = this.mycardealer.CustomerList;
+                this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
+                this.select_combobox_customer.ItemsSource = this.mycardealer.LoadCustomers();
 
                 MessageBox.Show(mycardealer.ToString());
                 
@@ -197,7 +197,7 @@ namespace CarDealer_GUI
 
             //selected private
             #region
-            if (select_pri_customer.IsChecked == true)
+            if (select_combobox_customer.SelectedValue is Private)
             {
                
                 //Test if text boxes in the car section are empty.
@@ -229,9 +229,8 @@ namespace CarDealer_GUI
             }
 
             //selected business
-            if (select_bus_customer.IsChecked == true)
-            {               
-
+            if (select_combobox_customer.SelectedValue is Business)
+            {            
                 //Test if text boxes in the truck section are empty
                 if (string.IsNullOrEmpty(textbox_truck_model.Text) == true ||
                     string.IsNullOrEmpty(textbox_truck_license.Text) == true ||
@@ -264,26 +263,6 @@ namespace CarDealer_GUI
             // if no errors found then complete the finalize action and bring up the finalize window.
             else
             {
-                #region
-                //if (select_pri_customer.IsChecked == true)
-                //{
-                //    finalize_pri_contract pri_window = new finalize_pri_contract()
-                //    {
-                //        DataContext = this
-                //    };
-                //    pri_window.ShowDialog();
-                //}
-
-                //if(select_bus_customer.IsChecked==true)
-                //{
-                //    finalize_bus_contract bus_window = new finalize_bus_contract()
-                //    {
-                //        DataContext = this
-                //    };
-                //    bus_window.ShowDialog();
-                //}  
-                #endregion
-
                 //check if private customer and create contract.
                 if (select_combobox_customer.SelectedValue is Private)
                 {
@@ -329,7 +308,6 @@ namespace CarDealer_GUI
                     //this.select_combobox_customer.ItemsSource = mycardealer.LoadVehicles();
 
                 }
-
                 //check if business customer and create lease.
                 if (select_combobox_customer.SelectedValue is Business)
                 {
