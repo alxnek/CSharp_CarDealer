@@ -13,22 +13,22 @@ using System.Windows.Controls.Primitives;
 using CarDealerLibraries;
 
 namespace CarDealer_GUI
-{   
+{
     /// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
-	{
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
         CarDealer mycardealer = new CarDealer(new List<Vehicle>(), new List<Customer>());
 
-        
+
         // Initial setup and grey-out logic.        
         public MainWindow()
         {
             this.InitializeComponent();
-            
-            
-			// Insert code required on object creation below this point.
+
+
+            // Insert code required on object creation below this point.
             // Insert Grey out logic here and afterwards.
             textbox_bus_address.IsEnabled = false;
             textbox_bus_phone.IsEnabled = false;
@@ -43,8 +43,8 @@ namespace CarDealer_GUI
             this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.VehicleList;
             this.select_combobox_customer.ItemsSource = this.mycardealer.CustomerList;
 
-            MessageBox.Show("Your previous stuff:\n"+mycardealer.ToString());
-		}
+            MessageBox.Show("Your previous stuff:\n" + mycardealer.ToString());
+        }
         #region
         //grey-out logic for private customer type focus.
         private void select_pri_customer_clicked(object sender, RoutedEventArgs e)
@@ -78,10 +78,10 @@ namespace CarDealer_GUI
             textbox_pri_name.IsEnabled = false;
             datepicker_pri_birth.IsEnabled = false;
             combo_pri_sex.IsEnabled = false;
- 
+
         }
         #endregion
-        
+
         //button logic
         #region
         private void create_customer_click(object sender, RoutedEventArgs e)
@@ -169,28 +169,30 @@ namespace CarDealer_GUI
                                                             Convert.ToInt32(textbox_bus_phone.Text),
                                                             Convert.ToInt32(textbox_bus_seno.Text),
                                                             Convert.ToInt32(textbox_bus_fax.Text),
-                                                            textbox_bus_contact.Text,                                                                           textbox_bus_company.Text);
+                                                            textbox_bus_contact.Text, textbox_bus_company.Text);
                     mycardealer.AddCustomer(gui_bus_customer);
                 }
-               
+
                 mycardealer.SaveCustomersToFile();
                 this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
                 this.select_combobox_customer.ItemsSource = this.mycardealer.LoadCustomers();
 
                 MessageBox.Show(mycardealer.ToString());
-                
-            }      
+
+            }
 
         }
 
         private void create_vehicle_click(object sender, RoutedEventArgs e)
-        {         
+        {
             bool car_null_exception = false;
-            bool truck_null_exception = false;           
+            bool truck_null_exception = false;
             bool car_format_exception = false;
             bool truck_format_exception = false;
-                        
-            string car_boxes_empty_string = "";            
+            bool error_found_truck = false;
+            bool error_found_car = false;
+
+            string car_boxes_empty_string = "";
             string truck_boxes_empty_string = "";
             string car_wrong_format_string = "";
             string truck_wrong_format_string = "";
@@ -199,7 +201,7 @@ namespace CarDealer_GUI
             #region
             if (select_combobox_customer.SelectedValue is Private)
             {
-               
+
                 //Test if text boxes in the car section are empty.
                 if (string.IsNullOrEmpty(textbox_car_model.Text) == true ||
                     string.IsNullOrEmpty(textbox_car_license.Text) == true ||
@@ -209,28 +211,25 @@ namespace CarDealer_GUI
                     car_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
                     car_null_exception = true;
                 }
-                
+
                 //Test if text boxes in the car section are in the right format
-                if (IsALLnumeric(textbox_car_price.Text, false) == false)                          
+                if (IsALLnumeric(textbox_car_price.Text, false) == false)
                 {
                     car_wrong_format_string = "Your have format errors in your vehicle \n";
-                    car_format_exception=true;
+                    car_format_exception = true;
                 }
                 if ((car_null_exception ||
-                truck_null_exception ||
-                car_format_exception ||
-                truck_format_exception) == true)
+                car_format_exception) == true)
                 {
                     MessageBox.Show(car_boxes_empty_string +
-                                    truck_boxes_empty_string +
-                                    car_wrong_format_string +
-                                    truck_wrong_format_string);
+                                    car_wrong_format_string);
+                    error_found_car = false;
                 }
             }
 
             //selected business
             if (select_combobox_customer.SelectedValue is Business)
-            {            
+            {
                 //Test if text boxes in the truck section are empty
                 if (string.IsNullOrEmpty(textbox_truck_model.Text) == true ||
                     string.IsNullOrEmpty(textbox_truck_license.Text) == true ||
@@ -239,7 +238,7 @@ namespace CarDealer_GUI
                 {
                     truck_boxes_empty_string = "You have forgotten to fill in informationboxes in vehicles \n";
                     truck_null_exception = true;
-                }               
+                }
                 //Test if text boxes in the truck section are in the right format
                 if (IsALLnumeric(textbox_truck_rent.Text, false) == false)
                 {
@@ -249,24 +248,23 @@ namespace CarDealer_GUI
             }
             //If any of the boxes were in the wrong format or empty,
             //then show the messagebox notifying the user and break the finalize action.
-            if ((car_null_exception ||
-                truck_null_exception ||
-                car_format_exception ||
+            if ((truck_null_exception ||
                 truck_format_exception) == true)
             {
-                MessageBox.Show(car_boxes_empty_string +
-                                truck_boxes_empty_string +
-                                car_wrong_format_string +
+                MessageBox.Show(truck_boxes_empty_string +
                                 truck_wrong_format_string);
+                error_found_truck = true;
+
             }
             #endregion
             // if no errors found then complete the finalize action and bring up the finalize window.
-            else
+
+            //check if private customer and create contract.
+            if (error_found_car == false)
             {
-                //check if private customer and create contract.
                 if (select_combobox_customer.SelectedValue is Private)
                 {
-                   
+
                     if (combo_veh_size_small_item.IsSelected) //Remember to add size parameter
                     {
                         Small myveh = new Small(textbox_car_colour.Text,
@@ -274,10 +272,10 @@ namespace CarDealer_GUI
                                                 Convert.ToInt32(textbox_car_price.Text),
                                                 "in stock",
                                                 textbox_car_license.Text);
-                       
+
                         mycardealer.AddVehicle(myveh);
                         Private b = (Private)select_combobox_customer.SelectedValue;
-                        
+
                         Contract gui_contract = new Contract(myveh, "contract");
 
                         b.AddContract(gui_contract);
@@ -293,22 +291,26 @@ namespace CarDealer_GUI
                                                 Convert.ToInt32(textbox_car_price.Text),
                                                 "in stock",
                                                 textbox_car_license.Text);
-                        
+
                         mycardealer.AddVehicle(myveh);
                         Private b = (Private)select_combobox_customer.SelectedValue;
-                        
+
                         Contract gui_contract = new Contract(myveh, "contract");
 
                         b.AddContract(gui_contract);
 
                         MessageBox.Show(mycardealer.ToString());
                     }
-                    mycardealer.SaveVehiclesToFile();
+                    
                     //this.comboBox_Del_Vehicle.ItemsSource = mycardealer.LoadVehicles();
                     //this.select_combobox_customer.ItemsSource = mycardealer.LoadVehicles();
 
                 }
-                //check if business customer and create lease.
+                mycardealer.SaveVehiclesToFile();
+            }
+            //check if business customer and create lease.
+            if (error_found_truck == false)
+            {
                 if (select_combobox_customer.SelectedValue is Business)
                 {
                     Truck myveh = new Truck(textbox_truck_colour.Text,
@@ -319,9 +321,9 @@ namespace CarDealer_GUI
 
                     mycardealer.AddVehicle(myveh);
                     Business b = (Business)select_combobox_customer.SelectedValue;
-                  
 
-                    Leasing gui_contract = new Leasing(myveh, 
+
+                    Leasing gui_contract = new Leasing(myveh,
                                                         "truckContract",
                                                         Convert.ToInt32(textbox_truck_rent.Text),
                                                         datepicker_truck_start.SelectedDate,
@@ -329,13 +331,9 @@ namespace CarDealer_GUI
                     b.AddLease(gui_contract);
                     MessageBox.Show(mycardealer.ToString());
                 }
-                
                 mycardealer.SaveVehiclesToFile();
-                //this.comboBox_del_customer.ItemsSource = this.mycardealer.CustomerList;
-                //this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.VehicleList;
-                
-            }                    
-        }    
+            } 
+        }
         #endregion
 
         //grey-out logic for tab 2
@@ -371,11 +369,11 @@ namespace CarDealer_GUI
                 datepicker_truck_start.IsEnabled = true;
                 datepicker_truck_end.IsEnabled = true;
             }
-           
+
         }
 
         //Feedback on format sensitive textboxes to notify user of any errors when they shift focus away from a input box.
-        #region 
+        #region
         private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
         {
             IsALLnumeric(textbox_pri_phone.Text, true);
@@ -403,7 +401,7 @@ namespace CarDealer_GUI
 
         private void textbox_bus_contact_LostFocus(object sender, RoutedEventArgs e)
         {
-            IsAllAlphabetic(textbox_bus_contact.Text, true);                     
+            IsAllAlphabetic(textbox_bus_contact.Text, true);
         }
 
         private void textbox_car_price_LostFocus(object sender, RoutedEventArgs e)
@@ -415,11 +413,11 @@ namespace CarDealer_GUI
         {
             IsALLnumeric(textbox_truck_rent.Text, true);
         }
-        #endregion 
+        #endregion
 
         // String methods to make sure inputs are correct and are handled by the user.
         #region
-        private bool IsAllAlphabetic(string value,bool show)
+        private bool IsAllAlphabetic(string value, bool show)
         {
             foreach (char c in value)
             {
@@ -428,7 +426,7 @@ namespace CarDealer_GUI
                     if (show == true)
                     {
                         MessageBox.Show("Your input has to be all alphabetic");
-                    }                    
+                    }
                     return false;
                 }
             }
@@ -448,9 +446,9 @@ namespace CarDealer_GUI
             }
             return true;
         }
-        #endregion 
+        #endregion
 
-  
+
 
         private void button_del_customer_Click(object sender, RoutedEventArgs e)
         {
@@ -497,7 +495,7 @@ namespace CarDealer_GUI
 
 
 
-      
 
-    }     
+
+    }
 }

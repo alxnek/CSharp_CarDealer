@@ -46,12 +46,12 @@ namespace ConsoleApplication15
                 //7 Select customer and add the contract to him
                 pri_cust.AddContract(contract2);                             
                 //Or a lease
-              //  Leasing lease = new Leasing(t, "serious truck business", 3000, "2 years");
-              //  bus_cust.AddLease(lease);   
+                Leasing lease = new Leasing(t, "serious truck business", 3000,null, null);
+                bus_cust.AddLease(lease);   
    
                 //8 Save all the stuff in files, 1 time is enough
-                //CD.SaveVehiclesToFile();
-                //CD.SaveCustomersToFile();
+                CD.SaveVehiclesToFile();
+                CD.SaveCustomersToFile();
 
                 //9 Load stuff in new object
                 CarDealer CD_DeserializedStuff = new CarDealer(new List<Vehicle>(), new List<Customer>());
