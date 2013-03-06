@@ -168,6 +168,8 @@ namespace CarDealer_GUI
                 }
                
                 mycardealer.SaveCustomersToFile();
+                this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
+
                 MessageBox.Show(mycardealer.ToString());
                 
             }      
@@ -458,8 +460,8 @@ namespace CarDealer_GUI
 
         private void tab_info_GotFocus(object sender, RoutedEventArgs e)
         {
-            this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
-            this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
+            this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
+            this.comboBox_Del_Vehicle.ItemsSource = mycardealer.LoadVehicles();
            
 
         }
@@ -471,7 +473,10 @@ namespace CarDealer_GUI
             if (c.Address != "")
                 mycardealer.DeleteCustomer(c.Address);
 
-            MessageBox.Show(mycardealer.ToString());
+            mycardealer.SaveCustomersToFile();
+            this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
+
+            //MessageBox.Show(mycardealer.ToString());
         }
 
         private void button_del_vehicle_Click(object sender, RoutedEventArgs e)
@@ -479,9 +484,13 @@ namespace CarDealer_GUI
             Vehicle v = (Vehicle)this.comboBox_Del_Vehicle.SelectedItem;
 
             if (v.LicensePlate != "")
-                mycardealer.DeleteCustomer(v.LicensePlate);
+                mycardealer.DeleteVehicle(v.LicensePlate);
 
-            MessageBox.Show(mycardealer.ToString());
+            mycardealer.SaveVehiclesToFile();
+
+            this.comboBox_Del_Vehicle.ItemsSource = mycardealer.LoadVehicles();
+
+            //MessageBox.Show(mycardealer.ToString());
         }
 
       
