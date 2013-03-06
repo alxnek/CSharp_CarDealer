@@ -99,8 +99,8 @@ namespace CarDealerLibraries
         /// <remarks>show fields</remarks>
         public override string ToString()
         {
-            string result = string.Join("\n\n", this.contractList);
-            return ("\n\n***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\n\nContracts of this customer---------->\n " + result);
+            string result = string.Join("\n", this.contractList);
+            return ("***Private customer***\nAddress: " + this.Address + "\nPhone: " + this.Phone + "\nName: " + this.Name + "\nAge: " + this.Age + "\nSex: " + this.Sex + "\n\nContracts of this customer---------->\n " + result);
         }
 
         /// <summary>

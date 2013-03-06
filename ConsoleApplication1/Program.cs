@@ -22,73 +22,42 @@ namespace ConsoleApplication15
         {
             static void Main(string[] args)
             {
-                //2 lists
+                //1- 2 lists
                 List<Vehicle> veh_list = new List<Vehicle>();
                 List<Customer> cust_list = new List<Customer>();
-                //create cars and customers
-                Car c = new Car("Ford", "Fiesta", 12000, "sold","License1");
-                Truck t = new Truck("Mercedes", "truck5000", 112000, "sold", "License1");
-                Car l = new Large("Mercedes", "E270", 62000, "sold", "License1");
-                Car s = new Small("Mini", "mini", 32000, "sold", "License1");
-                Private pri_cust = new Private("address", 123123123, "Gangbang", "age", "yes");
-                Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");
-
-          //      formatter.Serialize(stream, pri_cust);
-          //      load the fiesta.bin in the folder project
-          //      Contract.LoadContract("fiesta").PrintContract();
-                             
-                //make the cardealer
+                //2- CarDealer with empty list
                 CarDealer CD = new CarDealer(veh_list, cust_list);
 
-                //How to work with de CARDEALER without touching any list
-
-                CD.AddVehicle(t);
-                CD.AddVehicle(s);
-                CD.AddVehicle(c);
-
-              // No customer and no truck
-              // CD.DeleteVehicle(t);
-              // CD.DeleteCustomer(pri_cust);
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
-
-                Contract contract = new Contract(s, "contractForSmall");
-                Contract contract2 = new Contract(c, "contractForCar");
-
-                pri_cust.AddContract(contract);
-                pri_cust.AddContract(contract2);
-                
+                //3 customers
+                Private pri_cust = new Private("address", 123123123, "Gangbang", "age", "yes");
+                Business bus_cust = new Business("address", 4444444, 1001001, 555555, "MR Coder", "Even god code SA");          //Add customers
                 CD.AddCustomer(pri_cust);
-
-                Leasing lease = new Leasing(t, "serious truck business", 3000, "2 years");
-                bus_cust.AddLease(lease);
                 CD.AddCustomer(bus_cust);
 
-                //Mambo of toStrings
-                Console.Out.WriteLine("CARDEALER TOSTRING_______\n" + CD.ToString());
+                //4 create cars 
+                Car c = new Car("Ford", "Fiesta", 12000, "sold","111");
+                Truck t = new Truck("Mercedes", "truck5000", 112000, "sold", "222");
+                //add vehicles
+                CD.AddVehicle(c);
+                CD.AddVehicle(t);                
 
-                Console.Clear();
+                //6 Create a contract              
+                Contract contract2 = new Contract(c, "contractForCar");             
+                //7 Select customer and add the contract to him
+                pri_cust.AddContract(contract2);                             
+                //Or a lease
+                Leasing lease = new Leasing(t, "serious truck business", 3000, "2 years");
+                bus_cust.AddLease(lease);   
+   
+                //8 Save all the stuff in files, 1 time is enough
+                //CD.SaveVehiclesToFile();
+                //CD.SaveCustomersToFile();
 
-                //THIS works!
-               // CD.DeleteCustomer("address");
-
-                //Save all the stuff in files
-                CD.SaveVehiclesToFile();
-                CD.SaveCustomersToFile();
-                //Load stuff in new object
+                //9 Load stuff in new object
                 CarDealer CD_DeserializedStuff = new CarDealer(new List<Vehicle>(), new List<Customer>());
                 CD_DeserializedStuff.VehicleList = CD.LoadVehicles();
                 CD_DeserializedStuff.CustomerList = CD.LoadCustomers();
                 Console.Out.WriteLine(CD_DeserializedStuff.ToString());
-
-                Console.Clear();
-
-                String addressToFind = "address";
-
-                //CHANGED DELETE METHOD, now works :D
-                CD_DeserializedStuff.DeleteCustomer(addressToFind);
-                CD_DeserializedStuff.DeleteVehicle("M 3453 GDS");
-                Console.Out.WriteLine(CD_DeserializedStuff.ToString());
-
 
                 Console.In.ReadLine();
             }

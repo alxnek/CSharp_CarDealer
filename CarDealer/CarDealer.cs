@@ -138,7 +138,7 @@ namespace CarDealerLibraries
             string result = "";
             try
             {
-                result = string.Join("\n\n", this.vehicleList);
+                //result = string.Join("\n\n", this.vehicleList);
                 result += string.Join("\n\n", this.customerList);
 
             }
@@ -183,13 +183,20 @@ namespace CarDealerLibraries
         /// <remarks>serialization</remarks>
         public List<Customer> LoadCustomers()
         {
-            this.formatter = new BinaryFormatter();
-            this.streamC = new FileStream("Customers.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            List<Customer> deserializedList = (List<Customer>)this.formatter.Deserialize(this.streamC);
-            stream.Close();
+            try
+            {
+                this.formatter = new BinaryFormatter();
+                this.streamC = new FileStream("Customers.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                List<Customer> deserializedList = (List<Customer>)this.formatter.Deserialize(this.streamC);
+                streamC.Close();
+                return deserializedList;
+            }
+            catch (Exception e){ 
+                
 
+            }
 
-            return deserializedList;
+            return new List<Customer>();
         }
 
         /// <summary>
@@ -199,12 +206,19 @@ namespace CarDealerLibraries
         public List<Vehicle> LoadVehicles()
         //public void LoadVehicles()
         {
-            this.formatter = new BinaryFormatter();
-            this.stream = new FileStream("Vehicles.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            List<Vehicle> deserializedList = (List<Vehicle>)this.formatter.Deserialize(this.stream);
-            stream.Close();
+            try
+            {
+                this.formatter = new BinaryFormatter();
+                this.stream = new FileStream("Vehicles.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                List<Vehicle> deserializedList = (List<Vehicle>)this.formatter.Deserialize(this.stream);
+                stream.Close();
 
-            return deserializedList;
+                return deserializedList;
+            }
+            catch(Exception e)
+            {
+            }
+            return new List<Vehicle>();
         }
     }
 }
