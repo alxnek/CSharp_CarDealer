@@ -47,6 +47,9 @@ namespace CarDealer_GUI
         }
         #region
         //grey-out logic for private customer type focus.
+        /// <summary>
+        /// Grey-out logic for customer tab. Grey out logic depends on selected customer type
+        /// </summary>
         private void select_pri_customer_clicked(object sender, RoutedEventArgs e)
         {
             textbox_bus_address.IsEnabled = false;
@@ -64,6 +67,9 @@ namespace CarDealer_GUI
 
         }
         //grey-out logic for business customer type focus.
+        /// <summary>
+        /// Grey-out logic for customer tab. Grey out logic depends on selected customer type
+        /// </summary>
         private void select_bus_customer_clicked(object sender, RoutedEventArgs e)
         {
             textbox_bus_address.IsEnabled = true;
@@ -84,6 +90,9 @@ namespace CarDealer_GUI
 
         //button logic
         #region
+        /// <summary>
+        /// Creates a customer of a given type dependent on selected type (pri,bus). Has inputbox fault logic to stop the creation of bugged bugged inputs
+        /// </summary>
         private void create_customer_click(object sender, RoutedEventArgs e)
         {
             bool pri_null_exception = false;
@@ -183,6 +192,9 @@ namespace CarDealer_GUI
 
         }
 
+        /// <summary>
+        /// Creates a vehicle of a given state dependent on selected customer type(null,pri,bus). Has inputbox fault logic to stop the creation of bugged inputs
+        /// </summary>
         private void create_vehicle_click(object sender, RoutedEventArgs e)
         {
             bool car_null_exception = false;
@@ -376,6 +388,9 @@ namespace CarDealer_GUI
         #endregion
 
         //grey-out logic for tab 2
+        /// <summary>
+        /// Grey-out logic for vehicle tab
+        /// </summary>
         private void tab_2_GotFocus(object sender, RoutedEventArgs e)
         {
             if (select_combobox_customer.SelectedValue is Private)
@@ -456,6 +471,9 @@ namespace CarDealer_GUI
 
         // String methods to make sure inputs are correct and are handled by the user.
         #region
+        /// <summary>
+        /// Checks if the string has any non alphabetic characters and returns a bool
+        /// </summary>
         private bool IsAllAlphabetic(string value, bool show)
         {
             foreach (char c in value)
@@ -472,6 +490,9 @@ namespace CarDealer_GUI
             return true;
         }
 
+        /// <summary>
+        /// Checks if the string has any non numeric characters and returns a bool
+        /// </summary>
         private bool IsALLnumeric(string value, bool show)
         {
             int number;
@@ -489,6 +510,9 @@ namespace CarDealer_GUI
 
 
 
+        /// <summary>
+        /// Deletes the selected customer in the combobox when clicked
+        /// </summary>
         private void button_del_customer_Click(object sender, RoutedEventArgs e)
         {
             Customer c = (Customer)this.comboBox_del_customer.SelectedItem;
@@ -503,6 +527,9 @@ namespace CarDealer_GUI
             //MessageBox.Show(mycardealer.ToString());
         }
 
+        /// <summary>
+        /// Deletes the selected vehicle in the combobox when clicked
+        /// </summary>
         private void button_del_vehicle_Click(object sender, RoutedEventArgs e)
         {
             Vehicle v = (Vehicle)this.comboBox_Del_Vehicle.SelectedItem;
@@ -531,10 +558,5 @@ namespace CarDealer_GUI
         {
             this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.VehicleList;
         }
-
-
-
-
-
     }
 }
