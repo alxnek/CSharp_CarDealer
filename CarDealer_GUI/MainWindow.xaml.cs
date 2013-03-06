@@ -459,6 +459,34 @@ namespace CarDealer_GUI
         }
         #endregion 
 
+        private void tab_info_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
+            this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
+           
+
+        }
+
+        private void button_del_customer_Click(object sender, RoutedEventArgs e)
+        {
+            Customer c = (Customer)this.comboBox_del_customer.SelectedItem;
+
+            if (c.Address != "")
+                mycardealer.DeleteCustomer(c.Address);
+
+            MessageBox.Show(mycardealer.ToString());
+        }
+
+        private void button_del_vehicle_Click(object sender, RoutedEventArgs e)
+        {
+            Vehicle v = (Vehicle)this.comboBox_Del_Vehicle.SelectedItem;
+
+            if (v.LicensePlate != "")
+                mycardealer.DeleteCustomer(v.LicensePlate);
+
+            MessageBox.Show(mycardealer.ToString());
+        }
+
       
 
     }     
