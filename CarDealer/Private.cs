@@ -119,6 +119,10 @@ namespace CarDealerLibraries
             }
         }
 
+        /// <summary>
+        /// Calculate the age of a customer
+        /// </summary>
+        /// <remarks>in years</remarks>
          private int calcAge()
         {
             DateTime dtOne = DateTime.Today;

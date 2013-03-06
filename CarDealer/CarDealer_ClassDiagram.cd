@@ -1,68 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Comment CommentText="Is made of 0*">
-    <Position X="6.511" Y="1.28" Height="0.291" Width="1.499" />
-  </Comment>
-  <Comment CommentText="Can make 0*">
-    <Position X="0.634" Y="8.263" Height="0.302" Width="1.7" />
-  </Comment>
-  <Comment CommentText="Can make 0*">
-    <Position X="3.262" Y="8.417" Height="0.302" Width="1.7" />
-  </Comment>
-  <Comment CommentText="Is made of 0*">
-    <Position X="3.771" Y="1.238" Height="0.291" Width="1.187" />
-  </Comment>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="CarDealerLibraries.Vehicle">
-    <Position X="8" Y="1" Width="1.5" />
+    <Position X="8.25" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>EAABAEAAAQBAAAAEAAAAAAAAAAAAAAAEAAgABBAIAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Truck">
-    <Position X="6.75" Y="5.25" Width="1.5" />
+    <Position X="7" Y="5.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Truck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Car">
-    <Position X="9" Y="5.25" Width="1.5" />
+    <Position X="9.5" Y="5.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Small">
-    <Position X="8" Y="7.25" Width="1.5" />
+    <Position X="8" Y="7.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Small.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Large">
-    <Position X="10.25" Y="7.25" Width="1.5" />
+    <Position X="10.25" Y="7.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Large.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Leasing">
-    <Position X="3.25" Y="9" Width="1.5" />
+    <Position X="3" Y="9.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABEAAAAAAgAAAAAUAAAAAAAAQAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABEAAAAAAgEAAAAEAAAAAAAAYAAEAA=</HashCode>
       <FileName>Leasing.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Contract">
-    <Position X="0.75" Y="8.75" Width="1.5" />
+    <Position X="0.5" Y="9.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAABAAIAAAAAAAEAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Contract.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.CarDealer">
-    <Position X="5" Y="0.5" Width="1.5" />
+    <Position X="5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAACAEAAAAAAQAGBAAYAAAAGCAAEAAACgAAAAEAAAE=</HashCode>
       <FileName>CarDealer.cs</FileName>
@@ -76,14 +64,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Private">
-    <Position X="0.75" Y="4.25" Width="1.5" />
+    <Position X="0.5" Y="4.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAZAAEAGUAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAZAAEAGUAAAQAAAAEAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Private.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CarDealerLibraries.Business">
-    <Position X="3.25" Y="4.25" Width="1.5" />
+    <Position X="2.75" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AgCAYAIAgAAEAAAEBQAAAAAAAAAAAAAAAAAAAAAAAGA=</HashCode>
       <FileName>Business.cs</FileName>

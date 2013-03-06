@@ -23,7 +23,7 @@
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="16,50,0,0" Name="textbox_pri_address" VerticalAlignment="Top" Width="120" Grid.Column="1" DataContext="{Binding}" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="16,79,0,0" Name="textbox_pri_phone" VerticalAlignment="Top" Width="120" Grid.Column="1" LostFocus="textbox_pri_phone_LostFocus" />
                     <TextBox Height="23" HorizontalAlignment="Left" Margin="15,108,0,0" Name="textbox_pri_name" VerticalAlignment="Top" Width="122" Grid.Column="1" LostFocus="textbox_pri_name_LostFocus" />
-                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="9,50,0,0" Name="textblock_pri_address" Text="Adress" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
+                    <TextBlock Height="23" HorizontalAlignment="Left" Margin="9,50,0,0" Name="textblock_pri_address" Text="Address" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="9,79,0,0" Name="textblock_pri_phone" Text="Phone" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="7,108,0,0" Name="textblock_pri_name" Text="Name" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
                     <TextBlock Height="23" HorizontalAlignment="Left" Margin="7,137,0,0" Name="textblock_pri_birht" Text="Birthday" VerticalAlignment="Top" Width="95" Grid.ColumnSpan="2" />
