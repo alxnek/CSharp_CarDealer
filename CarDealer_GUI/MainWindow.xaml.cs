@@ -183,8 +183,9 @@ namespace CarDealer_GUI
                 }
 
                 mycardealer.SaveCustomersToFile();
-                this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
-                this.select_combobox_customer.ItemsSource = this.mycardealer.LoadCustomers();
+                this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
+
+                this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
 
                 MessageBox.Show(mycardealer.ToString());
 
@@ -300,7 +301,7 @@ namespace CarDealer_GUI
                     }
 
                     
-                    MessageBox.Show("null selecction-add car");
+                    MessageBox.Show("Car Added");
                     this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
                 }
 
@@ -345,7 +346,10 @@ namespace CarDealer_GUI
                     
                     }
 
-                    mycardealer.SaveCustomersToFile();
+                    this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
+
+                    this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
+                   // mycardealer.SaveCustomersToFile();
                     MessageBox.Show(mycardealer.ToString());
                 }
                
@@ -527,9 +531,9 @@ namespace CarDealer_GUI
                 mycardealer.DeleteCustomer(c.Address);
 
             mycardealer.SaveCustomersToFile();
-            this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
+            this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
 
-            this.select_combobox_customer.ItemsSource = mycardealer.LoadCustomers();
+            this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
             //MessageBox.Show(mycardealer.ToString());
         }
 
