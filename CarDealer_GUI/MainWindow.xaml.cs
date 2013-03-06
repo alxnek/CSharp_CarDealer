@@ -357,7 +357,7 @@ namespace CarDealer_GUI
                 mycardealer.SaveVehiclesToFile();
             }
             //check if business customer and create lease.
-            else if(error_found_truck == false)
+            if(error_found_truck == false)
             {
                 if (select_combobox_customer.SelectedValue == null)
                 {
