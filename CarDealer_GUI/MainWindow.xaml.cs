@@ -168,6 +168,7 @@ namespace CarDealer_GUI
                 }
                
                 mycardealer.SaveCustomersToFile();
+                this.select_combobox_customer.ItemsSource = mycardealer.LoadCustomers();
                 MessageBox.Show(mycardealer.ToString());
                 
             }      
@@ -340,6 +341,7 @@ namespace CarDealer_GUI
                 }
                 
                 mycardealer.SaveVehiclesToFile();
+                
             }                    
         }    
         #endregion
