@@ -285,6 +285,8 @@ namespace CarDealer_GUI
 
                         mycardealer.AddVehicle(myveh);                        
                     }
+
+                    this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
                 }
 
                 if (select_combobox_customer.SelectedValue is Private)
@@ -344,7 +346,8 @@ namespace CarDealer_GUI
                                             "in stock",
                                             textbox_truck_license.Text);
 
-                    mycardealer.AddVehicle(myveh);                    
+                    mycardealer.AddVehicle(myveh);
+                    this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
                 }
 
                 if (select_combobox_customer.SelectedValue is Business)
