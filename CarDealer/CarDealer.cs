@@ -191,9 +191,9 @@ namespace CarDealerLibraries
                 streamC.Close();
                 return deserializedList;
             }
-            catch (Exception e){ 
-                
+            catch (Exception e){
 
+                Console.Out.WriteLine(e.Message);
             }
 
             return new List<Customer>();
@@ -217,6 +217,7 @@ namespace CarDealerLibraries
             }
             catch(Exception e)
             {
+                Console.Out.WriteLine(e.Message);
             }
             return new List<Vehicle>();
         }
