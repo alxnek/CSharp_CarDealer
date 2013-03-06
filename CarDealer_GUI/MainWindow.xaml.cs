@@ -305,12 +305,12 @@ namespace CarDealer_GUI
 
                         mycardealer.AddVehicle(myveh);
                         Private b = (Private)select_combobox_customer.SelectedValue;
-
+                        mycardealer.DeleteCustomer(b.Address);
                         Contract gui_contract = new Contract(myveh, "contract");
 
                         b.AddContract(gui_contract);
-                        
-                        MessageBox.Show("ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD contract\n");
+                        mycardealer.AddCustomer(b);
+                        //MessageBox.Show("ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD contract\n");
 
                     }
 
@@ -364,13 +364,14 @@ namespace CarDealer_GUI
 
                     mycardealer.AddVehicle(myveh);
                     Business b = (Business)select_combobox_customer.SelectedValue;
-
+                    mycardealer.DeleteCustomer(b.Address);
                     Leasing gui_contract = new Leasing(myveh,
                                                         "truckContract",
                                                         Convert.ToInt32(textbox_truck_rent.Text),
                                                         datepicker_truck_start.SelectedDate,
                                                         datepicker_truck_end.SelectedDate);
-                    b.AddLease(gui_contract);                    
+                    b.AddLease(gui_contract);
+                    mycardealer.AddCustomer(b);
                 }
                 
                 mycardealer.SaveVehiclesToFile();
@@ -502,7 +503,7 @@ namespace CarDealer_GUI
                 mycardealer.DeleteCustomer(c.Address);
 
             mycardealer.SaveCustomersToFile();
-            this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
+            this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
 
             this.select_combobox_customer.ItemsSource = mycardealer.LoadCustomers();
             //MessageBox.Show(mycardealer.ToString());
