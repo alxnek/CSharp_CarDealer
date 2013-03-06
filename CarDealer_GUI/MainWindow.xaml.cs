@@ -36,8 +36,8 @@ namespace CarDealer_GUI
             textbox_bus_fax.IsEnabled = false;
             textbox_bus_contact.IsEnabled = false;
             textbox_bus_company.IsEnabled = false;
-           
-            
+            this.mycardealer.CustomerList = mycardealer.LoadCustomers();
+            this.mycardealer.VehicleList = mycardealer.LoadVehicles();
 		}
         #region
         //grey-out logic for private customer type focus.
@@ -166,11 +166,9 @@ namespace CarDealer_GUI
                                                             textbox_bus_contact.Text,                                                                           textbox_bus_company.Text);
                     mycardealer.AddCustomer(gui_bus_customer);
                 }
+               
                 mycardealer.SaveCustomersToFile();
                 MessageBox.Show(mycardealer.ToString());
-                this.mycardealer.CustomerList = mycardealer.LoadCustomers();
-
-                this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
                 
             }      
 
@@ -345,7 +343,43 @@ namespace CarDealer_GUI
             }                    
         }    
         #endregion
-     
+
+        //grey-out logic for tab 2
+        private void tab_2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (select_combobox_customer.SelectedValue is Private)
+            {
+                textbox_truck_model.IsEnabled = false;
+                textbox_truck_license.IsEnabled = false;
+                textbox_truck_colour.IsEnabled = false;
+                textbox_truck_rent.IsEnabled = false;
+                datepicker_truck_start.IsEnabled = false;
+                datepicker_truck_end.IsEnabled = false;
+
+                textbox_car_model.IsEnabled = true;
+                combo_veh_size.IsEnabled = true;
+                textbox_car_license.IsEnabled = true;
+                textbox_car_colour.IsEnabled = true;
+                textbox_car_price.IsEnabled = true;
+            }
+            if (select_combobox_customer.SelectedValue is Business)
+            {
+                combo_veh_size.IsEnabled = false;
+                textbox_car_model.IsEnabled = false;
+                textbox_car_license.IsEnabled = false;
+                textbox_car_colour.IsEnabled = false;
+                textbox_car_price.IsEnabled = false;
+
+                textbox_truck_model.IsEnabled = true;
+                textbox_truck_license.IsEnabled = true;
+                textbox_truck_colour.IsEnabled = true;
+                textbox_truck_rent.IsEnabled = true;
+                datepicker_truck_start.IsEnabled = true;
+                datepicker_truck_end.IsEnabled = true;
+            }
+            this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
+        }
+
         //Feedback on format sensitive textboxes to notify user of any errors when they shift focus away from a input box.
         #region 
         private void textbox_pri_phone_LostFocus(object sender, RoutedEventArgs e)
@@ -422,39 +456,7 @@ namespace CarDealer_GUI
         }
         #endregion 
 
-        private void tab_2_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (select_combobox_customer.SelectedValue is Private)
-            {
-                textbox_truck_model.IsEnabled = false;
-                textbox_truck_license.IsEnabled = false;
-                textbox_truck_colour.IsEnabled = false;
-                textbox_truck_rent.IsEnabled = false;
-                datepicker_truck_start.IsEnabled = false;
-                datepicker_truck_end.IsEnabled = false;
-
-                textbox_car_model.IsEnabled = true;
-                combo_veh_size.IsEnabled = true;
-                textbox_car_license.IsEnabled = true;
-                textbox_car_colour.IsEnabled = true;
-                textbox_car_price.IsEnabled = true;
-            }
-            if (select_combobox_customer.SelectedValue is Business)
-            {
-                combo_veh_size.IsEnabled = false;
-                textbox_car_model.IsEnabled = false;
-                textbox_car_license.IsEnabled = false;
-                textbox_car_colour.IsEnabled = false;
-                textbox_car_price.IsEnabled = false;
-
-                textbox_truck_model.IsEnabled = true;
-                textbox_truck_license.IsEnabled = true;
-                textbox_truck_colour.IsEnabled = true;
-                textbox_truck_rent.IsEnabled = true;
-                datepicker_truck_start.IsEnabled = true;
-                datepicker_truck_end.IsEnabled = true;
-            }
-        }
+      
 
     }     
 }

@@ -89,8 +89,10 @@
 			</TabItem>
             <TabItem Header="Information" Name="tab_info"  Margin="3,0,-3,-1" d:LayoutOverrides="HorizontalAlignment">
             <Grid Height="258" Name="grid1" Width="499" Margin="-2,24,-3,3" Background="#FFE5E5E5">
-                <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="160,10,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+                <Button Content="Delete Customer" Height="23" HorizontalAlignment="Left" Margin="160,10,0,0" Name="button1" VerticalAlignment="Top" Width="115" />
                     <ComboBox Height="23" HorizontalAlignment="Left" Margin="10,10,0,0" Name="comboBox2" VerticalAlignment="Top" Width="120" SelectedIndex="0" IsSynchronizedWithCurrentItem="True" />
+                    <Button Content="Delete vehicle" Height="23" HorizontalAlignment="Left" Margin="160,55,0,0" Name="button2" VerticalAlignment="Top" Width="115" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" IsSynchronizedWithCurrentItem="True" Margin="10,55,0,0" Name="comboBox1" SelectedIndex="0" VerticalAlignment="Top" Width="120" />
                 </Grid>
             </TabItem>
         </TabControl>
