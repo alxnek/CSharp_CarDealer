@@ -346,7 +346,8 @@ namespace CarDealer_GUI
                     Leasing gui_contract = new Leasing(myveh, 
                                                         "truckContract",
                                                         Convert.ToInt32(textbox_truck_rent.Text),
-                                                        datepicker_truck_start.Text);
+                                                        datepicker_truck_start.SelectedDate,
+                                                        datepicker_truck_end.SelectedDate);
                     b.AddLease(gui_contract);
                     MessageBox.Show(mycardealer.ToString());
                 }
