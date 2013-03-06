@@ -342,6 +342,7 @@ namespace CarDealer_GUI
                 }
                 
                 mycardealer.SaveVehiclesToFile();
+                
             }                    
         }    
         #endregion
