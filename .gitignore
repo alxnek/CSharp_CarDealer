@@ -169,3 +169,5 @@ obj/
 CarDealer.suo
 CarDealer_GUI/obj/Release/DesignTimeResolveAssemblyReferences.cache
 CarDealer_GUI/obj/Release/MainWindow.g.i.cs
+CarDealer_GUI/CarDealer_GUI.csproj
+CarDealer_GUI/ClassDiagram1.cd.orig
