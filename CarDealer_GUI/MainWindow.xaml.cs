@@ -345,11 +345,12 @@ namespace CarDealer_GUI
                         mycardealer.AddCustomer(b);
                     
                     }
+             //       mycardealer.SaveCustomersToFile();
 
-                    this.comboBox_del_customer.ItemsSource = mycardealer.CustomerList;
-
+                    this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
+//__________
                     this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
-                   // mycardealer.SaveCustomersToFile();
+                    
                     MessageBox.Show(mycardealer.ToString());
                 }
                
@@ -367,7 +368,8 @@ namespace CarDealer_GUI
                                             textbox_truck_license.Text);
 
                     mycardealer.AddVehicle(myveh);
-                    this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
+                    MessageBox.Show(mycardealer.ToString());
+                    //this.comboBox_Del_Vehicle.ItemsSource = mycardealer.VehicleList;
                 }
 
                 if (select_combobox_customer.SelectedValue is Business)
@@ -388,6 +390,7 @@ namespace CarDealer_GUI
                                                         datepicker_truck_end.SelectedDate);
                     b.AddLease(gui_contract);
                     mycardealer.AddCustomer(b);
+                    MessageBox.Show(mycardealer.ToString());
                 }
                 
                 mycardealer.SaveVehiclesToFile();
@@ -533,7 +536,7 @@ namespace CarDealer_GUI
             mycardealer.SaveCustomersToFile();
             this.comboBox_del_customer.ItemsSource = mycardealer.LoadCustomers();
 
-            this.select_combobox_customer.ItemsSource = mycardealer.CustomerList;
+            this.select_combobox_customer.ItemsSource = mycardealer.LoadCustomers();
             //MessageBox.Show(mycardealer.ToString());
         }
 
@@ -556,17 +559,17 @@ namespace CarDealer_GUI
 
         private void select_combobox_customer_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            this.select_combobox_customer.ItemsSource = this.mycardealer.CustomerList;
+            this.select_combobox_customer.ItemsSource = this.mycardealer.LoadCustomers();
         }
 
         private void comboBox_del_customer_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            this.comboBox_del_customer.ItemsSource = this.mycardealer.CustomerList;
+            this.comboBox_del_customer.ItemsSource = this.mycardealer.LoadCustomers();
         }
 
         private void comboBox_Del_Vehicle_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.VehicleList;
+            this.comboBox_Del_Vehicle.ItemsSource = this.mycardealer.LoadVehicles();
         }
     }
 }
